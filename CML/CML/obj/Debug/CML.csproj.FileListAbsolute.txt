@@ -1,0 +1,39 @@
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.exe.config
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.exe
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.pdb
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.AssemblyReference.cache
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.SuggestedBindingRedirects.cache
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.Properties.Resources.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.GenerateResource.cache
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.CoreCompileInputs.cache
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.exe
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.pdb
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmBitacora.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmLogin.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmMenu.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmExpediente.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmUsuarios.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmConsulta.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmEntregaMedicina.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmIncapacidad.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmInventario.resources
+C:\Users\adamm\OneDrive\Documents\MEGA\Práctica Litoral\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmVerExpediente.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.exe.config
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.exe
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\bin\Debug\CML.pdb
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.AssemblyReference.cache
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmConsulta.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmBitacora.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmEntregaMedicina.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmExpediente.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmIncapacidad.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmInventario.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmLogin.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmMenu.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmUsuarios.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.Properties.Resources.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.FrmVerExpediente.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.GenerateResource.cache
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.csproj.CoreCompileInputs.cache
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.exe
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio-Medico-Litoral\CML\CML\obj\Debug\CML.pdb
