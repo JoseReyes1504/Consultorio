@@ -76,6 +76,96 @@ namespace CML
 
         }
 
+        public void Limpiar()
+        {
+            txtIdentidad.Clear();
+            txtNombre.Clear();
+            txtTelefono.Clear();
+            txtDomicilio.Clear();
+            txtReside.Clear();
+            txtOrigen.Clear();
+            txtOcupacion.Clear();
+            txtReligion.Clear();
+            txtEscolaridad.Clear();
+            txtEstado.Clear();
+            txtEmail.Clear();
+            Sexo = "Masculino";
+            rbM.Checked = true;
+
+            txtNumeroRef.Clear();
+            txtEdad.Clear();            
+            cmbArea.Text = "Seleccione";
+            txtCodigo.Clear();
+            DatosCargardos = true;
+            btnAgregar.Enabled = false;
+
+            diabetes = 0;
+            Hepa = 0;
+            Asma = 0;
+            Endoctrina = 0;
+            interrogados = 0;
+            Hipertension = 0;
+            Nefropatia = 0;
+            Cancer = 0;
+            CardioPatia = 0;
+            Mental = 0;
+            Alergicas = 0;
+            otros = 0;
+
+            Actuales = 0;
+            Quirurgicas = 0;
+            Transfusionales = 0;
+            Alergias = 0;
+            Traumaticos = 0;
+            Hospitalizaciones = 0;
+            Adcciones = 0;
+            otros2 = 0;
+
+            Id_Enfermedades = 0;
+            Id_Identificacion = 0;
+            Id_antecedentes = 0;
+
+            txtAdicciones.Clear();
+            txtAlergias.Clear();
+            txtAlergicas.Clear();
+            txtAsma.Clear();
+            txtCancer.Clear();
+            txtCardiopatia.Clear();
+            txtDiabetes.Clear();
+            txtEnActuales.Clear();
+            txtEndoctrina.Clear();
+            txtHipertension.Clear();
+            txtHospitalizaciones.Clear();
+            txtInterrogados.Clear();
+            txtMentales.Clear();
+            txtNefropatia.Clear();
+            txtOtrosH.Clear();
+            txtQuirurgicos.Clear();
+            txtOtrosP.Clear();
+            txtTransfusionales.Clear();
+            txtTraumaticos.Clear();
+
+            cbxAdicciones.Checked = false;
+            cbxAlergias.Checked = false;
+            cbxAlergicas.Checked = false;
+            cbxAsma.Checked = false;
+            cbxCancer.Checked = false;
+            cbxCardiopatia.Checked = false;
+            cbxDiabetes.Checked = false;
+            cbxEnActuales.Checked = false;
+            cbxEndocrinas.Checked = false;
+            cbxHipertension.Checked = false;
+            cbxHospitalizaciones.Checked = false;
+            cbxInterrogados.Checked = false;
+            cbxMentales.Checked = false;
+            cbxNefropatia.Checked = false;
+            cbxOtrosH.Checked = false;
+            cbxQuirurgicos.Checked = false;
+            cbxOtrosP.Checked = false;
+            cbxTransfusionales.Checked = false;
+            cbxTraumaticos.Checked = false;
+        }
+
         private void txtIdentidad_TextChanged(object sender, EventArgs e)
         {
             int codigo = 0;
@@ -99,7 +189,14 @@ namespace CML
                         txtEscolaridad.Text = dr["Escolaridad"].ToString();
                         txtEstado.Text = dr["Estado_Civil"].ToString();
                         txtEmail.Text = dr["Email"].ToString();
-                        dtpFNacimiento.Value = DateTime.Parse(dr["Fecha_Nacimiento"].ToString());
+                        Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
+
+
+                        if (dr["Fecha_Nacimiento"].ToString() != "")
+                        {
+                            dtpFNacimiento.Value = DateTime.Parse(dr["Fecha_Nacimiento"].ToString());
+                        }
+                        
                         Sexo = dr["Sexo"].ToString();
                         if(Sexo == "Masculino")
                         {
@@ -115,10 +212,81 @@ namespace CML
                         cmbArea.SelectedIndex = codigo - 1;
                         txtCodigo.Text = dr["Codigo_Empleado"].ToString();
                         DatosCargardos = true;
-                        //btnAgregar.Enabled = false;
+                        btnAgregar.Enabled = false;
                     }
-                    bd.CerrarConexion();
                     dr.Close();
+
+                    cmd = new SqlCommand("select * from Empleado a inner join Antecedentes b On a.Id_Antecedentes = b.Id_Antecendentes inner join Enfermedad_Heredo_Familiar c on b.Id_Enfermedad_H = c.Id_Enfermedad_Heredo_Familiar inner join Enfermedad_Personales_Patologicos d on b.Id_Enfermedad_P = d.Id_Enfermedad_Personales_Patologicos where a.Id_Identificacion = '" + Id_Identificacion + "' ", bd.sc);
+                    dr = cmd.ExecuteReader();
+                    while (dr.Read())
+                    {                        
+                        diabetes = Convert.ToInt32(dr["Diabetes"].ToString());
+                        txtDiabetes.Text = dr["Desc_Diabetes"].ToString();
+                        Hepa = Convert.ToInt32(dr["Hepatopatia"].ToString());
+                        txtHepatopatia.Text = dr["Desc_Hepatopatia"].ToString();
+                        Asma = Convert.ToInt32(dr["Asma"].ToString());
+                        txtAsma.Text = dr["Desc_Asma"].ToString();
+                        Endoctrina = Convert.ToInt32(dr["Enfermedad_Endoctrina"].ToString());
+                        txtEndoctrina.Text = dr["Desc_Endoctrina"].ToString();
+                        interrogados = Convert.ToInt32(dr["Interrogados_y_Negados"].ToString());
+                        txtInterrogados.Text = dr["Desc_Interrogados"].ToString();
+                        Hipertension = Convert.ToInt32(dr["Hipertension"].ToString());
+                        txtHipertension.Text = dr["Desc_Hipertension"].ToString();
+                        Nefropatia = Convert.ToInt32(dr["Nefropatia"].ToString());
+                        txtNefropatia.Text = dr["Desc_Nefropatia"].ToString();
+                        Cancer = Convert.ToInt32(dr["Cancer"].ToString());
+                        txtCancer.Text = dr["Desc_Cancer"].ToString();
+                        CardioPatia = Convert.ToInt32(dr["Cardiopatia"].ToString());
+                        txtCardiopatia.Text = dr["Desc_Cardiopatia"].ToString();
+                        Mental = Convert.ToInt32(dr["Enfermedad_Mental"].ToString());
+                        txtMentales.Text = dr["Desc_Mental"].ToString();
+                        Alergicas = Convert.ToInt32(dr["Enfermedad_Alergicas"].ToString());
+                        txtAlergicas.Text = dr["Desc_Alergicas"].ToString();
+                        otros = Convert.ToInt32(dr["Otros"].ToString());
+                        txtOtrosH.Text = dr["Desc_Otros"].ToString();
+
+                        Actuales = Convert.ToInt32(dr["Enfermedades_Actuales"].ToString());
+                        txtEnActuales.Text = dr["Desc_Otros"].ToString();
+                        Quirurgicas = Convert.ToInt32(dr["Quirurgicos"].ToString());
+                        txtQuirurgicos.Text = dr["Desc_Quirurgicas"].ToString();
+                        Transfusionales = Convert.ToInt32(dr["Transfusionales"].ToString());
+                        txtTransfusionales.Text = dr["Desc_Transfusionales"].ToString();
+                        Alergias = Convert.ToInt32(dr["Alergias"].ToString());
+                        txtAlergias.Text = dr["Desc_Alergias"].ToString();
+                        Traumaticos = Convert.ToInt32(dr["Traumaticos"].ToString());
+                        txtTraumaticos.Text = dr["Desc_Traumaticos"].ToString();
+                        Hospitalizaciones = Convert.ToInt32(dr["Hospitalizaciones_Previas"].ToString());
+                        txtHospitalizaciones.Text = dr["Desc_Hospitalizaciones"].ToString();
+                        Adcciones = Convert.ToInt32(dr["Adicciones"].ToString());
+                        txtAdicciones.Text = dr["Desc_Adicciones"].ToString();
+                        otros2 = Convert.ToInt32(dr["Otros"].ToString());
+                        txtOtrosP.Text = dr["Desc_Otros2"].ToString();
+
+
+                        CheckedInfo(Adcciones, cbxAdicciones);
+                        CheckedInfo(Alergias, cbxAlergias);
+                        CheckedInfo(Alergicas, cbxAlergicas);
+                        CheckedInfo(Asma, cbxAsma);
+                        CheckedInfo(Cancer, cbxCancer);
+                        CheckedInfo(CardioPatia, cbxCardiopatia);
+                        CheckedInfo(diabetes, cbxDiabetes);
+                        CheckedInfo(Actuales, cbxEnActuales);
+                        CheckedInfo(Endoctrina, cbxEndocrinas);
+                        CheckedInfo(Hipertension, cbxHipertension);
+                        CheckedInfo(Hospitalizaciones, cbxHospitalizaciones);
+                        CheckedInfo(interrogados, cbxInterrogados);
+                        CheckedInfo(Mental, cbxMentales);
+                        CheckedInfo(Nefropatia, cbxNefropatia);
+                        CheckedInfo(otros, cbxOtrosH);
+                        CheckedInfo(Quirurgicas, cbxQuirurgicos);
+                        CheckedInfo(otros2, cbxOtrosP);
+                        CheckedInfo(Transfusionales, cbxTransfusionales);
+                        CheckedInfo(Traumaticos, cbxTraumaticos);
+
+                    }
+                    dr.Close();
+                    bd.CerrarConexion();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -167,8 +335,6 @@ namespace CML
                 Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad); 
                
 
-
-
                 cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + ", " + Id_Enfermedades+")", bd.sc);
                 cmd.ExecuteNonQuery();
                 
@@ -178,7 +344,7 @@ namespace CML
                 cmd.ExecuteNonQuery();
 
                 MessageBox.Show("Se creo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                Limpiar();
                 bd.CerrarConexion();
             }
             catch (Exception ex)
@@ -226,6 +392,18 @@ namespace CML
                 enfermedad = 0;
             }
             return enfermedad;
+        }
+
+        public void CheckedInfo(int Enfermedad, CheckBox cb)
+        {            
+            if(Enfermedad == 1)
+            {
+                cb.Checked = true;
+            }
+            else
+            {
+                cb.Checked = false;
+            }
         }
 
         private void cbxDiabetes_CheckedChanged(object sender, EventArgs e)
@@ -327,6 +505,16 @@ namespace CML
         private void cbxOtrosP_CheckedChanged(object sender, EventArgs e)
         {
             otros2 = Checked(cbxOtrosP, otros2);
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Limpiar();
         }
     }
 }

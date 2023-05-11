@@ -123,5 +123,24 @@ namespace CML
 
             return Id;
         }
+
+        public void BusquedaLbx(TextBox txt, ListBox lbBusqueda, string Operacion)
+        {
+            try
+            {                
+                cmd = new SqlCommand("Select Distinct Nombre from Producto where " + Operacion + " like '%" + txt.Text + "%'", sc);
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    lbBusqueda.Items.Add(dr["Nombre"]);
+                }
+                dr.Close();                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Se ha Producido un error " + ex.ToString());
+                CerrarConexion();
+            }
+        }
     }
 }

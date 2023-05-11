@@ -28,5 +28,10 @@ namespace CML
             this.Hide();
             frmMenu.Show();
         }
+
+        private void FrmIncapacidad_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
