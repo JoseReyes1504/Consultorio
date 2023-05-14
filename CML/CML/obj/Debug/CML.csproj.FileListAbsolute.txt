@@ -51,7 +51,6 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmL
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmMenu.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmUsuarios.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Properties.Resources.resources
-C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmVerExpediente.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.GenerateResource.cache
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CoreCompileInputs.cache
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.exe
@@ -118,3 +117,5 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\zh-CHS\M
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Reportes.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CopyComplete
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmVerConsultas.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ControlEnf.resources

@@ -169,6 +169,7 @@ namespace CML
                     cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + txtMotivo.Text + "')", bd.sc);
                     cmd.ExecuteNonQuery();
                     MessageBox.Show("Se Creo la consulta", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarTodo();
                 }
             }
             catch (Exception ex)

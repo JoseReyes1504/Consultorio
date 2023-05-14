@@ -156,6 +156,8 @@ namespace CML
                 bd.CualquierTabla(dgv, "select b.Nombre_Completo [Empleado], d.Area_Trabajo [Area De Trabajo], a.Cantidad, a.Fecha_Entrega [Fecha Entrega], c.Nombre [Producto] from Entrega_Medicinas a inner join Identificacion b On a.Id_Identificacion = b.Id_Identificacion inner join Producto c on a.Id_Producto = c.Id_Producto inner join Puesto d on b.Id_Puesto = d.Id_Puesto");
 
                 bd.CerrarConexion();
+
+                txtCantidad.Text = (Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text)).ToString();
             }
             catch(Exception ex)
             {

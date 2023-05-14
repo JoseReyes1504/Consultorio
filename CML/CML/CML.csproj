@@ -128,11 +128,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="FrmVerExpediente.cs">
+    <Compile Include="FrmVerConsultas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmVerExpediente.Designer.cs">
-      <DependentUpon>FrmVerExpediente.cs</DependentUpon>
+    <Compile Include="FrmVerConsultas.Designer.cs">
+      <DependentUpon>FrmVerConsultas.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes.cs">
       <SubType>Form</SubType>
@@ -140,8 +140,17 @@
     <Compile Include="Reportes.Designer.cs">
       <DependentUpon>Reportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="ControlEnf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlEnf.Designer.cs">
+      <DependentUpon>ControlEnf.cs</DependentUpon>
+    </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
     <EmbeddedResource Include="ConsultaRep.rdlc" />
+    <EmbeddedResource Include="ControlEnf.resx">
+      <DependentUpon>ControlEnf.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmConsulta.resx">
       <DependentUpon>FrmConsulta.cs</DependentUpon>
     </EmbeddedResource>
@@ -179,8 +188,8 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="FrmVerExpediente.resx">
-      <DependentUpon>FrmVerExpediente.cs</DependentUpon>
+    <EmbeddedResource Include="FrmVerConsultas.resx">
+      <DependentUpon>FrmVerConsultas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes.resx">
       <DependentUpon>Reportes.cs</DependentUpon>

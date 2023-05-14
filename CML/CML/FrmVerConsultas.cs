@@ -12,12 +12,12 @@ using System.Windows.Forms;
 
 namespace CML
 {
-    public partial class FrmVerExpediente : Form
+    public partial class FrmVerConsultas : Form
     {
         ConexionBD bd = new ConexionBD();
         int Id = 0;
         Reportes re = new Reportes();
-        public FrmVerExpediente()
+        public FrmVerConsultas()
         {
             InitializeComponent();
         }
@@ -28,12 +28,13 @@ namespace CML
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)
-        {                        
-            re.Show();
+        {
+            
+            re.ShowDialog();
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
+        {            
             Id = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());
             re.Nun_Consulta1 = Id;
         }
