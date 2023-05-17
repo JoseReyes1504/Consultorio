@@ -1,37 +1,37 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace CML
 {
     public partial class FrmMenu : Form
     {
+        string Usuario;
         public FrmMenu()
         {
             InitializeComponent();
         }
 
+        public FrmMenu(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
+        }
+
         private void btnExpediente_Click(object sender, EventArgs e)
         {
-            FrmExpediente frmExpediente = new FrmExpediente();            
+            FrmExpediente frmExpediente = new FrmExpediente(Usuario);
             frmExpediente.ShowDialog();
         }
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            FrmConsulta frmConsulta = new FrmConsulta();            
+            FrmConsulta frmConsulta = new FrmConsulta();
             frmConsulta.ShowDialog();
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            FrmUsuarios frmUsuarios = new FrmUsuarios();            
+            FrmUsuarios frmUsuarios = new FrmUsuarios(Usuario);
             frmUsuarios.ShowDialog();
         }
 
@@ -42,7 +42,7 @@ namespace CML
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            FrmLogin frmLogin = new FrmLogin();            
+            FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
 
@@ -54,25 +54,25 @@ namespace CML
 
         private void btnInventario_Click(object sender, EventArgs e)
         {
-            FrmInventario frmInventario= new FrmInventario();            
+            FrmInventario frmInventario = new FrmInventario(Usuario);
             frmInventario.Show();
         }
 
         private void btnEntregaMeds_Click(object sender, EventArgs e)
         {
-            FrmEntregaMedicina frmEntregaMedicina = new FrmEntregaMedicina();            
+            FrmEntregaMedicina frmEntregaMedicina = new FrmEntregaMedicina();
             frmEntregaMedicina.Show();
         }
 
         private void btnIncapacidad_Click(object sender, EventArgs e)
         {
-            FrmIncapacidad frmIncapacidad = new FrmIncapacidad();            
+            FrmIncapacidad frmIncapacidad = new FrmIncapacidad();
             frmIncapacidad.Show();
         }
 
         private void btnBitacora_Click(object sender, EventArgs e)
         {
-            FrmBitacora frmBitacora = new FrmBitacora();            
+            FrmBitacora frmBitacora = new FrmBitacora();
             frmBitacora.ShowDialog();
         }
 
@@ -85,6 +85,33 @@ namespace CML
         {
             ControlEnf control = new ControlEnf();
             control.ShowDialog();
+        }
+
+        private void FrmMenu_Load(object sender, EventArgs e)
+        {            
+        }
+
+        private void Tiempo_Tick(object sender, EventArgs e)
+        {
+            lblHora.Text = DateTime.Now.ToLongTimeString();
+            lblFecha.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void FrmMenu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                DialogResult result = MessageBox.Show("¿Realmente desea salir del programa?", "Confirmar salida", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (result == DialogResult.No)
+                {
+                    e.Cancel = true; // Cancela el cierre de la ventana
+                }
+                else
+                {
+                    Application.Exit();
+                }
+            }
+
         }
     }
 }

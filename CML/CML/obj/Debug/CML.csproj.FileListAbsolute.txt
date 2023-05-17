@@ -119,3 +119,8 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Repo
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CopyComplete
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmVerConsultas.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ControlEnf.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\ICSharpCode.SharpZipLib.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\NPOI.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\NPOI.OOXML.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\NPOI.OpenXml4Net.dll
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\NPOI.OpenXmlFormats.dll

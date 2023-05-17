@@ -17,7 +17,7 @@ namespace CML
         int Id_Empleado;
         int Id_Signos;
         int Incapacidad = 0;
-        bool DatosCargados = false;        
+        bool DatosCargados = false;
 
         SqlCommand cmd;
         SqlDataReader dr;
@@ -46,7 +46,7 @@ namespace CML
         int Adcciones = 0;
         int otros2 = 0;
 
-
+        int Id_Enfermedades = 0;
 
 
         public void Limpiar()
@@ -98,17 +98,88 @@ namespace CML
 
         public void CrearIdentidad()
         {
-            MessageBox.Show("Se creo un nuevo expediente de " + txtNombre.Text, "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            //Primero Se Agragan los datos a la tabla identificación
-            cmd = new SqlCommand("insert into Identificacion (Codigo_Empleado, Nombre_Completo, No_Identidad, Telefono, Id_Puesto, Edad)  values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + txtIdentidad.Text + "', '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + txtEdad.Text + "')", bd.sc);
-            cmd.ExecuteNonQuery();            
+            DialogResult r = new DialogResult();
+            //Si existe el Numero de identidad no se creara una nueva identificacion            
+            if (ValidarEmpleado() == true)          
+            {
+                MessageBox.Show("Este Numero de identidad ya esta en uso", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                DatosCargados = false;
+            }
+            else
+            {
+                //Primero Se Agragan los datos a la tabla identificación
+                cmd = new SqlCommand("insert into Identificacion (Codigo_Empleado, Nombre_Completo, No_Identidad, Telefono, Id_Puesto, Edad)  values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + txtIdentidad.Text + "', '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + txtEdad.Text + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                //Este es para llenar los tipos de enfermedades de las que el padece            
+                cmd = new SqlCommand("insert into Enfermedad_Heredo_Familiar values (" + diabetes + ", '" + null + "', " + Hepa + ", '" + null + "', " + Asma + ", '" + null + "',"
+                    + Endoctrina + ", '" + null + "', " + interrogados + ", '" + null + "'," + Hipertension + ", '" + null + "'," + Nefropatia + ", '" + null + "'," + Cancer + ", '" + null + "', " +
+                    "" + CardioPatia + ", '" + null + "'," + Mental + ", '" + null + "'," + Alergicas + ", '" + null + "'," + otros + ", '" + null + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
+
+                cmd = new SqlCommand("insert into Enfermedad_Personales_Patologicos values (" + Actuales + ", '" + null + "'," + Quirurgicas + ", '" + null + "', " + Transfusionales + ", '" + null + "'," + Alergias + ", " +
+                    "'" + null + "'," + Traumaticos + ", '" + null + "'," + Hospitalizaciones + ", '" + null + "'," + Adcciones + ", '" + null + "', " + otros2 + ", '" + null + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                Id_Enfermedades = bd.ObtenerId("Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
+                Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
+
+                cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + "," + Id_Enfermedades + ")", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                //Despues a la tabla empleados ya que esta es dependiente de una llave foranea
+                cmd = new SqlCommand("insert into Empleado values ('" + hoy.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + Id_Enfermedades + ")", bd.sc);
+                cmd.ExecuteNonQuery();
+                DatosCargados = true;
+
+                r = MessageBox.Show("Se creo el expediente de " + txtNombre.Text + "\nQuiere crear la consulta?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (r == DialogResult.Yes)
+                {
+                    Consulta();
+                }
+                else
+                {
+                    MessageBox.Show("Se creo el expediente pero no la consulta", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                
+            }
+        }
+
+        public void Consulta()
+        {
+            DialogResult C = new DialogResult();
 
             Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
 
-            //Despues a la tabla empleados ya que esta es dependiente de una llave foranea
-            cmd = new SqlCommand("insert into Empleado values ('" + hoy.ToString("yyyy/MM/dd") + "', '" + Id_Identificacion + "', '" + 0 + "')", bd.sc);
+            //Hacemos la busqueda del Empleado creado mediante la identidad
+
+            Id_Empleado = bd.ObtenerId("Empleado", "Id_Empleado");
+
+            //Creamos los Signos Vitales
+            cmd = new SqlCommand("insert into Signos_Vitales_Consultorio values ('" + txtPA.Text + "','" + txtT.Text + "','" + txtFC.Text + "','" + txtFR.Text + "','" + txtSO2.Text + "')", bd.sc);
             cmd.ExecuteNonQuery();
-            DatosCargados = true;
+
+            //Obtenemos el ID del ultimo signo vital creado
+            Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
+
+            //Al final creamos la consulta
+            cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + txtMotivo.Text + "')", bd.sc);
+            cmd.ExecuteNonQuery();
+
+            C = MessageBox.Show("Se Creo la consulta, \nDesea imprimir la consulta?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+
+            if (C == DialogResult.Yes)
+            {
+                Reportes re = new Reportes();
+                re.Nun_Consulta1 = bd.ObtenerId("Consultorio", "Id_Consultorio");
+                re.ShowDialog();
+            }
+
+            LimpiarTodo();
         }
 
         public bool ValidarEmpleado()
@@ -124,7 +195,6 @@ namespace CML
                     ID_Empleado = dr["No_Identidad"].ToString();
                 }
                 dr.Close();
-                bd.CerrarConexion();
 
                 if (txtIdentidad.Text == ID_Empleado)
                 {
@@ -141,35 +211,18 @@ namespace CML
 
 
         private void btnAgregar_Click(object sender, EventArgs e)
-        {
+        {            
             try
             {
-                bd.AbrirConexion();
-                //Si existe el Numero de identidad no se creara una nueva identificacion aqui valido esta parte
+                bd.AbrirConexion();                
+
                 if (DatosCargados == false)
                 {
-                    CrearIdentidad();
+                    CrearIdentidad();                    
                 }
                 else
                 {
-                    Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
-
-                    //Hacemos la busqueda del Empleado creado mediante la identidad
-
-                    Id_Empleado = bd.ObtenerId("Empleado","Id_Empleado");                    
-
-                    //Creamos los Signos Vitales
-                    cmd = new SqlCommand("insert into Signos_Vitales_Consultorio values ('" + txtPA.Text + "','" + txtT.Text + "','" + txtFC.Text + "','" + txtFR.Text + "','" + txtSO2.Text + "')", bd.sc);
-                    cmd.ExecuteNonQuery();
-
-                    //Obtenemos el ID del ultimo signo vital creado
-                    Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
-
-                    //Al final creamos la consulta
-                    cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + txtMotivo.Text + "')", bd.sc);
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Se Creo la consulta", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    LimpiarTodo();
+                    Consulta();
                 }
             }
             catch (Exception ex)
@@ -189,11 +242,11 @@ namespace CML
         private void cmbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
             AreaTrabajo = (cmbArea.SelectedIndex + 1);
-        }        
+        }
 
         private void txtIdentidad_TextChanged(object sender, EventArgs e)
-        {            
-            
+        {
+
         }
 
 
@@ -217,10 +270,11 @@ namespace CML
                         txtIdentidad.Text = dr["No_Identidad"].ToString();
                         DatosCargados = true;
                     }
-                    
+
                     dr.Close();
 
                     Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
                     cmd = new SqlCommand("select * from Empleado a inner join Antecedentes b On a.Id_Antecedentes = b.Id_Antecendentes inner join Enfermedad_Heredo_Familiar c on b.Id_Enfermedad_H = c.Id_Enfermedad_Heredo_Familiar inner join Enfermedad_Personales_Patologicos d on b.Id_Enfermedad_P = d.Id_Enfermedad_Personales_Patologicos where a.Id_Identificacion = '" + Id_Identificacion + "' ", bd.sc);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
@@ -248,48 +302,54 @@ namespace CML
                         Adcciones = Convert.ToInt32(dr["Adicciones"].ToString());
                         otros2 = Convert.ToInt32(dr["Otros"].ToString());
 
-                        Concatenar(diabetes, "Diabetes", dr["Desc_Diabetes"].ToString());
-                        Concatenar(Hepa, "Hepatopatia", dr["Desc_Hepatopatia"].ToString());
-                        Concatenar(Asma, "Asma", dr["Desc_Asma"].ToString());
-                        Concatenar(Endoctrina, "Enfermedad Endoctrina", dr["Desc_Endoctrina"].ToString());
-                        Concatenar(interrogados, "Interrogados y negados", dr["Desc_Interrogados"].ToString());
-                        Concatenar(Hipertension, "Hipertension", dr["Desc_Hipertension"].ToString());
-                        Concatenar(Nefropatia, "Nefropatia", dr["Desc_Nefropatia"].ToString());
-                        Concatenar(Cancer, "Cancer", dr["Desc_Cancer"].ToString());
-                        Concatenar(CardioPatia, "Cardiopatia", dr["Desc_Cardiopatia"].ToString());
-                        Concatenar(Mental, "Enfermedad Mental", dr["Desc_Mental"].ToString());
-                        Concatenar(Alergicas, "Alergicas", dr["Desc_Alergicas"].ToString());
-                        Concatenar(otros, "Otros", dr["Desc_Otros"].ToString());
+                        Concatenar(diabetes, "Diabetes", " Por: " + dr["Desc_Diabetes"].ToString());
+                        Concatenar(Hepa, "Hepatopatia", " Por: " + dr["Desc_Hepatopatia"].ToString());
+                        Concatenar(Asma, "Asma", " Por: " + dr["Desc_Asma"].ToString());
+                        Concatenar(Endoctrina, "Enfermedad Endoctrina", " Por: " + dr["Desc_Endoctrina"].ToString());
+                        Concatenar(interrogados, "Interrogados y negados", " Por: " + dr["Desc_Interrogados"].ToString());
+                        Concatenar(Hipertension, "Hipertension", " Por: " + dr["Desc_Hipertension"].ToString());
+                        Concatenar(Nefropatia, "Nefropatia", " Por: " + dr["Desc_Nefropatia"].ToString());
+                        Concatenar(Cancer, "Cancer", " Por: " + dr["Desc_Cancer"].ToString());
+                        Concatenar(CardioPatia, "Cardiopatia", " Por: " + dr["Desc_Cardiopatia"].ToString());
+                        Concatenar(Mental, "Enfermedad Mental", " Por: " + dr["Desc_Mental"].ToString());
+                        Concatenar(Alergicas, "Alergicas", " Por: " + dr["Desc_Alergicas"].ToString());
+                        Concatenar(otros, "Otros", " Por: " + dr["Desc_Otros"].ToString());
 
-                        Concatenar(Actuales, "Enfermedades Actuales", dr["Desc_Otros"].ToString());
+                        Concatenar(Actuales, "Enfermedades Actuales", dr["Desc_Actuales"].ToString());
                         Concatenar(Quirurgicas, "Quirurgicos", dr["Desc_Quirurgicas"].ToString());
                         Concatenar(Transfusionales, "Transfusionales", dr["Desc_Transfusionales"].ToString());
                         Concatenar(Alergias, "Alergias", dr["Desc_Alergias"].ToString());
                         Concatenar(Traumaticos, "Traumaticos", dr["Desc_Traumaticos"].ToString());
                         Concatenar(Hospitalizaciones, "Hospitalizaciones Previas", dr["Desc_Hospitalizaciones"].ToString());
                         Concatenar(Adcciones, "Adicciones", dr["Desc_Adicciones"].ToString());
-                        Concatenar(otros2, "Otros", dr["Desc_Otros2"].ToString());
+                        Concatenar(otros2, "Otros2", dr["Desc_Otros2"].ToString());
                     }
-                    dr.Close();                    
+                    dr.Close();
                     bd.CerrarConexion();
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error con el empleado" + ex.ToString(), "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     bd.CerrarConexion();
-                }                
+                }
             }
-            else
+            else if(txtCodigo.TextLength == 0)
             {
                 DatosCargados = false;
+                txtNombre.Clear();
+                txtNumeroRef.Clear();
+                txtEdad.Clear();                
+                cmbArea.Text = "Seleccione";
+                txtIdentidad.Clear();
+                txtAntececentes.Clear();
             }
         }
 
         public void Concatenar(int Enfermedad, string Nombre, string Porquien)
-        {            
-            if(Enfermedad == 1)
+        {
+            if (Enfermedad == 1)
             {
-                txtAntececentes.Text += Nombre + " Por: " + Porquien + "\n";
+                txtAntececentes.Text += Nombre + Porquien + "\n";
             }
         }
 

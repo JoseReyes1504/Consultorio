@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace CML
 {
-    internal class ConexionBD
+    public class ConexionBD
     {
 
         public SqlConnection sc = new SqlConnection();
@@ -108,6 +108,21 @@ namespace CML
             dr.Close();
 
             return ID_Dato;
+        }
+
+        public int ObtenerEnfermedades(TextBox txt)
+        {
+
+            int Id = 0;
+            cmd = new SqlCommand("select a.Id_Antecedentes from Empleado a inner join Identificacion b on a.Id_Identificacion = b.Id_Identificacion where b.No_Identidad = '" + txt.Text+ "'", sc);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Id = Convert.ToInt32(dr["Id_Antecedentes"].ToString());
+            }
+            dr.Close();
+
+            return Id;
         }
 
         public int ObtenerIdentificacion(TextBox txt)

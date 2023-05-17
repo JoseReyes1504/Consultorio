@@ -24,7 +24,7 @@ namespace CML
 
         private void FrmVerExpediente_Load(object sender, EventArgs e)
         {
-            bd.CualquierTabla(dgv, "select a.Id_Consultorio[ID], c.Nombre_Completo[Paciente], a.Motivo_Consulta[Motivo Consulta], a.Fecha_Consulta[Fecha] from Consultorio a inner join Empleado b on a.Id_Empleado = b.Id_Empleado inner join Identificacion c On b.Id_Identificacion = c.Id_Identificacion");
+            bd.CualquierTabla(dgv, "select a.Id_Consultorio[ID], c.Nombre_Completo[Paciente], a.Motivo_Consulta[Motivo Consulta], a.Incapacidad, a.Fecha_Consulta[Fecha] from Consultorio a inner join Empleado b on a.Id_Empleado = b.Id_Empleado inner join Identificacion c On b.Id_Identificacion = c.Id_Identificacion order by a.Id_Consultorio DESC");
         }
 
         private void btnImprimir_Click(object sender, EventArgs e)

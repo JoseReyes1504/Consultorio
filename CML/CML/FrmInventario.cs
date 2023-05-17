@@ -13,13 +13,21 @@ namespace CML
         //Variables        
         SqlCommand cmd;
         SqlDataReader dr;
-
+        DateTime fechaActual = DateTime.Today;
+        string NombreP = "";
         int Id_Producto = 0;
         bool ProductoCargado = false;
+        string Usuario = "";
 
         public FrmInventario()
         {
             InitializeComponent();
+        }
+
+        public FrmInventario(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -70,15 +78,19 @@ namespace CML
             try
             {
                 bd.AbrirConexion();
-                if(ProductoCargado == false)
+                if (ProductoCargado == false)
                 {
                     cmd = new SqlCommand("insert into Producto values ('" + txtProducto.Text + "', '" + Convert.ToDouble(txtIngreso.Text) + "')", bd.sc);
                     cmd.ExecuteNonQuery();
                 }
-                
+
                 Id_Producto = bd.ObtenerId("Producto", "Id_Producto");
 
                 cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', '" + null + "', '" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', '" + Convert.ToDouble(txtIngreso.Text) + "', " + 0 + ", " + suma + ")", bd.sc);
+                cmd.ExecuteNonQuery();
+
+
+                cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Registro el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', '" + fechaActual.ToString("yyyy-MM-dd") + "')", bd.sc);
                 cmd.ExecuteNonQuery();
 
                 cmd = new SqlCommand("update Producto set Cantidad = " + suma + " where Id_producto = " + Id_Producto + "", bd.sc);
@@ -88,14 +100,14 @@ namespace CML
                 ActualizarDgv();
                 Limpiar();
 
-                      
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show("No se han podido agregar los datos del producto" + ex);
                 bd.CerrarConexion();
             }
-            
+
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -106,12 +118,36 @@ namespace CML
         private void btnEliminar_Click(object sender, EventArgs e)
         {
 
+            try
+            {
+                bd.AbrirConexion();
+
+                cmd = new SqlCommand("Delete from Inventario where Id_Producto = " + Id_Producto + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                cmd = new SqlCommand("Delete from Producto where Id_Producto = " + Id_Producto + "", bd.sc);
+                cmd.ExecuteNonQuery();
+                
+                cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Elimino el producto de: " + NombreP + " que contenia `" + txtCantidad.Text + "` en inventario en ese momento', '" + fechaActual.ToString("yyyy-MM-dd") + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                bd.CerrarConexion();
+                ActualizarDgv();
+                Limpiar();
+                btnAgregar.Enabled = true;                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Hubo un error: " +  ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bd.CerrarConexion();
+            }
+
         }
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //ID = dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString();
-           // MessageBox.Show(ID);
+            // MessageBox.Show(ID);
         }
 
         private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
@@ -123,7 +159,7 @@ namespace CML
         {
             bd.AbrirConexion();
             try
-            {                
+            {
                 if (txtProducto.Text == "")
                 {
                     lbxBusqueda.Items.Clear();
@@ -131,7 +167,7 @@ namespace CML
                 else
                 {
                     lbxBusqueda.Items.Clear();
-                    bd.BusquedaLbx(txtProducto, lbxBusqueda, "Nombre");                    
+                    bd.BusquedaLbx(txtProducto, lbxBusqueda, "Nombre");
                 }
                 bd.CerrarConexion();
             }
@@ -140,31 +176,32 @@ namespace CML
                 MessageBox.Show("Se ha Producido un error " + ex.ToString());
                 bd.CerrarConexion();
             }
-            
+
         }
 
         private void lbxBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {            
+        {
             if (lbxBusqueda.Text != "")
-            {                
+            {
                 try
                 {
                     bd.AbrirConexion();
                     cmd = new SqlCommand("Select a.Id_Inventario [Inventario], b.Id_Producto, b.Nombre, b.Cantidad [Existencia], a.Fecha_Ingreso, a.Fecha_Vencimiento from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where Nombre  = '" + lbxBusqueda.SelectedItem.ToString() + "'", bd.sc);
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
-                    {                        
+                    {
                         txtCantidad.Text = dr["Existencia"].ToString();
                         dtpFechaIngreso.Value = DateTime.Parse(dr["Fecha_Ingreso"].ToString());
                         dtpFechaVencimiento.Value = DateTime.Parse(dr["Fecha_Vencimiento"].ToString());
-                        Id_Producto = Convert.ToInt32(dr["Id_Producto"].ToString());                        
+                        Id_Producto = Convert.ToInt32(dr["Id_Producto"].ToString());
+                        NombreP = dr["Nombre"].ToString();
                         txtCantidad.ReadOnly = true;
                         ProductoCargado = true;
                     }
                     else
                     {
                         MessageBox.Show("No existe ningun Registo", "Informacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    }                    
+                    }
                     dr.Close();
                     bd.CerrarConexion();
                 }
@@ -172,7 +209,7 @@ namespace CML
                 {
                     MessageBox.Show("No se pudo llenar los campos" + ex.ToString());
                     bd.CerrarConexion();
-                }                               
+                }
             }
             else
             {
