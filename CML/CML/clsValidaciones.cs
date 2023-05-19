@@ -161,15 +161,13 @@ namespace CML
                 }
             }
         }
-        //Se utilizar en la calculadora
-        public void NumerosAritmetica(KeyPressEventArgs e)
+
+        public string encriptar(string cadena)
         {
-            if (e.KeyChar >= 32 && e.KeyChar <= 41 || e.KeyChar == 44 && e.KeyChar == 46 || e.KeyChar >= 58 && e.KeyChar <= 255)
-            {
-                MessageBox.Show("Error, Solo puede ingresar numeros", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                e.Handled = true;
-                return;
-            }
+            string result = string.Empty;
+            byte[] encripted = System.Text.Encoding.Unicode.GetBytes(cadena);
+            result = Convert.ToBase64String(encripted);
+            return result;
         }
 
     }

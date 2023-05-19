@@ -142,7 +142,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(2006, 53);
+            this.panel1.Size = new System.Drawing.Size(1985, 53);
             this.panel1.TabIndex = 91;
             // 
             // pictureBox2
@@ -233,7 +233,7 @@
             this.gbIdentificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbIdentificacion.Name = "gbIdentificacion";
             this.gbIdentificacion.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbIdentificacion.Size = new System.Drawing.Size(1377, 324);
+            this.gbIdentificacion.Size = new System.Drawing.Size(1356, 324);
             this.gbIdentificacion.TabIndex = 94;
             this.gbIdentificacion.TabStop = false;
             this.gbIdentificacion.Text = "Identificacion";
@@ -673,7 +673,7 @@
             this.gbAntecedentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbAntecedentes.Name = "gbAntecedentes";
             this.gbAntecedentes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbAntecedentes.Size = new System.Drawing.Size(1383, 578);
+            this.gbAntecedentes.Size = new System.Drawing.Size(1362, 578);
             this.gbAntecedentes.TabIndex = 132;
             this.gbAntecedentes.TabStop = false;
             this.gbAntecedentes.Text = "Antecedentes";
@@ -692,7 +692,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(23, 537);
+            this.groupBox2.Size = new System.Drawing.Size(2, 537);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
@@ -708,7 +708,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(13, 297);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(7, 112);
+            this.btnLimpiar.Size = new System.Drawing.Size(0, 112);
             this.btnLimpiar.TabIndex = 67;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -726,7 +726,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(12, 171);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(7, 112);
+            this.btnActualizar.Size = new System.Drawing.Size(0, 112);
             this.btnActualizar.TabIndex = 65;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -744,7 +744,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(12, 44);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(7, 112);
+            this.btnAgregar.Size = new System.Drawing.Size(0, 112);
             this.btnAgregar.TabIndex = 64;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;

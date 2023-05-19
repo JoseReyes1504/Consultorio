@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms.DataVisualization.Charting;
+using System.Collections;
 
 namespace CML
 {
@@ -155,6 +157,35 @@ namespace CML
             {
                 MessageBox.Show("Se ha Producido un error " + ex.ToString());
                 CerrarConexion();
+            }
+        }
+
+        public void GraficoInventario(Chart Char, string Query)
+        {
+            ArrayList Descripcion = new ArrayList();
+            ArrayList Cant = new ArrayList();
+
+            Descripcion.Clear();
+            Cant.Clear();
+            try
+            {
+                AbrirConexion();
+                cmd = new SqlCommand(Query, sc);
+                cmd.ExecuteNonQuery();
+                dr = cmd.ExecuteReader();
+                while (dr.Read())
+                {
+                    Descripcion.Add(dr.GetString(0));
+                    Cant.Add(dr.GetInt32(1));
+                }
+                Char.Series[0].Points.DataBindXY(Descripcion, Cant);
+                dr.Close();
+                CerrarConexion();
+            }
+            catch (Exception ex)
+            {
+                dr.Close();
+                MessageBox.Show("Se ha producido un error" + ex.ToString());
             }
         }
     }

@@ -46,7 +46,7 @@ namespace CML
                 //se usa la funcion verificacion de usuario y contraseña para pasar a la siguiente ventana
 
                 empleado.Nombre_Usuario = txtUsuario.Text;
-                empleado.Codigo_Usuario = txtContrasena.Text;
+                empleado.Codigo_Usuario = validacion.encriptar(txtContrasena.Text);
 
                 if (empleado.autentificacion() == true)
                 {

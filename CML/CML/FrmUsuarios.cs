@@ -11,6 +11,7 @@ namespace CML
         string Usuario = "";
         string UsuarioAnt = "";
         DateTime fechaActual = DateTime.Today;
+        clsValidaciones val = new clsValidaciones();
 
         public FrmUsuarios()
         {
@@ -61,7 +62,7 @@ namespace CML
             else
             {
                 bd.AbrirConexion();
-                SqlCommand cmd = new SqlCommand("insert into Usuario values('" + txtUsuario.Text + "', '" + txtContrasena.Text + "')", bd.sc);
+                SqlCommand cmd = new SqlCommand("insert into Usuario values('" + txtUsuario.Text + "', '" +  val.encriptar(txtContrasena.Text) + "')", bd.sc);
                 cmd.ExecuteNonQuery();
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
                 Limpiar();
@@ -79,7 +80,7 @@ namespace CML
             {
                 bd.AbrirConexion();
                 
-                SqlCommand cmd = new SqlCommand("update Usuario set Usuario = '" + txtUsuario.Text + "', Contrasena = '" + txtContrasena.Text + "' where Id_Usuario =  " + ID + "", bd.sc);
+                SqlCommand cmd = new SqlCommand("update Usuario set Usuario = '" + txtUsuario.Text + "', Contrasena = '" + val.encriptar(txtContrasena.Text) + "' where Id_Usuario =  " + ID + "", bd.sc);
                 cmd.ExecuteNonQuery();
                 
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
@@ -122,6 +123,18 @@ namespace CML
             Limpiar();
             btnAgregar.Enabled = true;
             bd.CerrarConexion();
+        }
+
+        private void txtContrasena_TextChanged(object sender, EventArgs e)
+        {
+            if(txtContrasena.Text == "")
+            {
+                btnAgregar.Enabled = false;
+            }
+            else
+            {
+                btnAgregar.Enabled = true;
+            }
         }
     }
 }

@@ -38,7 +38,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblolvido = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -152,17 +151,6 @@
             this.label1.TabIndex = 135;
             this.label1.Text = "LOGIN";
             // 
-            // lblolvido
-            // 
-            this.lblolvido.AutoSize = true;
-            this.lblolvido.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblolvido.ForeColor = System.Drawing.Color.White;
-            this.lblolvido.Location = new System.Drawing.Point(171, 473);
-            this.lblolvido.Name = "lblolvido";
-            this.lblolvido.Size = new System.Drawing.Size(273, 22);
-            this.lblolvido.TabIndex = 169;
-            this.lblolvido.Text = "Has olvidado la contraseña?";
-            // 
             // pictureBox2
             // 
             this.pictureBox2.ErrorImage = null;
@@ -182,7 +170,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.ClientSize = new System.Drawing.Size(633, 660);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.lblolvido);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtContrasena);
@@ -213,7 +200,6 @@
         private System.Windows.Forms.Label lblUsuario;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblolvido;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
     }

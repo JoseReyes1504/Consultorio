@@ -52,14 +52,15 @@ namespace CML
             ProductoCargado = false;
         }
 
-        public void ActualizarDgv()
+        void ActulizarGraficosYDatos()
         {
             bd.CualquierTabla(dgv, "Select a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto");
+            bd.GraficoInventario(cpAgotado, "Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 10");            
         }
 
         private void FrmInventario_Load(object sender, EventArgs e)
         {
-            ActualizarDgv();
+            ActulizarGraficosYDatos();               
         }
 
         private void txtProducto_KeyPress(object sender, KeyPressEventArgs e)
@@ -80,8 +81,15 @@ namespace CML
                 bd.AbrirConexion();
                 if (ProductoCargado == false)
                 {
-                    cmd = new SqlCommand("insert into Producto values ('" + txtProducto.Text + "', '" + Convert.ToDouble(txtIngreso.Text) + "')", bd.sc);
-                    cmd.ExecuteNonQuery();
+                    if(txtProducto.Text != "" && txtIngreso.Text != "")
+                    {
+                        cmd = new SqlCommand("insert into Producto values ('" + txtProducto.Text + "', '" + Convert.ToDouble(txtIngreso.Text) + "')", bd.sc);
+                        cmd.ExecuteNonQuery();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Datos vacios", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }                    
                 }
 
                 Id_Producto = bd.ObtenerId("Producto", "Id_Producto");
@@ -97,7 +105,7 @@ namespace CML
                 cmd.ExecuteNonQuery();
 
                 bd.CerrarConexion();
-                ActualizarDgv();
+                ActulizarGraficosYDatos();
                 Limpiar();
 
 
@@ -132,9 +140,10 @@ namespace CML
                 cmd.ExecuteNonQuery();
 
                 bd.CerrarConexion();
-                ActualizarDgv();
+                ActulizarGraficosYDatos();
                 Limpiar();
-                btnAgregar.Enabled = true;                
+                btnAgregar.Enabled = true;
+                btnEliminar.Enabled = false;
             }
             catch (Exception ex)
             {
@@ -197,6 +206,7 @@ namespace CML
                         NombreP = dr["Nombre"].ToString();
                         txtCantidad.ReadOnly = true;
                         ProductoCargado = true;
+                        btnEliminar.Enabled = true;
                     }
                     else
                     {
@@ -221,6 +231,11 @@ namespace CML
         private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void txtIngreso_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            val.Numeros(e);
         }
     }
 }

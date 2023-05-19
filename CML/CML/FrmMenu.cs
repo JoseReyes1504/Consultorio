@@ -31,7 +31,7 @@ namespace CML
 
         private void btnUsuarios_Click(object sender, EventArgs e)
         {
-            FrmUsuarios frmUsuarios = new FrmUsuarios(Usuario);
+            frmUsuariosAdmin frmUsuarios = new frmUsuariosAdmin(Usuario);
             frmUsuarios.ShowDialog();
         }
 
