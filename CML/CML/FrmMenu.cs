@@ -60,13 +60,13 @@ namespace CML
 
         private void btnEntregaMeds_Click(object sender, EventArgs e)
         {
-            FrmEntregaMedicina frmEntregaMedicina = new FrmEntregaMedicina();
+            FrmEntregaMedicina frmEntregaMedicina = new FrmEntregaMedicina(Usuario);
             frmEntregaMedicina.Show();
         }
 
         private void btnIncapacidad_Click(object sender, EventArgs e)
         {
-            FrmIncapacidad frmIncapacidad = new FrmIncapacidad();
+            FrmIncapacidad frmIncapacidad = new FrmIncapacidad(Usuario);
             frmIncapacidad.Show();
         }
 

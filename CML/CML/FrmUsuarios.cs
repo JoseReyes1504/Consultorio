@@ -10,8 +10,11 @@ namespace CML
         string ID = "0";
         string Usuario = "";
         string UsuarioAnt = "";
-        DateTime fechaActual = DateTime.Today;
+
+        DateTime fechaActual = DateTime.Now;
+
         clsValidaciones val = new clsValidaciones();
+                               
 
         public FrmUsuarios()
         {
@@ -50,7 +53,7 @@ namespace CML
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");            
+            bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario order by Id_Usuario DESC");            
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -71,7 +74,7 @@ namespace CML
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
+        {            
             if (txtUsuario.Text == "" || txtContrasena.Text == "")
             {
                 MessageBox.Show("Datos Vacios", "Data vacia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -85,7 +88,7 @@ namespace CML
                 
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
                 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Actualizo la información de: " + UsuarioAnt + "', '" + fechaActual.ToString("yyyy-MM-dd") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Actualizo la información de: " + UsuarioAnt + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
                 cmd.ExecuteNonQuery();
 
                 Limpiar();
@@ -98,8 +101,7 @@ namespace CML
         {
             ID = dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString();
             UsuarioAnt = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
-            txtUsuario.Text = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
-            txtContrasena.Text = dgv.Rows[e.RowIndex].Cells["Contraseña"].Value.ToString();
+            txtUsuario.Text = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();            
             btnAgregar.Enabled = false;
             btnActualizar.Enabled = true;
         }
@@ -110,13 +112,14 @@ namespace CML
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
-        {
+        {            
+
             bd.AbrirConexion();
             SqlCommand cmd = new SqlCommand("Delete from Usuario where Id_Usuario = " + Convert.ToInt32(ID) + "", bd.sc);
             cmd.ExecuteNonQuery();
             bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
 
-            cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Elimino la información de: " + txtUsuario.Text + "', '" + fechaActual.ToString("yyyy-MM-dd") + "')", bd.sc);
+            cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Elimino la información de: " + txtUsuario.Text + "', '" + fechaActual + "')", bd.sc);
             cmd.ExecuteNonQuery();
 
 

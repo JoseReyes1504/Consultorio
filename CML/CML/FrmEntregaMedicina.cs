@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CML
 {
@@ -21,14 +14,26 @@ namespace CML
         SqlCommand cmd;
         SqlDataReader dr;
 
+
+        DateTime fechaActual = DateTime.Now;
+
         //Variables                       
         int Id_Producto = 0;
         int AreaTrabajo = 0;
         int Id_Identificacion = 0;
+        int ID = 0;
+
+        string Usuario= "";
 
         public FrmEntregaMedicina()
         {
             InitializeComponent();
+        }
+
+        public FrmEntregaMedicina(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
@@ -40,11 +45,31 @@ namespace CML
 
         private void btnMinimizar_Click(object sender, EventArgs e)
         {
-            this.WindowState= FormWindowState.Minimized;
+            this.WindowState = FormWindowState.Minimized;
+        }
+
+        void ActualizarDGV()
+        {
+            bd.CualquierTabla(dgv, " select a.Id_Entrega[ID], b.Nombre_Completo [Empleado], d.Area_Trabajo [Area De Trabajo], c.Cantidad[Existencia], a.Cantidad, c.Nombre [Medicamento], a.Fecha_Entrega [Fecha Entrega] from Entrega_Medicinas a inner join Identificacion b On a.Id_Identificacion = b.Id_Identificacion inner join Producto c on a.Id_Producto = c.Id_Producto inner join Puesto d on b.Id_Puesto = d.Id_Puesto order by a.Id_Entrega DESC");
+        }
+
+        void Limpiar()
+        {
+            Id_Producto = 0;
+            AreaTrabajo = 0;
+            Id_Identificacion = 0;
+            txtCantidad.Text = "0";
+            txtEgreso.Text = "0";
+            txtCodigo.Clear();
+            txtEmpleado.Clear();
+            txtProducto.Clear();
+            cmbArea.SelectedIndex = 0;            
+            btnEliminar.Enabled = false;
+            btnAgregar.Enabled = true;
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
-        {            
+        {
             if (txtCodigo.TextLength >= 4)
             {
                 try
@@ -57,8 +82,8 @@ namespace CML
                         txtEmpleado.Text = dr["Nombre_Completo"].ToString();
                         Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
                         AreaTrabajo = Convert.ToInt32(dr["Id_Puesto"].ToString());
-                        
-                        cmbArea.SelectedIndex = AreaTrabajo - 1;
+
+                        cmbArea.SelectedIndex = AreaTrabajo;
 
                     }
                     bd.CerrarConexion();
@@ -76,7 +101,7 @@ namespace CML
         {
             cmbArea.SelectedIndex = 0;
             bd.cbAreaTrabajo(cmbArea);
-            bd.CualquierTabla(dgv, "select b.Nombre_Completo [Empleado], d.Area_Trabajo [Area De Trabajo], a.Cantidad, a.Fecha_Entrega [Fecha Entrega], c.Nombre [Producto] from Entrega_Medicinas a inner join Identificacion b On a.Id_Identificacion = b.Id_Identificacion inner join Producto c on a.Id_Producto = c.Id_Producto inner join Puesto d on b.Id_Puesto = d.Id_Puesto");
+            ActualizarDGV();
         }
 
         private void txtProducto_TextChanged(object sender, EventArgs e)
@@ -113,8 +138,8 @@ namespace CML
                     dr = cmd.ExecuteReader();
                     if (dr.Read())
                     {
-                        txtCantidad.Text = dr["Existencia"].ToString();                        
-                        Id_Producto = Convert.ToInt32(dr["Id_Producto"].ToString());                                                
+                        txtCantidad.Text = dr["Existencia"].ToString();
+                        Id_Producto = Convert.ToInt32(dr["Id_Producto"].ToString());
                     }
                     else
                     {
@@ -131,45 +156,127 @@ namespace CML
             }
             else
             {
-                lbxBusqueda.Items.Clear();                
+                lbxBusqueda.Items.Clear();
             }
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            int Resta = Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text);
-            try
+            int Resta = Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text);            
+
+
+            if (txtCodigo.Text != "" || txtCantidad.Text == "" || txtEgreso.Text == "")
             {
-                bd.AbrirConexion();
-                
-                cmd = new SqlCommand("Insert into Entrega_Medicinas values (" + Id_Producto + ", " + Id_Identificacion + ", " + Convert.ToInt32(txtEgreso.Text) + ", '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', " + AreaTrabajo + ")", bd.sc);
-                cmd.ExecuteNonQuery();
+                try
+                {                   
+                    if (Convert.ToInt32(txtEgreso.Text) > Convert.ToInt32(txtCantidad.Text))
+                    {
+                        MessageBox.Show("No hay esa cantidad de producto en el inventario ", "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        bd.AbrirConexion();
 
+                        cmd = new SqlCommand("Insert into Entrega_Medicinas values (" + Id_Producto + ", " + Id_Identificacion + ", " + Convert.ToInt32(txtEgreso.Text) + ", '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', " + AreaTrabajo + ")", bd.sc);
+                        cmd.ExecuteNonQuery();
+                        
+                        cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + "--/--/--" + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + 0 + "', " + Convert.ToDouble(txtEgreso.Text) + ", " + Convert.ToInt32(txtCantidad.Text) + ")", bd.sc);
+                        cmd.ExecuteNonQuery();
 
-                cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + null + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + null + "', '" + 0 + "', " + Convert.ToDouble(txtEgreso.Text) + ", " + Convert.ToInt32(txtCantidad.Text)+ ")", bd.sc);
-                cmd.ExecuteNonQuery();
+                        cmd = new SqlCommand("update Producto set Cantidad = " + Resta + " where Id_producto = " + Id_Producto + "", bd.sc);
+                        cmd.ExecuteNonQuery();
 
-                cmd = new SqlCommand("update Producto set Cantidad = " + Resta + " where Id_producto = " + Id_Producto + "", bd.sc);
-                cmd.ExecuteNonQuery();
-
-
-                bd.CualquierTabla(dgv, "select b.Nombre_Completo [Empleado], d.Area_Trabajo [Area De Trabajo], a.Cantidad, a.Fecha_Entrega [Fecha Entrega], c.Nombre [Producto] from Entrega_Medicinas a inner join Identificacion b On a.Id_Identificacion = b.Id_Identificacion inner join Producto c on a.Id_Producto = c.Id_Producto inner join Puesto d on b.Id_Puesto = d.Id_Puesto");
-
-                bd.CerrarConexion();
-
-                txtCantidad.Text = (Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text)).ToString();
+                        txtCantidad.Text = (Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text)).ToString();
+                        ActualizarDGV();
+                        bd.CerrarConexion();
+                        Limpiar();
+                    }                                                         
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Ërror al agregar los productos de entrega: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    bd.CerrarConexion();
+                }
             }
-            catch(Exception ex)
+            else
             {
-                MessageBox.Show("Ërror al agregar los productos de entrega: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Campos vacios, revise las cajas de texto", "Valores", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
         {
-            FrmInventario inv = new FrmInventario();
-            inv.Show();
+            Limpiar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            int Suma = Convert.ToInt32(txtCantidad.Text) + Convert.ToInt32(txtEgreso.Text);
+            //int UlitmoID = 0;
+            try
+            {
+                bd.AbrirConexion();
+
+                cmd = new SqlCommand("delete from Entrega_Medicinas where Id_Entrega = " + ID + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                /*
+                UlitmoID = bd.ObtenerId("Inventario", "Id_Inventario");
+
+                cmd = new SqlCommand("delete from Inventario where Id_Inventario = " + UlitmoID +  "",  bd.sc);
+                cmd.ExecuteNonQuery();
+                */
+
+                cmd = new SqlCommand("update Producto set Cantidad = " + Suma + " where Id_producto = " + Id_Producto + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+
+                cmd = new SqlCommand("Insert into Bitacora values('" + "ENTREGA MEDICINAS" + "', '" + Usuario + "', '" + "Elimino la entrega de: " + txtEmpleado.Text + " del medicamento: " + txtProducto.Text + " con la cantidad de: " + txtEgreso.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
+
+                ActualizarDGV();                
+                bd.CerrarConexion();
+                Limpiar();
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ërror al Eliminar los productos de entrega: " + ex, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bd.CerrarConexion();
+            }
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            ID = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            txtProducto.Text = dgv.Rows[e.RowIndex].Cells["Medicamento"].Value.ToString();
+            txtEgreso.Text = dgv.Rows[e.RowIndex].Cells["Cantidad"].Value.ToString();
+            txtEmpleado.Text = dgv.Rows[e.RowIndex].Cells["Empleado"].Value.ToString();
+            txtCantidad.Text = dgv.Rows[e.RowIndex].Cells["Existencia"].Value.ToString();            
+            btnEliminar.Enabled = true;
+            btnAgregar.Enabled = false;
+            bd.AbrirConexion();
+            Id_Producto = bd.ObtenerIdPorNombre(dgv.Rows[e.RowIndex].Cells["Medicamento"].Value.ToString());
+            bd.CerrarConexion();
+        }
+
+        private void txtNombreFiltro_TextChanged(object sender, EventArgs e)
+        {
+            if(txtNombreFiltro.Text != "")
+            {
+                bd.CualquierTabla(dgv, " select a.Id_Entrega[ID], b.Nombre_Completo [Empleado], d.Area_Trabajo [Area De Trabajo], c.Cantidad[Existencia], a.Cantidad, c.Nombre [Medicamento], a.Fecha_Entrega [Fecha Entrega] from Entrega_Medicinas a inner join Identificacion b On a.Id_Identificacion = b.Id_Identificacion inner join Producto c on a.Id_Producto = c.Id_Producto inner join Puesto d on b.Id_Puesto = d.Id_Puesto where b.Nombre_Completo like '%" + txtNombreFiltro.Text+"%'");
+            }
+            else
+            {
+                ActualizarDGV();
+            }
+        }
+
+        private void btnInventario_Click(object sender, EventArgs e)
+        {
+            FrmInventario Inv = new FrmInventario(Usuario);
+            Inv.Show();
         }
     }
 }

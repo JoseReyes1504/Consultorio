@@ -98,7 +98,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1668, 48);
+            this.panel1.Size = new System.Drawing.Size(1655, 48);
             this.panel1.TabIndex = 92;
             // 
             // pictureBox2
@@ -162,7 +162,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1217, 68);
+            this.label2.Location = new System.Drawing.Point(1204, 58);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 23);
             this.label2.TabIndex = 141;
@@ -173,7 +173,7 @@
             this.dtpFecha.CalendarFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(1307, 65);
+            this.dtpFecha.Location = new System.Drawing.Point(1294, 55);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(361, 27);
@@ -471,7 +471,7 @@
             this.txtConducta.Location = new System.Drawing.Point(616, 308);
             this.txtConducta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConducta.Name = "txtConducta";
-            this.txtConducta.Size = new System.Drawing.Size(2573, 72);
+            this.txtConducta.Size = new System.Drawing.Size(531, 72);
             this.txtConducta.TabIndex = 14;
             this.txtConducta.Text = "";
             // 
@@ -559,7 +559,7 @@
             this.txtTratamiento.Location = new System.Drawing.Point(616, 436);
             this.txtTratamiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(2578, 72);
+            this.txtTratamiento.Size = new System.Drawing.Size(536, 72);
             this.txtTratamiento.TabIndex = 16;
             this.txtTratamiento.Text = "";
             // 
@@ -572,7 +572,7 @@
             this.txtMotivo.Location = new System.Drawing.Point(365, 54);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(2826, 74);
+            this.txtMotivo.Size = new System.Drawing.Size(784, 74);
             this.txtMotivo.TabIndex = 7;
             this.txtMotivo.Text = "";
             // 
@@ -706,11 +706,11 @@
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(653, 148);
+            this.groupBox2.Location = new System.Drawing.Point(639, 148);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(3214, 695);
+            this.groupBox2.Size = new System.Drawing.Size(1172, 695);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";

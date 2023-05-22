@@ -142,7 +142,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1985, 53);
+            this.panel1.Size = new System.Drawing.Size(1943, 53);
             this.panel1.TabIndex = 91;
             // 
             // pictureBox2
@@ -233,7 +233,7 @@
             this.gbIdentificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbIdentificacion.Name = "gbIdentificacion";
             this.gbIdentificacion.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbIdentificacion.Size = new System.Drawing.Size(1356, 324);
+            this.gbIdentificacion.Size = new System.Drawing.Size(1558, 324);
             this.gbIdentificacion.TabIndex = 94;
             this.gbIdentificacion.TabStop = false;
             this.gbIdentificacion.Text = "Identificacion";
@@ -287,11 +287,11 @@
             this.cmbArea.ForeColor = System.Drawing.Color.White;
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Items.AddRange(new object[] {
-            "Seleccione"});
-            this.cmbArea.Location = new System.Drawing.Point(721, 263);
+            ""});
+            this.cmbArea.Location = new System.Drawing.Point(675, 263);
             this.cmbArea.Margin = new System.Windows.Forms.Padding(4);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(192, 30);
+            this.cmbArea.Size = new System.Drawing.Size(238, 30);
             this.cmbArea.TabIndex = 17;
             this.cmbArea.SelectedIndexChanged += new System.EventHandler(this.cmbArea_SelectedIndexChanged);
             // 
@@ -300,7 +300,7 @@
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.White;
-            this.label17.Location = new System.Drawing.Point(516, 263);
+            this.label17.Location = new System.Drawing.Point(494, 263);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(174, 23);
             this.label17.TabIndex = 126;
@@ -311,10 +311,11 @@
             this.txtNumeroRef.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtNumeroRef.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumeroRef.ForeColor = System.Drawing.Color.White;
-            this.txtNumeroRef.Location = new System.Drawing.Point(259, 260);
+            this.txtNumeroRef.Location = new System.Drawing.Point(289, 261);
             this.txtNumeroRef.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNumeroRef.MaxLength = 8;
             this.txtNumeroRef.Name = "txtNumeroRef";
-            this.txtNumeroRef.Size = new System.Drawing.Size(247, 32);
+            this.txtNumeroRef.Size = new System.Drawing.Size(192, 32);
             this.txtNumeroRef.TabIndex = 16;
             // 
             // txtIdentidad
@@ -329,6 +330,7 @@
             this.txtIdentidad.Size = new System.Drawing.Size(317, 32);
             this.txtIdentidad.TabIndex = 2;
             this.txtIdentidad.TextChanged += new System.EventHandler(this.txtIdentidad_TextChanged);
+            this.txtIdentidad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtIdentidad_KeyPress);
             // 
             // label18
             // 
@@ -337,9 +339,9 @@
             this.label18.ForeColor = System.Drawing.Color.White;
             this.label18.Location = new System.Drawing.Point(23, 263);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(204, 23);
+            this.label18.Size = new System.Drawing.Size(243, 23);
             this.label18.TabIndex = 124;
-            this.label18.Text = "Numero Referencia:";
+            this.label18.Text = "No Telefono Referencia:";
             // 
             // label19
             // 
@@ -356,10 +358,10 @@
             this.txtEmail.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtEmail.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEmail.ForeColor = System.Drawing.Color.White;
-            this.txtEmail.Location = new System.Drawing.Point(985, 199);
+            this.txtEmail.Location = new System.Drawing.Point(899, 199);
             this.txtEmail.Margin = new System.Windows.Forms.Padding(4);
             this.txtEmail.Name = "txtEmail";
-            this.txtEmail.Size = new System.Drawing.Size(301, 32);
+            this.txtEmail.Size = new System.Drawing.Size(407, 32);
             this.txtEmail.TabIndex = 14;
             // 
             // label14
@@ -367,7 +369,7 @@
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(912, 203);
+            this.label14.Location = new System.Drawing.Point(825, 203);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(67, 23);
             this.label14.TabIndex = 122;
@@ -381,7 +383,7 @@
             this.txtEscolaridad.Location = new System.Drawing.Point(464, 199);
             this.txtEscolaridad.Margin = new System.Windows.Forms.Padding(4);
             this.txtEscolaridad.Name = "txtEscolaridad";
-            this.txtEscolaridad.Size = new System.Drawing.Size(417, 32);
+            this.txtEscolaridad.Size = new System.Drawing.Size(335, 32);
             this.txtEscolaridad.TabIndex = 13;
             // 
             // label15
@@ -423,6 +425,7 @@
             this.txtTelefono.ForeColor = System.Drawing.Color.White;
             this.txtTelefono.Location = new System.Drawing.Point(1428, 199);
             this.txtTelefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefono.MaxLength = 8;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(177, 32);
             this.txtTelefono.TabIndex = 15;
@@ -654,10 +657,10 @@
             this.dtpFElaboracion.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpFElaboracion.CalendarFont = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFElaboracion.Location = new System.Drawing.Point(1395, 60);
+            this.dtpFElaboracion.Location = new System.Drawing.Point(1384, 63);
             this.dtpFElaboracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFElaboracion.Name = "dtpFElaboracion";
-            this.dtpFElaboracion.Size = new System.Drawing.Size(0, 22);
+            this.dtpFElaboracion.Size = new System.Drawing.Size(132, 22);
             this.dtpFElaboracion.TabIndex = 1;
             // 
             // gbAntecedentes
@@ -673,7 +676,7 @@
             this.gbAntecedentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbAntecedentes.Name = "gbAntecedentes";
             this.gbAntecedentes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbAntecedentes.Size = new System.Drawing.Size(1362, 578);
+            this.gbAntecedentes.Size = new System.Drawing.Size(1519, 578);
             this.gbAntecedentes.TabIndex = 132;
             this.gbAntecedentes.TabStop = false;
             this.gbAntecedentes.Text = "Antecedentes";
@@ -692,7 +695,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(2, 537);
+            this.groupBox2.Size = new System.Drawing.Size(168, 537);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
@@ -708,7 +711,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(13, 297);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(0, 112);
+            this.btnLimpiar.Size = new System.Drawing.Size(162, 112);
             this.btnLimpiar.TabIndex = 67;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -726,7 +729,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(12, 171);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(0, 112);
+            this.btnActualizar.Size = new System.Drawing.Size(162, 112);
             this.btnActualizar.TabIndex = 65;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -744,7 +747,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(12, 44);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(0, 112);
+            this.btnAgregar.Size = new System.Drawing.Size(162, 112);
             this.btnAgregar.TabIndex = 64;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -1344,7 +1347,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
-            this.ClientSize = new System.Drawing.Size(1540, 814);
+            this.ClientSize = new System.Drawing.Size(1582, 814);
             this.Controls.Add(this.gbAntecedentes);
             this.Controls.Add(this.dtpFElaboracion);
             this.Controls.Add(this.label3);

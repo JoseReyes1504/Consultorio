@@ -31,20 +31,19 @@ namespace CML
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.CMLDataSet = new CML.CMLDataSet();
-            this.ConsultaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.ConsultaTableAdapter = new CML.CMLDataSetTableAdapters.ConsultaTableAdapter();
+            this.ConsultorioBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ConsultorioTableAdapter = new CML.CMLDataSetTableAdapters.ConsultorioTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.CMLDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConsultaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsultorioBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
             reportDataSource1.Name = "Consulta";
-            reportDataSource1.Value = this.ConsultaBindingSource;
+            reportDataSource1.Value = this.ConsultorioBindingSource;
             this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
             this.reportViewer1.LocalReport.ReportEmbeddedResource = "CML.ConsultaRep.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
@@ -58,14 +57,14 @@ namespace CML
             this.CMLDataSet.DataSetName = "CMLDataSet";
             this.CMLDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // ConsultaBindingSource
+            // ConsultorioBindingSource
             // 
-            this.ConsultaBindingSource.DataMember = "Consulta";
-            this.ConsultaBindingSource.DataSource = this.CMLDataSet;
+            this.ConsultorioBindingSource.DataMember = "Consultorio";
+            this.ConsultorioBindingSource.DataSource = this.CMLDataSet;
             // 
-            // ConsultaTableAdapter
+            // ConsultorioTableAdapter
             // 
-            this.ConsultaTableAdapter.ClearBeforeFill = true;
+            this.ConsultorioTableAdapter.ClearBeforeFill = true;
             // 
             // Reportes
             // 
@@ -79,17 +78,16 @@ namespace CML
             this.Text = "Reportes";
             this.Load += new System.EventHandler(this.Reportes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CMLDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ConsultaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ConsultorioBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
-        private System.Windows.Forms.BindingSource ConsultaBindingSource;
+        private System.Windows.Forms.BindingSource ConsultorioBindingSource;
         private CMLDataSet CMLDataSet;
-        private CMLDataSetTableAdapters.ConsultaTableAdapter ConsultaTableAdapter;
+        private CMLDataSetTableAdapters.ConsultorioTableAdapter ConsultorioTableAdapter;
     }
 }

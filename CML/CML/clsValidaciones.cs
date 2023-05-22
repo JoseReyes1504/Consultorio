@@ -17,7 +17,7 @@ namespace CML
         {            
             
             //Solo permite numeros se utiliza codigo ASCI para las comprobaciones
-            if (e.KeyChar >= 32 && e.KeyChar <= 45 || e.KeyChar >= 58 && e.KeyChar <= 255 || e.KeyChar == 47)
+            if (e.KeyChar >= 32 && e.KeyChar <= 45 || e.KeyChar >= 58 && e.KeyChar <= 255)
             {
                 Contador++;
                 e.Handled = true;

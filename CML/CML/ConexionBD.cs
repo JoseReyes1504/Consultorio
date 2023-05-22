@@ -83,6 +83,8 @@ namespace CML
                 AbrirConexion();
                 cmd = new SqlCommand("Select Area_Trabajo from Puesto", sc);
                 dr = cmd.ExecuteReader();
+
+                cb.Items.Add("Seleccione");
                 while (dr.Read())
                 {
                     cb.Items.Add(dr["Area_Trabajo"].ToString());
@@ -111,6 +113,22 @@ namespace CML
 
             return ID_Dato;
         }
+
+        public int ObtenerIdPorNombre(string txt)
+        {
+            int ID_Dato = 0;
+            //Obtenemos el ID del ultimo dato creado
+            cmd = new SqlCommand("select * from Producto where Nombre like '%" + txt + "%'", sc);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                ID_Dato = Convert.ToInt32(dr["Id_Producto"].ToString());
+            }
+            dr.Close();
+
+            return ID_Dato;
+        }
+
 
         public int ObtenerEnfermedades(TextBox txt)
         {

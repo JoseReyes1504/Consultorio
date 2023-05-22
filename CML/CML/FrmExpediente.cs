@@ -1,13 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace CML
 {
@@ -101,10 +94,9 @@ namespace CML
             Sexo = "Masculino";
             rbM.Checked = true;
             btnActualizar.Enabled = false;
-
+            cmbArea.SelectedIndex = 0;
             txtNumeroRef.Clear();
-            txtEdad.Clear();            
-            cmbArea.Text = "Seleccione";
+            txtEdad.Clear();
             txtCodigo.Clear();
             DatosCargardos = true;
             btnAgregar.Enabled = false;
@@ -114,7 +106,7 @@ namespace CML
             Asma = 0;
             Endoctrina = 0;
             interrogados = 0;
-            Hipertension = 0;            
+            Hipertension = 0;
             Nefropatia = 0;
             Cancer = 0;
             CardioPatia = 0;
@@ -179,7 +171,6 @@ namespace CML
 
         private void txtIdentidad_TextChanged(object sender, EventArgs e)
         {
-            int codigo = 0;
             btnAgregar.Enabled = true;
             string Sexo;
             if (txtIdentidad.TextLength == 13)
@@ -202,15 +193,16 @@ namespace CML
                         txtEstado.Text = dr["Estado_Civil"].ToString();
                         txtEmail.Text = dr["Email"].ToString();
                         Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
+                        cmbArea.SelectedIndex = Convert.ToInt32(dr["Id_Puesto"].ToString());
 
 
                         if (dr["Fecha_Nacimiento"].ToString() != "")
                         {
                             dtpFNacimiento.Value = DateTime.Parse(dr["Fecha_Nacimiento"].ToString());
                         }
-                        
+
                         Sexo = dr["Sexo"].ToString();
-                        if(Sexo == "Masculino")
+                        if (Sexo == "Masculino")
                         {
                             rbM.Checked = true;
                         }
@@ -220,8 +212,6 @@ namespace CML
                         }
                         txtNumeroRef.Text = dr["Numero_Referencia"].ToString();
                         txtEdad.Text = dr["Edad"].ToString();
-                        codigo = Convert.ToInt32(dr["Id_Puesto"].ToString());
-                        cmbArea.SelectedIndex = codigo - 1;
                         txtCodigo.Text = dr["Codigo_Empleado"].ToString();
                         DatosCargardos = true;
                         btnAgregar.Enabled = false;
@@ -232,7 +222,7 @@ namespace CML
                     cmd = new SqlCommand("select * from Empleado a inner join Antecedentes b On a.Id_Antecedentes = b.Id_Antecendentes inner join Enfermedad_Heredo_Familiar c on b.Id_Enfermedad_H = c.Id_Enfermedad_Heredo_Familiar inner join Enfermedad_Personales_Patologicos d on b.Id_Enfermedad_P = d.Id_Enfermedad_Personales_Patologicos where a.Id_Identificacion = '" + Id_Identificacion + "' ", bd.sc);
                     dr = cmd.ExecuteReader();
                     while (dr.Read())
-                    {                        
+                    {
                         diabetes = Convert.ToInt32(dr["Diabetes"].ToString());
                         txtDiabetes.Text = dr["Desc_Diabetes"].ToString();
                         Hepa = Convert.ToInt32(dr["Hepatopatia"].ToString());
@@ -291,7 +281,7 @@ namespace CML
                         CheckedInfo(Mental, cbxMentales);
                         CheckedInfo(Nefropatia, cbxNefropatia);
                         CheckedInfo(otros, cbxOtrosH);
-                        CheckedInfo(Quirurgicas, cbxQuirurgicos);                        
+                        CheckedInfo(Quirurgicas, cbxQuirurgicos);
                         CheckedInfo(Transfusionales, cbxTransfusionales);
                         CheckedInfo(otros2, cbxOtrosP);
                         CheckedInfo(Traumaticos, cbxTraumaticos);
@@ -299,7 +289,7 @@ namespace CML
                     }
                     dr.Close();
                     bd.CerrarConexion();
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -326,91 +316,106 @@ namespace CML
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-            try
+            if (cmbArea.SelectedIndex == 0)
             {
-                bd.AbrirConexion();
-                //Este codigo es para llenar la identificación del empleado
-                cmd = new SqlCommand("insert into Identificacion values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', '" + txtIdentidad.Text + "', '" + Sexo + "', '" + txtEstado.Text + "', '" + txtOcupacion.Text + "', '" + txtOrigen.Text + "', '" + txtReside.Text + "', '" + txtDomicilio.Text + "', '" + txtTelefono.Text + "', '" + txtReligion.Text + "', '" + txtEscolaridad.Text + "', '" + txtEmail.Text + "',  '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" +  null + "', '" + "Activo" + "', '" + txtEdad.Text + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                //Este es para llenar los tipos de enfermedades de las que el padece
-                cmd = new SqlCommand("insert into Enfermedad_Heredo_Familiar values (" + diabetes + ", '" + txtDiabetes.Text + "', " + Hepa + ", '" + txtHepatopatia.Text + "', " + Asma + ", '" + txtAsma.Text + "'," 
-                    + Endoctrina + ", '" + txtEndoctrina.Text + "', " + interrogados + ", '" + txtInterrogados.Text + "'," + Hipertension + ", '" + txtHipertension.Text + "'," + Nefropatia + ", '" + txtNefropatia.Text + "'," + Cancer + ", '" + txtCancer.Text + "', " +
-                    "" + CardioPatia + ", '" + txtCardiopatia.Text + "'," + Mental + ", '" + txtMentales.Text + "'," + Alergicas + ", '" + txtAlergicas.Text + "'," + otros + ", '" + txtOtrosH.Text + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                cmd = new SqlCommand("insert into Enfermedad_Personales_Patologicos values (" + Actuales + ", '" + txtEnActuales.Text + "'," + Quirurgicas + ", '" + txtQuirurgicos.Text + "', " + Transfusionales + ", '" + txtTransfusionales.Text + "'," + Alergias + ", " +
-                    "'" + txtAlergias.Text + "'," + Traumaticos + ", '" + txtTraumaticos.Text + "'," + Hospitalizaciones + ", '" + txtHospitalizaciones.Text + "'," + Adcciones + ", '" + txtAdicciones.Text + "', " + otros2 + ", '" + txtOtrosP.Text + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                Id_Enfermedades = bd.ObtenerId("Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
-                Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad); 
-               
-
-                cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + ", " + Id_Enfermedades+")", bd.sc);
-                cmd.ExecuteNonQuery();
-                
-                Id_antecedentes = bd.ObtenerId("Antecedentes", "Id_Antecendentes");
-
-                cmd = new SqlCommand("insert into Empleado values ('" + dtpFElaboracion.Value.ToString("yyyy/MM/dd")  + "', " + Id_Identificacion + ", " + Id_antecedentes + ")", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("Se creo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Limpiar();
-                bd.CerrarConexion();
+                MessageBox.Show("Seleccione el area de trabajo", "Ingresar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbArea.DroppedDown = true;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hubo un error: " + ex.ToString());
-                bd.CerrarConexion();
-            }            
+                try
+                {
+                    bd.AbrirConexion();
+                    //Este codigo es para llenar la identificación del empleado
+                    cmd = new SqlCommand("insert into Identificacion values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', '" + txtIdentidad.Text + "', '" + Sexo + "', '" + txtEstado.Text + "', '" + txtOcupacion.Text + "', '" + txtOrigen.Text + "', '" + txtReside.Text + "', '" + txtDomicilio.Text + "', '" + txtTelefono.Text + "', '" + txtReligion.Text + "', '" + txtEscolaridad.Text + "', '" + txtEmail.Text + "',  '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + null + "', '" + "Activo" + "', '" + txtEdad.Text + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    //Este es para llenar los tipos de enfermedades de las que el padece
+                    cmd = new SqlCommand("insert into Enfermedad_Heredo_Familiar values (" + diabetes + ", '" + txtDiabetes.Text + "', " + Hepa + ", '" + txtHepatopatia.Text + "', " + Asma + ", '" + txtAsma.Text + "',"
+                        + Endoctrina + ", '" + txtEndoctrina.Text + "', " + interrogados + ", '" + txtInterrogados.Text + "'," + Hipertension + ", '" + txtHipertension.Text + "'," + Nefropatia + ", '" + txtNefropatia.Text + "'," + Cancer + ", '" + txtCancer.Text + "', " +
+                        "" + CardioPatia + ", '" + txtCardiopatia.Text + "'," + Mental + ", '" + txtMentales.Text + "'," + Alergicas + ", '" + txtAlergicas.Text + "'," + otros + ", '" + txtOtrosH.Text + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("insert into Enfermedad_Personales_Patologicos values (" + Actuales + ", '" + txtEnActuales.Text + "'," + Quirurgicas + ", '" + txtQuirurgicos.Text + "', " + Transfusionales + ", '" + txtTransfusionales.Text + "'," + Alergias + ", " +
+                        "'" + txtAlergias.Text + "'," + Traumaticos + ", '" + txtTraumaticos.Text + "'," + Hospitalizaciones + ", '" + txtHospitalizaciones.Text + "'," + Adcciones + ", '" + txtAdicciones.Text + "', " + otros2 + ", '" + txtOtrosP.Text + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    Id_Enfermedades = bd.ObtenerId("Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
+                    Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
+
+                    cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + ", " + Id_Enfermedades + ")", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    Id_antecedentes = bd.ObtenerId("Antecedentes", "Id_Antecendentes");
+
+                    cmd = new SqlCommand("insert into Empleado values ('" + dtpFElaboracion.Value.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + Id_antecedentes + ")", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Se creo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Limpiar();
+                    bd.CerrarConexion();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hubo un error: " + ex.ToString());
+                    bd.CerrarConexion();
+                }
+            }
         }
 
 
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            try
+            if (cmbArea.SelectedIndex == 0)
             {
-                bd.AbrirConexion();
-                
-                //Este codigo es para llenar la identificación del empleado
-                cmd = new SqlCommand("update Identificacion set Codigo_Empleado ='" + txtCodigo.Text + "', Nombre_Completo ='" + txtNombre.Text + "', Fecha_Nacimiento='" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', No_Identidad= '" + txtIdentidad.Text + "', Sexo='" + Sexo + "', Estado_Civil='" + txtEstado.Text + "', Ocupacion='" + txtOcupacion.Text + "',Origen= '" + txtOrigen.Text + "', Reside='" + txtReside.Text + "', Domicilio='" + txtDomicilio.Text + "', Telefono='" + txtTelefono.Text + "', Religion='" + txtReligion.Text + "', Escolaridad='" + txtEscolaridad.Text + "', Email='" + txtEmail.Text + "',  Numero_Referencia='" + txtNumeroRef.Text + "', Id_Puesto='" + AreaTrabajo + "', Imagen= '" + null + "',Estado= '" + "Activo" + "', Edad='" + txtEdad.Text + "'where No_Identidad= '" + txtIdentidad.Text+ "'", bd.sc);
-                cmd.ExecuteNonQuery();
-                
-                Id_Enfermedades = bd.ObtenerEnfermedades(txtIdentidad);
-                Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
-                
-                //Este es para llenar los tipos de enfermedades de las que el padece
-                cmd = new SqlCommand("update Enfermedad_Heredo_Familiar set Diabetes= " + diabetes + ", Desc_Diabetes= '" + txtDiabetes.Text + "', Hepatopatia= " + Hepa + ", Desc_Hepatopatia= '" + txtHepatopatia.Text + "', Asma= " + Asma + ", Desc_Asma='" + txtAsma.Text + "', Enfermedad_Endoctrina="
-                    + Endoctrina + ", Desc_Endoctrina='" + txtEndoctrina.Text + "', Interrogados_y_Negados= " + interrogados + ", Desc_Interrogados= '" + txtInterrogados.Text + "', Hipertension= " + Hipertension + ", Desc_Hipertension= '" + txtHipertension.Text + "', Nefropatia= " + Nefropatia + ", Desc_Nefropatia= '" + txtNefropatia.Text + "', Cancer=" + Cancer + ", Desc_Cancer='" + txtCancer.Text + "', Cardiopatia=" +
-                    "" + CardioPatia + ", Desc_Cardiopatia='" + txtCardiopatia.Text + "', Enfermedad_Mental= " + Mental + ",  Desc_Mental= '" + txtMentales.Text + "', Enfermedad_Alergicas= " + Alergicas + ", Desc_Alergicas= '" + txtAlergicas.Text + "', Otros= " + otros + ", Desc_Otros= '" + txtOtrosH.Text + "' where Id_Enfermedad_Heredo_Familiar = " + Id_Enfermedades +"", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                
-                cmd = new SqlCommand("update Enfermedad_Personales_Patologicos set Enfermedades_Actuales=" + Actuales + ", Desc_Actuales='" + txtEnActuales.Text + "', Quirurgicos=" + Quirurgicas + ", Desc_Quirurgicas='" + txtQuirurgicos.Text + "', Transfusionales=" + Transfusionales + ", Desc_Transfusionales='" + txtTransfusionales.Text + "', Alergias=" + Alergias + ", Desc_Alergias=" +
-                    "'" + txtAlergias.Text + "', Traumaticos=" + Traumaticos + ", Desc_Traumaticos='" + txtTraumaticos.Text + "', Hospitalizaciones_Previas=" + Hospitalizaciones + ", Desc_Hospitalizaciones='" + txtHospitalizaciones.Text + "', Adicciones=" + Adcciones + ", Desc_Adicciones='" + txtAdicciones.Text + "', Otros2=" + otros2 + ", Desc_Otros2='" + txtOtrosP.Text + "' where Id_Enfermedad_Personales_Patologicos= " + Id_Enfermedades + "", bd.sc);
-                cmd.ExecuteNonQuery();                                            
-
-                MessageBox.Show("Se Actualizo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                cmd = new SqlCommand("Insert into Bitacora values('" + "EXPEDIENTE" + "', '" + Usuario + "', '" + "Actualizo la información de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd") + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                Limpiar();
-                bd.CerrarConexion();
+                MessageBox.Show("Seleccione el area de trabajo", "Ingresar", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                cmbArea.DroppedDown = true;
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show("Hubo un error: " + ex.ToString());
-                bd.CerrarConexion();
+                try
+                {
+                    bd.AbrirConexion();
+
+                    //Este codigo es para llenar la identificación del empleado
+                    cmd = new SqlCommand("update Identificacion set Codigo_Empleado ='" + txtCodigo.Text + "', Nombre_Completo ='" + txtNombre.Text + "', Fecha_Nacimiento='" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', No_Identidad= '" + txtIdentidad.Text + "', Sexo='" + Sexo + "', Estado_Civil='" + txtEstado.Text + "', Ocupacion='" + txtOcupacion.Text + "',Origen= '" + txtOrigen.Text + "', Reside='" + txtReside.Text + "', Domicilio='" + txtDomicilio.Text + "', Telefono='" + txtTelefono.Text + "', Religion='" + txtReligion.Text + "', Escolaridad='" + txtEscolaridad.Text + "', Email='" + txtEmail.Text + "',  Numero_Referencia='" + txtNumeroRef.Text + "', Id_Puesto='" + AreaTrabajo + "', Imagen= '" + null + "',Estado= '" + "Activo" + "', Edad='" + txtEdad.Text + "'where No_Identidad= '" + txtIdentidad.Text + "'", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    Id_Enfermedades = bd.ObtenerEnfermedades(txtIdentidad);
+                    Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
+                    //Este es para llenar los tipos de enfermedades de las que el padece
+                    cmd = new SqlCommand("update Enfermedad_Heredo_Familiar set Diabetes= " + diabetes + ", Desc_Diabetes= '" + txtDiabetes.Text + "', Hepatopatia= " + Hepa + ", Desc_Hepatopatia= '" + txtHepatopatia.Text + "', Asma= " + Asma + ", Desc_Asma='" + txtAsma.Text + "', Enfermedad_Endoctrina="
+                        + Endoctrina + ", Desc_Endoctrina='" + txtEndoctrina.Text + "', Interrogados_y_Negados= " + interrogados + ", Desc_Interrogados= '" + txtInterrogados.Text + "', Hipertension= " + Hipertension + ", Desc_Hipertension= '" + txtHipertension.Text + "', Nefropatia= " + Nefropatia + ", Desc_Nefropatia= '" + txtNefropatia.Text + "', Cancer=" + Cancer + ", Desc_Cancer='" + txtCancer.Text + "', Cardiopatia=" +
+                        "" + CardioPatia + ", Desc_Cardiopatia='" + txtCardiopatia.Text + "', Enfermedad_Mental= " + Mental + ",  Desc_Mental= '" + txtMentales.Text + "', Enfermedad_Alergicas= " + Alergicas + ", Desc_Alergicas= '" + txtAlergicas.Text + "', Otros= " + otros + ", Desc_Otros= '" + txtOtrosH.Text + "' where Id_Enfermedad_Heredo_Familiar = " + Id_Enfermedades + "", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+
+                    cmd = new SqlCommand("update Enfermedad_Personales_Patologicos set Enfermedades_Actuales=" + Actuales + ", Desc_Actuales='" + txtEnActuales.Text + "', Quirurgicos=" + Quirurgicas + ", Desc_Quirurgicas='" + txtQuirurgicos.Text + "', Transfusionales=" + Transfusionales + ", Desc_Transfusionales='" + txtTransfusionales.Text + "', Alergias=" + Alergias + ", Desc_Alergias=" +
+                        "'" + txtAlergias.Text + "', Traumaticos=" + Traumaticos + ", Desc_Traumaticos='" + txtTraumaticos.Text + "', Hospitalizaciones_Previas=" + Hospitalizaciones + ", Desc_Hospitalizaciones='" + txtHospitalizaciones.Text + "', Adicciones=" + Adcciones + ", Desc_Adicciones='" + txtAdicciones.Text + "', Otros2=" + otros2 + ", Desc_Otros2='" + txtOtrosP.Text + "' where Id_Enfermedad_Personales_Patologicos= " + Id_Enfermedades + "", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    MessageBox.Show("Se Actualizo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    cmd = new SqlCommand("Insert into Bitacora values('" + "EXPEDIENTE" + "', '" + Usuario + "', '" + "Actualizo la información de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    Limpiar();
+                    bd.CerrarConexion();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Hubo un error: " + ex.ToString());
+                    bd.CerrarConexion();
+                }
             }
         }
 
         private void rbM_CheckedChanged(object sender, EventArgs e)
         {
-            if(rbM.Checked == true)
+            if (rbM.Checked == true)
             {
                 Sexo = "Masculino";
             }
@@ -426,20 +431,20 @@ namespace CML
 
         private void cmbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AreaTrabajo = (cmbArea.SelectedIndex + 1);
+            AreaTrabajo = cmbArea.SelectedIndex;
         }
 
         private void FrmExpediente_Load(object sender, EventArgs e)
         {
-            cmbArea.SelectedIndex = 0;            
             bd.cbAreaTrabajo(cmbArea);
+            cmbArea.SelectedIndex = 0;
         }
 
         public int Checked(CheckBox cb, int enfermedad)
         {
             if (cb.Checked == true)
             {
-                enfermedad = 1;                
+                enfermedad = 1;
             }
             else
             {
@@ -449,8 +454,8 @@ namespace CML
         }
 
         public void CheckedInfo(int Enfermedad, CheckBox cb)
-        {            
-            if(Enfermedad == 1)
+        {
+            if (Enfermedad == 1)
             {
                 cb.Checked = true;
             }
@@ -463,7 +468,7 @@ namespace CML
         private void cbxDiabetes_CheckedChanged(object sender, EventArgs e)
         {
             diabetes = Checked(cbxDiabetes, diabetes);
-            
+
         }
 
         private void cbxHepatopatia_CheckedChanged(object sender, EventArgs e)
@@ -564,6 +569,11 @@ namespace CML
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             Limpiar();
+        }
+
+        private void txtIdentidad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            val.Numeros(e);
         }
     }
 }

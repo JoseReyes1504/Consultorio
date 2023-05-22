@@ -86,6 +86,9 @@
   <ItemGroup>
     <Compile Include="clsEmpleado.cs" />
     <Compile Include="clsValidaciones.cs" />
+    <Compile Include="CMLDataSet.cs">
+      <DependentUpon>CMLDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CMLDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

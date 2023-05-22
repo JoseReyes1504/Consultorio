@@ -22,8 +22,9 @@ namespace CML
         private void Reportes_Load(object sender, EventArgs e)
         {
             // TODO: esta línea de código carga datos en la tabla 'CMLDataSet.Consulta' Puede moverla o quitarla según sea necesario.
-            this.ConsultaTableAdapter.Fill(this.CMLDataSet.Consulta, Nun_Consulta1);
+            this.ConsultorioTableAdapter.Fill(this.CMLDataSet.Consultorio, Nun_Consulta1);
 
+            this.reportViewer1.RefreshReport();
             this.reportViewer1.RefreshReport();
         }
     }

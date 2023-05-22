@@ -150,6 +150,10 @@ namespace CML
 
         public void Consulta()
         {
+            DateTime fechaSeleccionada = dtpFecha.Value.Date;            
+            DateTime horaActual = DateTime.Now;            
+            DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
+
             DialogResult C = new DialogResult();
 
             Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
@@ -166,7 +170,7 @@ namespace CML
             Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
 
             //Al final creamos la consulta
-            cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + txtMotivo.Text + "')", bd.sc);
+            cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + txtMotivo.Text + "')", bd.sc);
             cmd.ExecuteNonQuery();
 
             C = MessageBox.Show("Se Creo la consulta, \nDesea imprimir la consulta?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -235,13 +239,13 @@ namespace CML
 
         private void FrmConsulta_Load(object sender, EventArgs e)
         {
-            cmbArea.SelectedIndex = 0;
             bd.cbAreaTrabajo(cmbArea);
+            cmbArea.SelectedIndex = 0;
         }
 
         private void cmbArea_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AreaTrabajo = (cmbArea.SelectedIndex + 1);
+            AreaTrabajo = cmbArea.SelectedIndex;
         }
 
         private void txtIdentidad_TextChanged(object sender, EventArgs e)
@@ -266,7 +270,7 @@ namespace CML
                         txtNumeroRef.Text = dr["Telefono"].ToString();
                         txtEdad.Text = dr["Edad"].ToString();
                         codigo = Convert.ToInt32(dr["Id_Puesto"].ToString());
-                        cmbArea.SelectedIndex = codigo - 1;
+                        cmbArea.SelectedIndex = codigo;
                         txtIdentidad.Text = dr["No_Identidad"].ToString();
                         DatosCargados = true;
                     }
@@ -315,14 +319,14 @@ namespace CML
                         Concatenar(Alergicas, "Alergicas", " Por: " + dr["Desc_Alergicas"].ToString());
                         Concatenar(otros, "Otros", " Por: " + dr["Desc_Otros"].ToString());
 
-                        Concatenar(Actuales, "Enfermedades Actuales", dr["Desc_Actuales"].ToString());
-                        Concatenar(Quirurgicas, "Quirurgicos", dr["Desc_Quirurgicas"].ToString());
-                        Concatenar(Transfusionales, "Transfusionales", dr["Desc_Transfusionales"].ToString());
-                        Concatenar(Alergias, "Alergias", dr["Desc_Alergias"].ToString());
-                        Concatenar(Traumaticos, "Traumaticos", dr["Desc_Traumaticos"].ToString());
-                        Concatenar(Hospitalizaciones, "Hospitalizaciones Previas", dr["Desc_Hospitalizaciones"].ToString());
-                        Concatenar(Adcciones, "Adicciones", dr["Desc_Adicciones"].ToString());
-                        Concatenar(otros2, "Otros2", dr["Desc_Otros2"].ToString());
+                        Concatenar(Actuales, "Enfermedades Actuales", ": " + dr["Desc_Actuales"].ToString());
+                        Concatenar(Quirurgicas, "Quirurgicos", ": " + dr["Desc_Quirurgicas"].ToString());
+                        Concatenar(Transfusionales, "Transfusionales", ": " + dr["Desc_Transfusionales"].ToString());
+                        Concatenar(Alergias, "Alergias", ": " + dr["Desc_Alergias"].ToString());
+                        Concatenar(Traumaticos, "Traumaticos", ": " + dr["Desc_Traumaticos"].ToString());
+                        Concatenar(Hospitalizaciones, "Hospitalizaciones Previas", ": " + dr["Desc_Hospitalizaciones"].ToString());
+                        Concatenar(Adcciones, "Adicciones", ": " +  dr["Desc_Adicciones"].ToString());
+                        Concatenar(otros2, "Otros2", ": " + dr["Desc_Otros2"].ToString());
                     }
                     dr.Close();
                     bd.CerrarConexion();

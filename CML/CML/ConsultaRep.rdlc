@@ -224,7 +224,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Antecedentes_Personales</rd:DefaultName>
-        <Top>2.57497cm</Top>
+        <Top>2.55462cm</Top>
         <Left>3.65653cm</Left>
         <Height>2.00758cm</Height>
         <Width>11.44638cm</Width>
@@ -278,42 +278,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Textbox Name="Presion_Arterial">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!Presion_Arterial.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Presion_Arterial</rd:DefaultName>
-        <Top>5.86936cm</Top>
-        <Left>2.41722cm</Left>
-        <Height>0.73758cm</Height>
-        <Width>1.37395cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Textbox Name="Textbox17">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -337,7 +301,7 @@
         <Left>0.65558cm</Left>
         <Height>0.46241cm</Height>
         <Width>2.78928cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -372,7 +336,7 @@
         <Left>1.40671cm</Left>
         <Height>0.71641cm</Height>
         <Width>0.82078cm</Width>
-        <ZIndex>10</ZIndex>
+        <ZIndex>9</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -404,11 +368,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.87995cm</Top>
-        <Left>7.11912cm</Left>
+        <Top>5.90112cm</Top>
+        <Left>7.24232cm</Left>
         <Height>0.71641cm</Height>
         <Width>0.82078cm</Width>
-        <ZIndex>11</ZIndex>
+        <ZIndex>10</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -440,11 +404,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.89053cm</Top>
-        <Left>9.90063cm</Left>
+        <Top>5.9117cm</Top>
+        <Left>10.16013cm</Left>
         <Height>0.69524cm</Height>
         <Width>0.82078cm</Width>
-        <ZIndex>12</ZIndex>
+        <ZIndex>11</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -477,10 +441,10 @@
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
         <Top>5.90112cm</Top>
-        <Left>4.14563cm</Left>
+        <Left>4.32452cm</Left>
         <Height>0.71641cm</Height>
         <Width>0.82078cm</Width>
-        <ZIndex>13</ZIndex>
+        <ZIndex>12</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -512,161 +476,17 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>5.90112cm</Top>
-        <Left>13.08812cm</Left>
+        <Top>5.92229cm</Top>
+        <Left>13.07794cm</Left>
         <Height>0.67407cm</Height>
         <Width>0.92661cm</Width>
-        <ZIndex>14</ZIndex>
+        <ZIndex>13</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
             <Style>None</Style>
             <Width>2pt</Width>
           </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Temperatura">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!Temperatura.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Temperatura</rd:DefaultName>
-        <Top>5.86936cm</Top>
-        <Left>5.20169cm</Left>
-        <Height>0.73758cm</Height>
-        <Width>1.43688cm</Width>
-        <ZIndex>15</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Frecuencia_Cardiaca">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!Frecuencia_Cardiaca.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Frecuencia_Cardiaca</rd:DefaultName>
-        <Top>5.86936cm</Top>
-        <Left>8.15248cm</Left>
-        <Height>0.73758cm</Height>
-        <Width>1.28644cm</Width>
-        <ZIndex>16</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Frecuencia_Respiratoria">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!Frecuencia_Respiratoria.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Frecuencia_Respiratoria</rd:DefaultName>
-        <Top>5.86936cm</Top>
-        <Left>10.96764cm</Left>
-        <Height>0.73758cm</Height>
-        <Width>1.56161cm</Width>
-        <ZIndex>17</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Saturacion_Oxigeno">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Fields!Saturacion_Oxigeno.Value</Value>
-                <Style />
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Saturacion_Oxigeno</rd:DefaultName>
-        <Top>5.86936cm</Top>
-        <Left>14.20446cm</Left>
-        <Height>0.73758cm</Height>
-        <Width>1.54044cm</Width>
-        <ZIndex>18</ZIndex>
-        <Style>
-          <Border>
-            <Color>LightGrey</Color>
-            <Style>None</Style>
-          </Border>
-          <BottomBorder>
-            <Style>Solid</Style>
-          </BottomBorder>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -692,7 +512,7 @@
         <Left>4.14563cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
-        <ZIndex>19</ZIndex>
+        <ZIndex>14</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -730,7 +550,7 @@
         <Left>0.65558cm</Left>
         <Height>0.46241cm</Height>
         <Width>3.12225cm</Width>
-        <ZIndex>20</ZIndex>
+        <ZIndex>15</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -765,7 +585,7 @@
         <Left>0.65558cm</Left>
         <Height>0.90691cm</Height>
         <Width>3.12225cm</Width>
-        <ZIndex>21</ZIndex>
+        <ZIndex>16</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -796,7 +616,7 @@
         <Left>4.08213cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
-        <ZIndex>22</ZIndex>
+        <ZIndex>17</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -834,7 +654,7 @@
         <Left>0.65558cm</Left>
         <Height>0.99158cm</Height>
         <Width>3.12225cm</Width>
-        <ZIndex>23</ZIndex>
+        <ZIndex>18</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -869,7 +689,7 @@
         <Left>0.65558cm</Left>
         <Height>0.58941cm</Height>
         <Width>3.12225cm</Width>
-        <ZIndex>24</ZIndex>
+        <ZIndex>19</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -904,7 +724,7 @@
         <Left>0.65558cm</Left>
         <Height>0.58941cm</Height>
         <Width>3.12225cm</Width>
-        <ZIndex>25</ZIndex>
+        <ZIndex>20</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -935,7 +755,7 @@
         <Left>4.08213cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
-        <ZIndex>26</ZIndex>
+        <ZIndex>21</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -969,7 +789,7 @@
         <Left>4.08213cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
-        <ZIndex>27</ZIndex>
+        <ZIndex>22</ZIndex>
         <Style>
           <Border>
             <Color>LightGrey</Color>
@@ -1003,6 +823,180 @@
         <Left>4.09547cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
+        <ZIndex>23</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Presion_Arterial">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Presion_Arterial.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Presion_Arterial</rd:DefaultName>
+        <Top>5.95932cm</Top>
+        <Left>2.534cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.484cm</Width>
+        <ZIndex>24</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Temperatura">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Temperatura.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Temperatura</rd:DefaultName>
+        <Top>5.95932cm</Top>
+        <Left>5.45181cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.484cm</Width>
+        <ZIndex>25</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Frecuencia_Cardiaca">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Frecuencia_Cardiaca.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Frecuencia_Cardiaca</rd:DefaultName>
+        <Top>5.95932cm</Top>
+        <Left>8.36962cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.484cm</Width>
+        <ZIndex>26</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Frecuencia_Respiratoria">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Frecuencia_Respiratoria.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Frecuencia_Respiratoria</rd:DefaultName>
+        <Top>5.95932cm</Top>
+        <Left>11.28742cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.484cm</Width>
+        <ZIndex>27</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Saturacion_Oxigeno">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Saturacion_Oxigeno.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Saturacion_Oxigeno</rd:DefaultName>
+        <Top>5.95932cm</Top>
+        <Left>14.31106cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.484cm</Width>
         <ZIndex>28</ZIndex>
         <Style>
           <Border>
@@ -1367,6 +1361,10 @@
           <DataField>Fecha_Consulta</DataField>
           <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
+        <Field Name="Motivo_Consulta">
+          <DataField>Motivo_Consulta</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
         <Field Name="Id_Empleado1">
           <DataField>Id_Empleado1</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
@@ -1469,23 +1467,23 @@
         </Field>
         <Field Name="Presion_Arterial">
           <DataField>Presion_Arterial</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Temperatura">
           <DataField>Temperatura</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Frecuencia_Cardiaca">
           <DataField>Frecuencia_Cardiaca</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Frecuencia_Respiratoria">
           <DataField>Frecuencia_Respiratoria</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Saturacion_Oxigeno">
           <DataField>Saturacion_Oxigeno</DataField>
-          <rd:TypeName>System.Double</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Id_Puesto1">
           <DataField>Id_Puesto1</DataField>
@@ -1495,18 +1493,14 @@
           <DataField>Area_Trabajo</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="Motivo_Consulta">
-          <DataField>Motivo_Consulta</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>CMLDataSet</rd:DataSetName>
         <rd:SchemaPath>C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\CMLDataSet.xsd</rd:SchemaPath>
-        <rd:TableName>Consulta</rd:TableName>
+        <rd:TableName>Consultorio</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
-        <rd:TableAdapterName>ConsultaTableAdapter</rd:TableAdapterName>
+        <rd:TableAdapterName>ConsultorioTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
