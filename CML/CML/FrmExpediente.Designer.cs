@@ -31,10 +31,12 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmExpediente));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.gbIdentificacion = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtCodigo = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
@@ -122,18 +124,16 @@
             this.txtDiabetes = new System.Windows.Forms.TextBox();
             this.cbxDiabetes = new System.Windows.Forms.CheckBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbIdentificacion.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbSexo.SuspendLayout();
             this.gbAntecedentes.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.gbHeredoFamiliar.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -146,8 +146,19 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1959, 53);
+            this.panel1.Size = new System.Drawing.Size(1938, 53);
             this.panel1.TabIndex = 91;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 97;
+            this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -227,10 +238,21 @@
             this.gbIdentificacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbIdentificacion.Name = "gbIdentificacion";
             this.gbIdentificacion.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbIdentificacion.Size = new System.Drawing.Size(1634, 324);
+            this.gbIdentificacion.Size = new System.Drawing.Size(1613, 324);
             this.gbIdentificacion.TabIndex = 94;
             this.gbIdentificacion.TabStop = false;
             this.gbIdentificacion.Text = "Identificacion";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CML.Properties.Resources.info_FILL0_wght400_GRAD0_opsz48;
+            this.pictureBox1.Location = new System.Drawing.Point(1550, 44);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 196;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "CM - Cumar\r\nLG - Langostinos\r\nCS - Culmasa");
             // 
             // label7
             // 
@@ -655,7 +677,7 @@
             this.dtpFElaboracion.Location = new System.Drawing.Point(1384, 63);
             this.dtpFElaboracion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFElaboracion.Name = "dtpFElaboracion";
-            this.dtpFElaboracion.Size = new System.Drawing.Size(148, 22);
+            this.dtpFElaboracion.Size = new System.Drawing.Size(127, 22);
             this.dtpFElaboracion.TabIndex = 1;
             // 
             // gbAntecedentes
@@ -671,7 +693,7 @@
             this.gbAntecedentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbAntecedentes.Name = "gbAntecedentes";
             this.gbAntecedentes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbAntecedentes.Size = new System.Drawing.Size(1634, 578);
+            this.gbAntecedentes.Size = new System.Drawing.Size(1613, 578);
             this.gbAntecedentes.TabIndex = 132;
             this.gbAntecedentes.TabStop = false;
             this.gbAntecedentes.Text = "Antecedentes";
@@ -690,7 +712,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(263, 537);
+            this.groupBox2.Size = new System.Drawing.Size(242, 537);
             this.groupBox2.TabIndex = 63;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Opciones";
@@ -706,7 +728,7 @@
             this.btnLimpiar.Location = new System.Drawing.Point(13, 297);
             this.btnLimpiar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(236, 112);
+            this.btnLimpiar.Size = new System.Drawing.Size(215, 112);
             this.btnLimpiar.TabIndex = 67;
             this.btnLimpiar.Text = "Limpiar";
             this.btnLimpiar.UseVisualStyleBackColor = false;
@@ -724,7 +746,7 @@
             this.btnActualizar.Location = new System.Drawing.Point(12, 171);
             this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(236, 112);
+            this.btnActualizar.Size = new System.Drawing.Size(215, 112);
             this.btnActualizar.TabIndex = 65;
             this.btnActualizar.Text = "Actualizar";
             this.btnActualizar.UseVisualStyleBackColor = false;
@@ -742,7 +764,7 @@
             this.btnAgregar.Location = new System.Drawing.Point(12, 44);
             this.btnAgregar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(236, 112);
+            this.btnAgregar.Size = new System.Drawing.Size(215, 112);
             this.btnAgregar.TabIndex = 64;
             this.btnAgregar.Text = "Agregar";
             this.btnAgregar.UseVisualStyleBackColor = false;
@@ -1336,28 +1358,6 @@
             this.label22.TabIndex = 132;
             this.label22.Text = "Marcar todas las que apliquen y especificar quien la ha padecido.";
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 5);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(44, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 97;
-            this.pictureBox2.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::CML.Properties.Resources.info_FILL0_wght400_GRAD0_opsz48;
-            this.pictureBox1.Location = new System.Drawing.Point(1550, 44);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 196;
-            this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "CM - Cumar\r\nLG - Langostinos\r\nCS - Culmasa");
-            // 
             // FrmExpediente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1382,8 +1382,10 @@
             this.Load += new System.EventHandler(this.FrmExpediente_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbIdentificacion.ResumeLayout(false);
             this.gbIdentificacion.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.gbSexo.ResumeLayout(false);
             this.gbSexo.PerformLayout();
             this.gbAntecedentes.ResumeLayout(false);
@@ -1392,8 +1394,6 @@
             this.groupBox1.PerformLayout();
             this.gbHeredoFamiliar.ResumeLayout(false);
             this.gbHeredoFamiliar.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

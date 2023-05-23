@@ -477,7 +477,7 @@
             this.txtConducta.Location = new System.Drawing.Point(616, 308);
             this.txtConducta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConducta.Name = "txtConducta";
-            this.txtConducta.Size = new System.Drawing.Size(1355, 72);
+            this.txtConducta.Size = new System.Drawing.Size(1503, 72);
             this.txtConducta.TabIndex = 14;
             this.txtConducta.Text = "";
             // 
@@ -565,7 +565,7 @@
             this.txtTratamiento.Location = new System.Drawing.Point(616, 436);
             this.txtTratamiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(1360, 72);
+            this.txtTratamiento.Size = new System.Drawing.Size(1508, 72);
             this.txtTratamiento.TabIndex = 16;
             this.txtTratamiento.Text = "";
             // 
@@ -578,7 +578,7 @@
             this.txtMotivo.Location = new System.Drawing.Point(365, 54);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(1608, 74);
+            this.txtMotivo.Size = new System.Drawing.Size(1756, 74);
             this.txtMotivo.TabIndex = 7;
             this.txtMotivo.Text = "";
             // 
@@ -762,7 +762,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1996, 757);
+            this.groupBox2.Size = new System.Drawing.Size(2144, 757);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";

@@ -489,7 +489,7 @@ namespace CML
         private void btnConsultas_Click(object sender, EventArgs e)
         {
             FrmVerConsultas consultas = new FrmVerConsultas();
-            consultas.ShowDialog();
+            consultas.Show();
             this.Hide();
         }
 
@@ -504,7 +504,9 @@ namespace CML
             DateTime horaActual = DateTime.Now;
             DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
 
-           try
+            DateTime fechaActual = DateTime.Now;
+
+            try
             {
 
                 bd.AbrirConexion();
@@ -521,8 +523,9 @@ namespace CML
                 cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta='" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc);
                 cmd.ExecuteNonQuery();
 
+                MessageBox.Show("" + fechaActual);
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + " , '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
                 cmd.ExecuteNonQuery();
 
 

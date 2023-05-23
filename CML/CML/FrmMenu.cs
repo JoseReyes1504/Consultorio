@@ -5,7 +5,8 @@ namespace CML
 {
     public partial class FrmMenu : Form
     {
-        string Usuario;
+        string Usuario;        
+
         public FrmMenu()
         {
             InitializeComponent();
@@ -27,6 +28,8 @@ namespace CML
         {
             FrmConsulta frmConsulta = new FrmConsulta(0,Usuario);
             frmConsulta.ShowDialog();
+
+            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btnUsuarios_Click(object sender, EventArgs e)
@@ -84,7 +87,7 @@ namespace CML
         private void btnControlDiario_Click(object sender, EventArgs e)
         {
             ControlEnf control = new ControlEnf();
-            control.ShowDialog();
+            control.ShowDialog();            
         }
 
         private void FrmMenu_Load(object sender, EventArgs e)
