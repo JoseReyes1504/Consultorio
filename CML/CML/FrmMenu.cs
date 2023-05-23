@@ -55,19 +55,19 @@ namespace CML
         private void btnInventario_Click(object sender, EventArgs e)
         {
             FrmInventario frmInventario = new FrmInventario(Usuario);
-            frmInventario.Show();
+            frmInventario.ShowDialog();
         }
 
         private void btnEntregaMeds_Click(object sender, EventArgs e)
         {
             FrmEntregaMedicina frmEntregaMedicina = new FrmEntregaMedicina(Usuario);
-            frmEntregaMedicina.Show();
+            frmEntregaMedicina.ShowDialog();
         }
 
         private void btnIncapacidad_Click(object sender, EventArgs e)
         {
             FrmIncapacidad frmIncapacidad = new FrmIncapacidad(Usuario);
-            frmIncapacidad.Show();
+            frmIncapacidad.ShowDialog();
         }
 
         private void btnBitacora_Click(object sender, EventArgs e)
@@ -112,6 +112,10 @@ namespace CML
                 }
             }
 
+        }
+
+        private void FrmMenu_Leave(object sender, EventArgs e)
+        {            
         }
     }
 }

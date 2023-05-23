@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMenu));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnSalir = new System.Windows.Forms.PictureBox();
             this.lblHora = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -49,7 +48,6 @@
             this.bindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.Tiempo = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).BeginInit();
@@ -58,7 +56,6 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
-            this.panel1.Controls.Add(this.btnSalir);
             this.panel1.Controls.Add(this.lblHora);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -68,24 +65,13 @@
             this.panel1.Size = new System.Drawing.Size(1228, 47);
             this.panel1.TabIndex = 89;
             // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = ((System.Drawing.Image)(resources.GetObject("btnSalir.Image")));
-            this.btnSalir.Location = new System.Drawing.Point(1675, 14);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 7, 4, 7);
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(33, 33);
-            this.btnSalir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.btnSalir.TabIndex = 81;
-            this.btnSalir.TabStop = false;
-            // 
             // lblHora
             // 
             this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.lblHora.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lblHora.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblHora.ForeColor = System.Drawing.Color.White;
-            this.lblHora.Location = new System.Drawing.Point(989, -2);
+            this.lblHora.Location = new System.Drawing.Point(957, -2);
             this.lblHora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblHora.Name = "lblHora";
             this.lblHora.ReadOnly = true;
@@ -325,11 +311,12 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmMenu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "MENU";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMenu_FormClosing);
             this.Load += new System.EventHandler(this.FrmMenu_Load);
+            this.Leave += new System.EventHandler(this.FrmMenu_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btnSalir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.bindingSource1)).EndInit();
@@ -341,7 +328,6 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox btnSalir;
         private System.Windows.Forms.Button btnUsuarios;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox lblHora;

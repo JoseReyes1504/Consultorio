@@ -73,6 +73,8 @@
             this.txtTratamiento = new System.Windows.Forms.RichTextBox();
             this.txtMotivo = new System.Windows.Forms.RichTextBox();
             this.gbOpciones = new System.Windows.Forms.GroupBox();
+            this.btnConsultas = new System.Windows.Forms.Button();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.label26 = new System.Windows.Forms.Label();
@@ -471,7 +473,7 @@
             this.txtConducta.Location = new System.Drawing.Point(616, 308);
             this.txtConducta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConducta.Name = "txtConducta";
-            this.txtConducta.Size = new System.Drawing.Size(531, 72);
+            this.txtConducta.Size = new System.Drawing.Size(869, 72);
             this.txtConducta.TabIndex = 14;
             this.txtConducta.Text = "";
             // 
@@ -559,7 +561,7 @@
             this.txtTratamiento.Location = new System.Drawing.Point(616, 436);
             this.txtTratamiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(536, 72);
+            this.txtTratamiento.Size = new System.Drawing.Size(874, 72);
             this.txtTratamiento.TabIndex = 16;
             this.txtTratamiento.Text = "";
             // 
@@ -572,12 +574,14 @@
             this.txtMotivo.Location = new System.Drawing.Point(365, 54);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(784, 74);
+            this.txtMotivo.Size = new System.Drawing.Size(1122, 74);
             this.txtMotivo.TabIndex = 7;
             this.txtMotivo.Text = "";
             // 
             // gbOpciones
             // 
+            this.gbOpciones.Controls.Add(this.btnConsultas);
+            this.gbOpciones.Controls.Add(this.btnActualizar);
             this.gbOpciones.Controls.Add(this.btnLimpiar);
             this.gbOpciones.Controls.Add(this.btnAgregar);
             this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -586,10 +590,42 @@
             this.gbOpciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.gbOpciones.Size = new System.Drawing.Size(585, 95);
+            this.gbOpciones.Size = new System.Drawing.Size(585, 157);
             this.gbOpciones.TabIndex = 193;
             this.gbOpciones.TabStop = false;
             this.gbOpciones.Text = "Opciones";
+            // 
+            // btnConsultas
+            // 
+            this.btnConsultas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
+            this.btnConsultas.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnConsultas.FlatAppearance.BorderSize = 0;
+            this.btnConsultas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnConsultas.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsultas.Location = new System.Drawing.Point(300, 91);
+            this.btnConsultas.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnConsultas.Name = "btnConsultas";
+            this.btnConsultas.Size = new System.Drawing.Size(261, 46);
+            this.btnConsultas.TabIndex = 22;
+            this.btnConsultas.Text = "Consultas";
+            this.btnConsultas.UseVisualStyleBackColor = false;
+            this.btnConsultas.Click += new System.EventHandler(this.btnConsultas_Click);
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
+            this.btnActualizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnActualizar.FlatAppearance.BorderSize = 0;
+            this.btnActualizar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnActualizar.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnActualizar.Location = new System.Drawing.Point(13, 91);
+            this.btnActualizar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(261, 46);
+            this.btnActualizar.TabIndex = 21;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
             // 
             // btnLimpiar
             // 
@@ -710,7 +746,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1172, 695);
+            this.groupBox2.Size = new System.Drawing.Size(1510, 757);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";
@@ -772,8 +808,10 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmConsulta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmConsulta_Load);
+            this.Leave += new System.EventHandler(this.FrmConsulta_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
@@ -842,5 +880,7 @@
         private System.Windows.Forms.RadioButton btnNo;
         private System.Windows.Forms.RadioButton btnSi;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button btnConsultas;
+        private System.Windows.Forms.Button btnActualizar;
     }
 }

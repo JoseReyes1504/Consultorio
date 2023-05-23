@@ -17,6 +17,7 @@ namespace CML
         ConexionBD bd = new ConexionBD();
         int Id = 0;
         Reportes re = new Reportes();
+        
         public FrmVerConsultas()
         {
             InitializeComponent();
@@ -35,9 +36,10 @@ namespace CML
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {            
-            Id = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            Id = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());                       
             re.Nun_Consulta1 = Id;
             btnImprimir.Enabled = true;
+            btnEditar.Enabled = true;
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
@@ -51,6 +53,18 @@ namespace CML
                 bd.CualquierTabla(dgv, "select a.Id_Consultorio[ID], c.Nombre_Completo[Paciente], a.Motivo_Consulta[Motivo Consulta], a.Incapacidad, a.Fecha_Consulta[Fecha] from Consultorio a inner join Empleado b on a.Id_Empleado = b.Id_Empleado inner join Identificacion c On b.Id_Identificacion = c.Id_Identificacion order by a.Id_Consultorio DESC");
             }
             
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            FrmConsulta consulta = new FrmConsulta(Id);
+            consulta.ShowDialog();
+            this.Close();
+        }
+
+        private void FrmVerConsultas_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

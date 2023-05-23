@@ -18,6 +18,7 @@ namespace CML
         int Id_Signos;
         int Incapacidad = 0;
         bool DatosCargados = false;
+        int IDConsulta = 0;
 
         SqlCommand cmd;
         SqlDataReader dr;
@@ -47,7 +48,7 @@ namespace CML
         int otros2 = 0;
 
         int Id_Enfermedades = 0;
-
+        
 
         public void Limpiar()
         {
@@ -82,6 +83,12 @@ namespace CML
         public FrmConsulta()
         {
             InitializeComponent();
+        }
+        public FrmConsulta(int ID)
+        {
+            InitializeComponent();
+            IDConsulta = ID;
+            
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -241,6 +248,54 @@ namespace CML
         {
             bd.cbAreaTrabajo(cmbArea);
             cmbArea.SelectedIndex = 0;
+            string codigo = "";
+
+            if(IDConsulta != 0)
+            {
+                try
+                {
+                    bd.AbrirConexion();
+
+                    cmd = new SqlCommand("select c.No_Identidad, c.Nombre_Completo, c.Codigo_Empleado, c.Telefono, c.Edad, c.Id_Puesto, a.Motivo_Consulta, a.Conducta, a.Examen_Fisico, a.Historia_Enfermedad_Actual, a.Fecha_Consulta, a.Antecedentes_Personales, a.Impresion_Diagnostico, a.Tratamiento, a.Incapacidad, d.Presion_Arterial, d.Frecuencia_Cardiaca,d.Frecuencia_Respiratoria, d.Saturacion_Oxigeno, d.Temperatura from Consultorio a inner join Empleado b  on a.Id_Empleado = b.Id_Empleado inner join Identificacion c on b.Id_Identificacion = c.Id_Identificacion inner join Signos_Vitales_Consultorio d on a.Id_Signos_Vitales_Consultorio = d.Id_Signos_Vitales_Consultorio where a.Id_Consultorio = " + IDConsulta + "", bd.sc);                    
+                    dr = cmd.ExecuteReader();
+
+                    while (dr.Read())
+                    {
+                        txtMotivo.Text = dr["Motivo_Consulta"].ToString();
+                        txtExamen.Text = dr["Examen_Fisico"].ToString();
+                        txtConducta.Text = dr["Conducta"].ToString();
+                        txtTratamiento.Text = dr["Tratamiento"].ToString();
+                        txtHistoria.Text = dr["Historia_Enfermedad_Actual"].ToString();
+                        txtImpresion.Text = dr["Impresion_Diagnostico"].ToString();
+                        dtpFecha.Value = DateTime.Parse(dr["Fecha_Consulta"].ToString());
+                        txtPA.Text = dr["Presion_Arterial"].ToString();
+                        txtT.Text = dr["Temperatura"].ToString();
+                        txtSO2.Text = dr["Saturacion_Oxigeno"].ToString();
+                        txtFC.Text = dr["Frecuencia_Cardiaca"].ToString();
+                        txtFR.Text = dr["Frecuencia_Respiratoria"].ToString();
+                        codigo = dr["Codigo_Empleado"].ToString();
+                        
+                        if(Convert.ToInt32(dr["Incapacidad"].ToString()) == 1)
+                        {
+                            btnSi.Checked = true;
+                        }
+                        else
+                        {
+                            btnNo.Checked = true;
+                            
+                        }
+
+                    }                    
+                    dr.Close();                    
+                    bd.CerrarConexion();
+                    txtCodigo.Text = codigo;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error" + ex.ToString() , "error");
+                    bd.CerrarConexion();
+                }
+            }
         }
 
         private void cmbArea_SelectedIndexChanged(object sender, EventArgs e)
@@ -425,6 +480,23 @@ namespace CML
         private void txtSO2_KeyPress(object sender, KeyPressEventArgs e)
         {
             val.Numeros(e);
+        }
+
+        private void btnConsultas_Click(object sender, EventArgs e)
+        {
+            FrmVerConsultas consultas = new FrmVerConsultas();
+            consultas.ShowDialog();
+            this.Hide();
+        }
+
+        private void FrmConsulta_Leave(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

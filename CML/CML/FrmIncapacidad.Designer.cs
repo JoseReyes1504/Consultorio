@@ -88,7 +88,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1323, 53);
+            this.panel1.Size = new System.Drawing.Size(1328, 53);
             this.panel1.TabIndex = 96;
             // 
             // pictureBox2
@@ -388,7 +388,7 @@
             this.dgv.RowTemplate.Height = 24;
             this.dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(785, 817);
+            this.dgv.Size = new System.Drawing.Size(769, 892);
             this.dgv.TabIndex = 197;
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             // 
