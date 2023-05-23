@@ -20,7 +20,7 @@ namespace CML
         bool DatosCargados = false;
         int IDConsulta = 0;
         int Id_Consultorio = 0;
-
+        string Usuario = "";
         SqlCommand cmd;
         SqlDataReader dr;
 
@@ -85,9 +85,10 @@ namespace CML
         {
             InitializeComponent();
         }
-        public FrmConsulta(int ID)
+        public FrmConsulta(int ID, string usuario = "")
         {
             InitializeComponent();
+            Usuario = usuario;
             IDConsulta = ID;
 
         }
@@ -503,9 +504,7 @@ namespace CML
             DateTime horaActual = DateTime.Now;
             DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
 
-
-
-            try
+           try
             {
 
                 bd.AbrirConexion();
@@ -521,6 +520,11 @@ namespace CML
 
                 cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta='" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc);
                 cmd.ExecuteNonQuery();
+
+
+                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + " , '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+
 
                 MessageBox.Show("Se actualizo correctamente la consulta", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 bd.CerrarConexion();

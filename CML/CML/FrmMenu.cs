@@ -25,7 +25,7 @@ namespace CML
 
         private void btnConsulta_Click(object sender, EventArgs e)
         {
-            FrmConsulta frmConsulta = new FrmConsulta();
+            FrmConsulta frmConsulta = new FrmConsulta(0,Usuario);
             frmConsulta.ShowDialog();
         }
 
