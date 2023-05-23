@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ConsultorioTableAdapter" GeneratorDataComponentClassName="ConsultorioTableAdapter" Name="Consultorio" UserDataComponentName="ConsultorioTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="CMLConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="CMLConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>
@@ -37,7 +37,6 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
               <Mapping SourceColumn="Impresion_Diagnostico" DataSetColumn="Impresion_Diagnostico" />
               <Mapping SourceColumn="Tratamiento" DataSetColumn="Tratamiento" />
               <Mapping SourceColumn="Conducta" DataSetColumn="Conducta" />
-              <Mapping SourceColumn="Incapacidad" DataSetColumn="Incapacidad" />
               <Mapping SourceColumn="Fecha_Consulta" DataSetColumn="Fecha_Consulta" />
               <Mapping SourceColumn="Motivo_Consulta" DataSetColumn="Motivo_Consulta" />
               <Mapping SourceColumn="Id_Empleado1" DataSetColumn="Id_Empleado1" />
@@ -72,6 +71,7 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
               <Mapping SourceColumn="Saturacion_Oxigeno" DataSetColumn="Saturacion_Oxigeno" />
               <Mapping SourceColumn="Id_Puesto1" DataSetColumn="Id_Puesto1" />
               <Mapping SourceColumn="Area_Trabajo" DataSetColumn="Area_Trabajo" />
+              <Mapping SourceColumn="Incapacidad" DataSetColumn="Incapacidad1" />
             </Mappings>
             <Sources />
           </TableAdapter>
@@ -83,7 +83,7 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
   <xs:element name="CMLDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CMLDataSet" msprop:Generator_UserDSName="CMLDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Consultorio" msprop:Generator_TableClassName="ConsultorioDataTable" msprop:Generator_TableVarName="tableConsultorio" msprop:Generator_TablePropName="Consultorio" msprop:Generator_RowDeletingName="ConsultorioRowDeleting" msprop:Generator_RowChangingName="ConsultorioRowChanging" msprop:Generator_RowEvHandlerName="ConsultorioRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultorioRowDeleted" msprop:Generator_UserTableName="Consultorio" msprop:Generator_RowChangedName="ConsultorioRowChanged" msprop:Generator_RowEvArgName="ConsultorioRowChangeEvent" msprop:Generator_RowClassName="ConsultorioRow">
+        <xs:element name="Consultorio" msprop:Generator_TableClassName="ConsultorioDataTable" msprop:Generator_TableVarName="tableConsultorio" msprop:Generator_RowChangedName="ConsultorioRowChanged" msprop:Generator_TablePropName="Consultorio" msprop:Generator_RowDeletingName="ConsultorioRowDeleting" msprop:Generator_RowChangingName="ConsultorioRowChanging" msprop:Generator_RowEvHandlerName="ConsultorioRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultorioRowDeleted" msprop:Generator_RowClassName="ConsultorioRow" msprop:Generator_UserTableName="Consultorio" msprop:Generator_RowEvArgName="ConsultorioRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Consultorio" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Consultorio" msprop:Generator_ColumnPropNameInRow="Id_Consultorio" msprop:Generator_ColumnPropNameInTable="Id_ConsultorioColumn" msprop:Generator_UserColumnName="Id_Consultorio" type="xs:int" />
@@ -131,7 +131,7 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
-              <xs:element name="Incapacidad" msprop:Generator_ColumnVarNameInTable="columnIncapacidad" msprop:Generator_ColumnPropNameInRow="Incapacidad" msprop:Generator_ColumnPropNameInTable="IncapacidadColumn" msprop:Generator_UserColumnName="Incapacidad" type="xs:int" minOccurs="0" />
+              <xs:element name="Incapacidad" msprop:Generator_ColumnVarNameInTable="columnIncapacidad" msprop:Generator_ColumnPropNameInRow="Incapacidad" msprop:Generator_ColumnPropNameInTable="IncapacidadColumn" msprop:Generator_UserColumnName="Incapacidad" type="xs:string" minOccurs="0" />
               <xs:element name="Fecha_Consulta" msprop:Generator_ColumnVarNameInTable="columnFecha_Consulta" msprop:Generator_ColumnPropNameInRow="Fecha_Consulta" msprop:Generator_ColumnPropNameInTable="Fecha_ConsultaColumn" msprop:Generator_UserColumnName="Fecha_Consulta" type="xs:dateTime" minOccurs="0" />
               <xs:element name="Motivo_Consulta" msprop:Generator_ColumnVarNameInTable="columnMotivo_Consulta" msprop:Generator_ColumnPropNameInRow="Motivo_Consulta" msprop:Generator_ColumnPropNameInTable="Motivo_ConsultaColumn" msprop:Generator_UserColumnName="Motivo_Consulta" minOccurs="0">
                 <xs:simpleType>
@@ -295,6 +295,13 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Incapacidad1" msdata:Caption="Incapacidad" msprop:Generator_ColumnVarNameInTable="columnIncapacidad1" msprop:Generator_ColumnPropNameInRow="Incapacidad1" msprop:Generator_ColumnPropNameInTable="Incapacidad1Column" msprop:Generator_UserColumnName="Incapacidad1" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="3" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>

@@ -132,7 +132,6 @@ namespace CML
 
         public int ObtenerEnfermedades(TextBox txt)
         {
-
             int Id = 0;
             cmd = new SqlCommand("select a.Id_Antecedentes from Empleado a inner join Identificacion b on a.Id_Identificacion = b.Id_Identificacion where b.No_Identidad = '" + txt.Text+ "'", sc);
             dr = cmd.ExecuteReader();

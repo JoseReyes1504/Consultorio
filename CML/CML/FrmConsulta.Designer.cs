@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmConsulta));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
@@ -84,11 +84,15 @@
             this.btnNo = new System.Windows.Forms.RadioButton();
             this.btnSi = new System.Windows.Forms.RadioButton();
             this.label8 = new System.Windows.Forms.Label();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbOpciones.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -102,17 +106,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1655, 48);
             this.panel1.TabIndex = 92;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(12, 5);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(44, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 97;
-            this.pictureBox2.TabStop = false;
             // 
             // label4
             // 
@@ -131,7 +124,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 53);
+            this.label1.Location = new System.Drawing.Point(15, 247);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(387, 28);
             this.label1.TabIndex = 138;
@@ -164,7 +157,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(1204, 58);
+            this.label2.Location = new System.Drawing.Point(1204, 252);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 23);
             this.label2.TabIndex = 141;
@@ -175,7 +168,7 @@
             this.dtpFecha.CalendarFont = new System.Drawing.Font("Century Gothic", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpFecha.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.dtpFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpFecha.Location = new System.Drawing.Point(1294, 55);
+            this.dtpFecha.Location = new System.Drawing.Point(1294, 249);
             this.dtpFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dtpFecha.Name = "dtpFecha";
             this.dtpFecha.Size = new System.Drawing.Size(361, 27);
@@ -276,7 +269,7 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(15, 81);
+            this.label22.Location = new System.Drawing.Point(15, 275);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(407, 37);
             this.label22.TabIndex = 156;
@@ -286,7 +279,7 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 107);
+            this.label11.Location = new System.Drawing.Point(15, 301);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(407, 37);
             this.label11.TabIndex = 157;
@@ -473,7 +466,7 @@
             this.txtConducta.Location = new System.Drawing.Point(616, 308);
             this.txtConducta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConducta.Name = "txtConducta";
-            this.txtConducta.Size = new System.Drawing.Size(869, 72);
+            this.txtConducta.Size = new System.Drawing.Size(1207, 72);
             this.txtConducta.TabIndex = 14;
             this.txtConducta.Text = "";
             // 
@@ -561,7 +554,7 @@
             this.txtTratamiento.Location = new System.Drawing.Point(616, 436);
             this.txtTratamiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(874, 72);
+            this.txtTratamiento.Size = new System.Drawing.Size(1212, 72);
             this.txtTratamiento.TabIndex = 16;
             this.txtTratamiento.Text = "";
             // 
@@ -574,7 +567,7 @@
             this.txtMotivo.Location = new System.Drawing.Point(365, 54);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(1122, 74);
+            this.txtMotivo.Size = new System.Drawing.Size(1460, 74);
             this.txtMotivo.TabIndex = 7;
             this.txtMotivo.Text = "";
             // 
@@ -586,7 +579,7 @@
             this.gbOpciones.Controls.Add(this.btnAgregar);
             this.gbOpciones.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gbOpciones.ForeColor = System.Drawing.Color.White;
-            this.gbOpciones.Location = new System.Drawing.Point(45, 748);
+            this.gbOpciones.Location = new System.Drawing.Point(45, 942);
             this.gbOpciones.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.gbOpciones.Name = "gbOpciones";
             this.gbOpciones.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -684,6 +677,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtIdentidad);
             this.groupBox1.Controls.Add(this.txtNumeroRef);
@@ -701,7 +695,7 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.White;
-            this.groupBox1.Location = new System.Drawing.Point(48, 148);
+            this.groupBox1.Location = new System.Drawing.Point(48, 342);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
@@ -742,11 +736,11 @@
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.White;
-            this.groupBox2.Location = new System.Drawing.Point(639, 148);
+            this.groupBox2.Location = new System.Drawing.Point(639, 342);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1510, 757);
+            this.groupBox2.Size = new System.Drawing.Size(1848, 757);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";
@@ -787,13 +781,35 @@
             this.label8.TabIndex = 188;
             this.label8.Text = "F) Incapacidad";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::CML.Properties.Resources.info_FILL0_wght400_GRAD0_opsz48;
+            this.pictureBox1.Location = new System.Drawing.Point(301, 57);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(25, 25);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 195;
+            this.pictureBox1.TabStop = false;
+            this.toolTip1.SetToolTip(this.pictureBox1, "CM - Cumar\r\nLG - Langostinos\r\nCS - Culmasa\r\n");
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(12, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(44, 39);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 97;
+            this.pictureBox2.TabStop = false;
+            // 
             // FrmConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
-            this.ClientSize = new System.Drawing.Size(1486, 711);
+            this.ClientSize = new System.Drawing.Size(1507, 732);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.gbOpciones);
@@ -814,12 +830,13 @@
             this.Leave += new System.EventHandler(this.FrmConsulta_Leave);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.gbOpciones.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -882,5 +899,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button btnConsultas;
         private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

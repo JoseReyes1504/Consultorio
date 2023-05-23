@@ -367,6 +367,8 @@ namespace CML {
             
             private global::System.Data.DataColumn columnArea_Trabajo;
             
+            private global::System.Data.DataColumn columnIncapacidad1;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConsultorioDataTable() {
@@ -754,6 +756,14 @@ namespace CML {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Incapacidad1Column {
+                get {
+                    return this.columnIncapacidad1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -798,7 +808,7 @@ namespace CML {
                         string Impresion_Diagnostico, 
                         string Tratamiento, 
                         string Conducta, 
-                        int Incapacidad, 
+                        string Incapacidad, 
                         System.DateTime Fecha_Consulta, 
                         string Motivo_Consulta, 
                         System.DateTime Fecha_Creacion, 
@@ -828,7 +838,8 @@ namespace CML {
                         string Frecuencia_Cardiaca, 
                         string Frecuencia_Respiratoria, 
                         string Saturacion_Oxigeno, 
-                        string Area_Trabajo) {
+                        string Area_Trabajo, 
+                        string Incapacidad1) {
                 ConsultorioRow rowConsultorioRow = ((ConsultorioRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -874,7 +885,8 @@ namespace CML {
                         Frecuencia_Respiratoria,
                         Saturacion_Oxigeno,
                         null,
-                        Area_Trabajo};
+                        Area_Trabajo,
+                        Incapacidad1};
                 rowConsultorioRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowConsultorioRow);
                 return rowConsultorioRow;
@@ -951,6 +963,7 @@ namespace CML {
                 this.columnSaturacion_Oxigeno = base.Columns["Saturacion_Oxigeno"];
                 this.columnId_Puesto1 = base.Columns["Id_Puesto1"];
                 this.columnArea_Trabajo = base.Columns["Area_Trabajo"];
+                this.columnIncapacidad1 = base.Columns["Incapacidad1"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -974,7 +987,7 @@ namespace CML {
                 base.Columns.Add(this.columnTratamiento);
                 this.columnConducta = new global::System.Data.DataColumn("Conducta", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnConducta);
-                this.columnIncapacidad = new global::System.Data.DataColumn("Incapacidad", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnIncapacidad = new global::System.Data.DataColumn("Incapacidad", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnIncapacidad);
                 this.columnFecha_Consulta = new global::System.Data.DataColumn("Fecha_Consulta", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFecha_Consulta);
@@ -1044,6 +1057,8 @@ namespace CML {
                 base.Columns.Add(this.columnId_Puesto1);
                 this.columnArea_Trabajo = new global::System.Data.DataColumn("Area_Trabajo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnArea_Trabajo);
+                this.columnIncapacidad1 = new global::System.Data.DataColumn("Incapacidad1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnIncapacidad1);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnId_Empleado1,
                                 this.columnId_Identificacion1,
@@ -1102,6 +1117,8 @@ namespace CML {
                 this.columnId_Puesto1.AllowDBNull = false;
                 this.columnId_Puesto1.ReadOnly = true;
                 this.columnArea_Trabajo.MaxLength = 50;
+                this.columnIncapacidad1.Caption = "Incapacidad";
+                this.columnIncapacidad1.MaxLength = 3;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1387,10 +1404,10 @@ namespace CML {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
-            public int Incapacidad {
+            public string Incapacidad {
                 get {
                     try {
-                        return ((int)(this[this.tableConsultorio.IncapacidadColumn]));
+                        return ((string)(this[this.tableConsultorio.IncapacidadColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("El valor de la columna \'Incapacidad\' de la tabla \'Consultorio\' es DBNull.", e);
@@ -1929,6 +1946,22 @@ namespace CML {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Incapacidad1 {
+                get {
+                    try {
+                        return ((string)(this[this.tableConsultorio.Incapacidad1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Incapacidad1\' de la tabla \'Consultorio\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableConsultorio.Incapacidad1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public bool IsId_EmpleadoNull() {
                 return this.IsNull(this.tableConsultorio.Id_EmpleadoColumn);
             }
@@ -2394,6 +2427,18 @@ namespace CML {
             public void SetArea_TrabajoNull() {
                 this[this.tableConsultorio.Area_TrabajoColumn] = global::System.Convert.DBNull;
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsIncapacidad1Null() {
+                return this.IsNull(this.tableConsultorio.Incapacidad1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetIncapacidad1Null() {
+                this[this.tableConsultorio.Incapacidad1Column] = global::System.Convert.DBNull;
+            }
         }
         
         /// <summary>
@@ -2564,7 +2609,6 @@ namespace CML.CMLDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Impresion_Diagnostico", "Impresion_Diagnostico");
             tableMapping.ColumnMappings.Add("Tratamiento", "Tratamiento");
             tableMapping.ColumnMappings.Add("Conducta", "Conducta");
-            tableMapping.ColumnMappings.Add("Incapacidad", "Incapacidad");
             tableMapping.ColumnMappings.Add("Fecha_Consulta", "Fecha_Consulta");
             tableMapping.ColumnMappings.Add("Motivo_Consulta", "Motivo_Consulta");
             tableMapping.ColumnMappings.Add("Id_Empleado1", "Id_Empleado1");
@@ -2599,6 +2643,7 @@ namespace CML.CMLDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("Saturacion_Oxigeno", "Saturacion_Oxigeno");
             tableMapping.ColumnMappings.Add("Id_Puesto1", "Id_Puesto1");
             tableMapping.ColumnMappings.Add("Area_Trabajo", "Area_Trabajo");
+            tableMapping.ColumnMappings.Add("Incapacidad", "Incapacidad1");
             this._adapter.TableMappings.Add(tableMapping);
         }
         

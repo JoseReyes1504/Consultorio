@@ -43,7 +43,7 @@ CREATE TABLE [dbo].[Consultorio](
 	[Impresion_Diagnostico] [nvarchar](100) NULL,
 	[Tratamiento] [nvarchar](100) NULL,
 	[Conducta] [nvarchar](100) NULL,
-	[Incapacidad] [int] NULL,
+	[Incapacidad] [nvarchar](3) NULL,
 	[Fecha_Consulta] [datetime2](7) NULL,
 	[Motivo_Consulta] [nvarchar](100) NULL
 ) ON [PRIMARY]

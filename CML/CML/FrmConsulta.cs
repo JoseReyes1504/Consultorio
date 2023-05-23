@@ -16,9 +16,10 @@ namespace CML
         int Id_Identificacion;
         int Id_Empleado;
         int Id_Signos;
-        int Incapacidad = 0;
+        string Incapacidad = "No";
         bool DatosCargados = false;
         int IDConsulta = 0;
+        int Id_Consultorio = 0;
 
         SqlCommand cmd;
         SqlDataReader dr;
@@ -48,7 +49,7 @@ namespace CML
         int otros2 = 0;
 
         int Id_Enfermedades = 0;
-        
+
 
         public void Limpiar()
         {
@@ -76,7 +77,7 @@ namespace CML
             txtExamen.Clear();
             txtTratamiento.Clear();
             txtImpresion.Clear();
-            Incapacidad = 0;
+            Incapacidad = "No";
             btnNo.Checked = true;
         }
 
@@ -88,7 +89,7 @@ namespace CML
         {
             InitializeComponent();
             IDConsulta = ID;
-            
+
         }
 
         private void btnMinimizar_Click(object sender, EventArgs e)
@@ -107,7 +108,7 @@ namespace CML
         {
             DialogResult r = new DialogResult();
             //Si existe el Numero de identidad no se creara una nueva identificacion            
-            if (ValidarEmpleado() == true)          
+            if (ValidarEmpleado() == true)
             {
                 MessageBox.Show("Este Numero de identidad ya esta en uso", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 DatosCargados = false;
@@ -151,14 +152,14 @@ namespace CML
                 {
                     MessageBox.Show("Se creo el expediente pero no la consulta", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+
             }
         }
 
         public void Consulta()
         {
-            DateTime fechaSeleccionada = dtpFecha.Value.Date;            
-            DateTime horaActual = DateTime.Now;            
+            DateTime fechaSeleccionada = dtpFecha.Value.Date;
+            DateTime horaActual = DateTime.Now;
             DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
 
             DialogResult C = new DialogResult();
@@ -222,14 +223,14 @@ namespace CML
 
 
         private void btnAgregar_Click(object sender, EventArgs e)
-        {            
+        {
             try
             {
-                bd.AbrirConexion();                
+                bd.AbrirConexion();
 
                 if (DatosCargados == false)
                 {
-                    CrearIdentidad();                    
+                    CrearIdentidad();
                 }
                 else
                 {
@@ -250,13 +251,13 @@ namespace CML
             cmbArea.SelectedIndex = 0;
             string codigo = "";
 
-            if(IDConsulta != 0)
+            if (IDConsulta != 0)
             {
                 try
                 {
                     bd.AbrirConexion();
 
-                    cmd = new SqlCommand("select c.No_Identidad, c.Nombre_Completo, c.Codigo_Empleado, c.Telefono, c.Edad, c.Id_Puesto, a.Motivo_Consulta, a.Conducta, a.Examen_Fisico, a.Historia_Enfermedad_Actual, a.Fecha_Consulta, a.Antecedentes_Personales, a.Impresion_Diagnostico, a.Tratamiento, a.Incapacidad, d.Presion_Arterial, d.Frecuencia_Cardiaca,d.Frecuencia_Respiratoria, d.Saturacion_Oxigeno, d.Temperatura from Consultorio a inner join Empleado b  on a.Id_Empleado = b.Id_Empleado inner join Identificacion c on b.Id_Identificacion = c.Id_Identificacion inner join Signos_Vitales_Consultorio d on a.Id_Signos_Vitales_Consultorio = d.Id_Signos_Vitales_Consultorio where a.Id_Consultorio = " + IDConsulta + "", bd.sc);                    
+                    cmd = new SqlCommand("select a.Id_Consultorio, c.No_Identidad, c.Nombre_Completo, c.Codigo_Empleado, c.Telefono, c.Edad, c.Id_Puesto, a.Motivo_Consulta, a.Conducta, a.Examen_Fisico, a.Historia_Enfermedad_Actual, a.Fecha_Consulta, a.Antecedentes_Personales, a.Impresion_Diagnostico, a.Tratamiento, a.Incapacidad, d.Id_Signos_Vitales_Consultorio,  d.Presion_Arterial, d.Frecuencia_Cardiaca,d.Frecuencia_Respiratoria, d.Saturacion_Oxigeno, d.Temperatura from Consultorio a inner join Empleado b  on a.Id_Empleado = b.Id_Empleado inner join Identificacion c on b.Id_Identificacion = c.Id_Identificacion inner join Signos_Vitales_Consultorio d on a.Id_Signos_Vitales_Consultorio = d.Id_Signos_Vitales_Consultorio where a.Id_Consultorio = " + IDConsulta + "", bd.sc);
                     dr = cmd.ExecuteReader();
 
                     while (dr.Read())
@@ -274,25 +275,27 @@ namespace CML
                         txtFC.Text = dr["Frecuencia_Cardiaca"].ToString();
                         txtFR.Text = dr["Frecuencia_Respiratoria"].ToString();
                         codigo = dr["Codigo_Empleado"].ToString();
-                        
-                        if(Convert.ToInt32(dr["Incapacidad"].ToString()) == 1)
+                        Id_Signos = Convert.ToInt32(dr["Id_Signos_Vitales_Consultorio"].ToString());
+                        Id_Consultorio = Convert.ToInt32(dr["Id_Consultorio"].ToString());
+
+                        if (dr["Incapacidad"].ToString() == "Si")
                         {
                             btnSi.Checked = true;
                         }
                         else
                         {
                             btnNo.Checked = true;
-                            
+
                         }
 
-                    }                    
-                    dr.Close();                    
+                    }
+                    dr.Close();
                     bd.CerrarConexion();
                     txtCodigo.Text = codigo;
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error" + ex.ToString() , "error");
+                    MessageBox.Show("Error" + ex.ToString(), "error");
                     bd.CerrarConexion();
                 }
             }
@@ -380,7 +383,7 @@ namespace CML
                         Concatenar(Alergias, "Alergias", ": " + dr["Desc_Alergias"].ToString());
                         Concatenar(Traumaticos, "Traumaticos", ": " + dr["Desc_Traumaticos"].ToString());
                         Concatenar(Hospitalizaciones, "Hospitalizaciones Previas", ": " + dr["Desc_Hospitalizaciones"].ToString());
-                        Concatenar(Adcciones, "Adicciones", ": " +  dr["Desc_Adicciones"].ToString());
+                        Concatenar(Adcciones, "Adicciones", ": " + dr["Desc_Adicciones"].ToString());
                         Concatenar(otros2, "Otros2", ": " + dr["Desc_Otros2"].ToString());
                     }
                     dr.Close();
@@ -392,12 +395,12 @@ namespace CML
                     bd.CerrarConexion();
                 }
             }
-            else if(txtCodigo.TextLength == 0)
+            else if (txtCodigo.TextLength == 0)
             {
                 DatosCargados = false;
                 txtNombre.Clear();
                 txtNumeroRef.Clear();
-                txtEdad.Clear();                
+                txtEdad.Clear();
                 cmbArea.Text = "Seleccione";
                 txtIdentidad.Clear();
                 txtAntececentes.Clear();
@@ -416,7 +419,7 @@ namespace CML
         {
             if (btnSi.Checked == true)
             {
-                Incapacidad = 1;
+                Incapacidad = "Si";
             }
         }
 
@@ -424,7 +427,7 @@ namespace CML
         {
             if (btnNo.Checked == true)
             {
-                Incapacidad = 0;
+                Incapacidad = "No";
             }
         }
 
@@ -491,12 +494,45 @@ namespace CML
 
         private void FrmConsulta_Leave(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
-            
+            DateTime fechaSeleccionada = dtpFecha.Value.Date;
+            DateTime horaActual = DateTime.Now;
+            DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
+
+
+
+            try
+            {
+
+                bd.AbrirConexion();
+
+                Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+                //Hacemos la busqueda del Empleado creado mediante la identidad                
+
+                //Creamos los Signos Vitales
+                cmd = new SqlCommand("update Signos_Vitales_Consultorio set Presion_Arterial ='" + txtPA.Text + "', Temperatura ='" + txtT.Text + "', Frecuencia_Cardiaca='" + txtFC.Text + "', Frecuencia_Respiratoria='" + txtFR.Text + "', Saturacion_Oxigeno='" + txtSO2.Text + "' where Id_Signos_Vitales_Consultorio = " + Id_Signos + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                //Al final creamos la consulta
+
+                cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta='" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                MessageBox.Show("Se actualizo correctamente la consulta", "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                bd.CerrarConexion();
+                LimpiarTodo();
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al actualizar la consulta: " + ex.ToString(), "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bd.CerrarConexion();
+            }
+
         }
     }
 }

@@ -114,6 +114,7 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmI
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmLogin.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmMenu.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmUsuarios.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.frmUsuariosAdmin.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Properties.Resources.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmVerConsultas.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Reportes.resources
@@ -124,4 +125,3 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.cspr
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CopyComplete
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.exe
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.pdb
-C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.frmUsuariosAdmin.resources

@@ -41,5 +41,10 @@ namespace CML
         {
             bd.CualquierTabla(dgv, "select * from Bitacora order by Id Desc");
         }
+
+        private void dtpDesde_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

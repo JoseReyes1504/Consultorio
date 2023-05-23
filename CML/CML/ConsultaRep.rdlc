@@ -1355,7 +1355,7 @@
         </Field>
         <Field Name="Incapacidad">
           <DataField>Incapacidad</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+          <rd:TypeName>System.String</rd:TypeName>
         </Field>
         <Field Name="Fecha_Consulta">
           <DataField>Fecha_Consulta</DataField>
@@ -1491,6 +1491,10 @@
         </Field>
         <Field Name="Area_Trabajo">
           <DataField>Area_Trabajo</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Incapacidad1">
+          <DataField>Incapacidad</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
       </Fields>
