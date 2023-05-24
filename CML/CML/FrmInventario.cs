@@ -20,6 +20,7 @@ namespace CML
         bool ProductoCargado = false;
         int ExistenciaAnterior = 0;
         string Usuario = "";
+        int Existencia = 0;
 
         public FrmInventario()
         {
@@ -175,6 +176,8 @@ namespace CML
             txtProducto.Text = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
             NombreP = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
 
+            Existencia = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Existencia"].Value.ToString());
+
             ExistenciaAnterior = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Ingreso"].Value.ToString());
 
             txtCantidad.Text = dgv.Rows[e.RowIndex].Cells["Existencia Actual"].Value.ToString();
@@ -278,7 +281,10 @@ namespace CML
             }
             else
             {
-                int suma = ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
+                int suma =  Convert.ToInt32(txtCantidad.Text) - ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
+                int suma2 = Existencia - ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
+                //MessageBox.Show("" + Convert.ToInt32(txtCantidad.Text) + " - " + ExistenciaAnterior + " + " + Convert.ToInt32(txtIngreso.Text) + " = " + suma);
+
                 try
                 {
                     bd.AbrirConexion();
@@ -288,7 +294,7 @@ namespace CML
                     {
                         if (txtProducto.Text != "" && txtIngreso.Text != "")
                         {
-                            cmd = new SqlCommand("update Producto set Nombre='" + txtProducto.Text + "', Cantidad ='" + Convert.ToDouble(txtIngreso.Text) + "'where Id_Producto = " + Id_Producto + "", bd.sc);
+                            cmd = new SqlCommand("update Producto set Nombre='" + txtProducto.Text + "', Cantidad = " + suma + " where Id_Producto = " + Id_Producto + "", bd.sc);
                             cmd.ExecuteNonQuery();
                         }
                         else
@@ -297,7 +303,7 @@ namespace CML
                         }
                     }
 
-                    cmd = new SqlCommand("update Inventario set Id_Producto ='" + Id_Producto + "', Fecha_Ingreso= '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', Fecha_Vencimiento='" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', Ingreso='" + Convert.ToDouble(txtIngreso.Text) + "', Existencia=" + suma + "where Id_Inventario=" + ID + "", bd.sc);
+                    cmd = new SqlCommand("update Inventario set Id_Producto ='" + Id_Producto + "', Fecha_Ingreso= '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', Fecha_Vencimiento='" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', Ingreso='" + Convert.ToDouble(txtIngreso.Text) + "', Existencia=" + suma2 + "where Id_Inventario=" + ID + "", bd.sc);
                     cmd.ExecuteNonQuery();
 
 
