@@ -63,8 +63,8 @@ namespace CML
 
         void ActulizarGraficosYDatos()
         {
-            bd.CualquierTabla(dgv, "Select a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
-            bd.GraficoInventario(cpAgotado, "Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 10");
+            bd.CualquierTabla(dgv, "Select TOP 10 a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
+            bd.GraficoInventario(cpAgotado, "Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");
         }
 
         private void FrmInventario_Load(object sender, EventArgs e)

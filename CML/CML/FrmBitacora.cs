@@ -34,7 +34,7 @@ namespace CML
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            bd.CualquierTabla(dgv, "SELECT * FROM Bitacora WHERE Fecha BETWEEN  '" + dtpDesde.Value.ToString("yyyy-MM-dd")+ "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
+            bd.CualquierTabla(dgv, "SELECT * FROM Bitacora WHERE Fecha BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd")+ "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)

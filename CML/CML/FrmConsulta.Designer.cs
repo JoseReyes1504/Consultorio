@@ -168,6 +168,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(1204, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 23);
@@ -280,7 +281,8 @@
             // label22
             // 
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(15, 99);
+            this.label22.ForeColor = System.Drawing.Color.Black;
+            this.label22.Location = new System.Drawing.Point(15, 106);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(407, 37);
             this.label22.TabIndex = 156;
@@ -290,7 +292,8 @@
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(15, 125);
+            this.label11.ForeColor = System.Drawing.Color.Black;
+            this.label11.Location = new System.Drawing.Point(15, 132);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(407, 37);
             this.label11.TabIndex = 157;
@@ -469,15 +472,13 @@
             // 
             // txtConducta
             // 
-            this.txtConducta.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConducta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtConducta.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtConducta.ForeColor = System.Drawing.Color.White;
             this.txtConducta.Location = new System.Drawing.Point(616, 308);
             this.txtConducta.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtConducta.Name = "txtConducta";
-            this.txtConducta.Size = new System.Drawing.Size(1503, 72);
+            this.txtConducta.Size = new System.Drawing.Size(374, 72);
             this.txtConducta.TabIndex = 14;
             this.txtConducta.Text = "";
             // 
@@ -557,28 +558,24 @@
             // 
             // txtTratamiento
             // 
-            this.txtTratamiento.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTratamiento.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtTratamiento.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtTratamiento.ForeColor = System.Drawing.Color.White;
             this.txtTratamiento.Location = new System.Drawing.Point(616, 436);
             this.txtTratamiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtTratamiento.Name = "txtTratamiento";
-            this.txtTratamiento.Size = new System.Drawing.Size(1508, 72);
+            this.txtTratamiento.Size = new System.Drawing.Size(379, 72);
             this.txtTratamiento.TabIndex = 16;
             this.txtTratamiento.Text = "";
             // 
             // txtMotivo
             // 
-            this.txtMotivo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMotivo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtMotivo.ForeColor = System.Drawing.Color.White;
             this.txtMotivo.Location = new System.Drawing.Point(365, 54);
             this.txtMotivo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtMotivo.Name = "txtMotivo";
-            this.txtMotivo.Size = new System.Drawing.Size(1756, 74);
+            this.txtMotivo.Size = new System.Drawing.Size(627, 74);
             this.txtMotivo.TabIndex = 7;
             this.txtMotivo.Text = "";
             // 
@@ -688,6 +685,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.White;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtIdentidad);
@@ -705,7 +703,7 @@
             this.groupBox1.Controls.Add(this.txtAntececentes);
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.White;
+            this.groupBox1.ForeColor = System.Drawing.Color.Black;
             this.groupBox1.Location = new System.Drawing.Point(48, 166);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
@@ -730,6 +728,7 @@
             // 
             this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox2.BackColor = System.Drawing.Color.White;
             this.groupBox2.Controls.Add(this.btnNo);
             this.groupBox2.Controls.Add(this.btnSi);
             this.groupBox2.Controls.Add(this.label8);
@@ -757,12 +756,12 @@
             this.groupBox2.Controls.Add(this.txtSO2);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.ForeColor = System.Drawing.Color.White;
+            this.groupBox2.ForeColor = System.Drawing.Color.Black;
             this.groupBox2.Location = new System.Drawing.Point(639, 166);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(2144, 757);
+            this.groupBox2.Size = new System.Drawing.Size(1018, 757);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";
@@ -808,7 +807,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1507, 732);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
