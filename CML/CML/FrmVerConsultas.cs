@@ -19,8 +19,9 @@ namespace CML
         Reportes re = new Reportes();
         string Usuario;
         SqlCommand cmd;
+        SqlDataReader dr;
         string Nombre;
-
+        int Id_Signos = 0;
 
         public FrmVerConsultas()
         {
@@ -91,6 +92,18 @@ namespace CML
                 cmd = new SqlCommand("Delete from Consultorio where Id_Consultorio =" + Id + "", bd.sc);
                 cmd.ExecuteNonQuery();
 
+                cmd = new SqlCommand("select * from Consultorio where Id_Consultorio =" + Id + "", bd.sc);
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                    Id_Signos = Convert.ToInt32(dr["Id_Signos_Vitales_Consultorio"].ToString());
+                }
+                dr.Close();
+
+                cmd = new SqlCommand("Delete from Signos_Vitales_Consultorio where Id_Signos_Vitales_Consultorio =" + Id_Signos + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
                 cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTAS" + "', '" + Usuario + "', '" + "Elimino la consulta de: " + Nombre + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
                 cmd.ExecuteNonQuery();
                                 
@@ -98,8 +111,7 @@ namespace CML
                 
                 MessageBox.Show("Se eliminno la consulta" , "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                enableButton();
-
+                enableButton();                
                 bd.CerrarConexion();
 
             }

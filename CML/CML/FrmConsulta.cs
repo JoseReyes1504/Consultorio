@@ -61,6 +61,9 @@ namespace CML
             cmbArea.SelectedIndex = 0;
             cmbArea.Text = "Seleccionar";
             txtAntececentes.Text = "N/D";
+            Id_Identificacion = 0;
+            Id_Empleado = 0;
+            Id_Signos = 0;
         }
 
         public void LimpiarTodo()
@@ -165,11 +168,9 @@ namespace CML
 
             DialogResult C = new DialogResult();
 
-            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);            
 
-            //Hacemos la busqueda del Empleado creado mediante la identidad
-
-            Id_Empleado = bd.ObtenerId("Empleado", "Id_Empleado");
+            MessageBox.Show("" + Id_Identificacion);
 
             //Creamos los Signos Vitales
             cmd = new SqlCommand("insert into Signos_Vitales_Consultorio values ('" + txtPA.Text + "','" + txtT.Text + "','" + txtFC.Text + "','" + txtFR.Text + "','" + txtSO2.Text + "')", bd.sc);
@@ -179,7 +180,7 @@ namespace CML
             Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
 
             //Al final creamos la consulta
-            cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + txtMotivo.Text + "')", bd.sc);
+            cmd = new SqlCommand("insert into Consultorio values('" + Id_Identificacion + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + txtMotivo.Text + "')", bd.sc);
             cmd.ExecuteNonQuery();
 
             C = MessageBox.Show("Se Creo la consulta, \nDesea imprimir la consulta?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
