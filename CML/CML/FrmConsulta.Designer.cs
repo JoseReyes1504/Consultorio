@@ -135,7 +135,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(15, 71);
+            this.label1.ForeColor = System.Drawing.Color.Black;
+            this.label1.Location = new System.Drawing.Point(15, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(387, 28);
             this.label1.TabIndex = 138;
@@ -248,7 +249,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(36, 364);
+            this.label9.Location = new System.Drawing.Point(36, 391);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(265, 23);
             this.label9.TabIndex = 152;
@@ -282,7 +283,7 @@
             // 
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.ForeColor = System.Drawing.Color.Black;
-            this.label22.Location = new System.Drawing.Point(15, 106);
+            this.label22.Location = new System.Drawing.Point(15, 90);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(407, 37);
             this.label22.TabIndex = 156;
@@ -293,7 +294,7 @@
             // 
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.Black;
-            this.label11.Location = new System.Drawing.Point(15, 132);
+            this.label11.Location = new System.Drawing.Point(15, 116);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(407, 37);
             this.label11.TabIndex = 157;
@@ -490,10 +491,10 @@
             this.cmbArea.FormattingEnabled = true;
             this.cmbArea.Items.AddRange(new object[] {
             "Seleccione"});
-            this.cmbArea.Location = new System.Drawing.Point(224, 320);
+            this.cmbArea.Location = new System.Drawing.Point(40, 353);
             this.cmbArea.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.cmbArea.Name = "cmbArea";
-            this.cmbArea.Size = new System.Drawing.Size(175, 29);
+            this.cmbArea.Size = new System.Drawing.Size(519, 29);
             this.cmbArea.TabIndex = 6;
             this.cmbArea.SelectedIndexChanged += new System.EventHandler(this.cmbArea_SelectedIndexChanged);
             // 
@@ -502,11 +503,11 @@
             this.txtAntececentes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.txtAntececentes.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtAntececentes.ForeColor = System.Drawing.Color.White;
-            this.txtAntececentes.Location = new System.Drawing.Point(41, 410);
+            this.txtAntececentes.Location = new System.Drawing.Point(41, 427);
             this.txtAntececentes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtAntececentes.Name = "txtAntececentes";
             this.txtAntececentes.ReadOnly = true;
-            this.txtAntececentes.Size = new System.Drawing.Size(497, 166);
+            this.txtAntececentes.Size = new System.Drawing.Size(518, 166);
             this.txtAntececentes.TabIndex = 186;
             this.txtAntececentes.Text = "N/D";
             // 
@@ -704,11 +705,11 @@
             this.groupBox1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.groupBox1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.Color.Black;
-            this.groupBox1.Location = new System.Drawing.Point(48, 166);
+            this.groupBox1.Location = new System.Drawing.Point(48, 150);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox1.Size = new System.Drawing.Size(583, 594);
+            this.groupBox1.Size = new System.Drawing.Size(583, 610);
             this.groupBox1.TabIndex = 195;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos Paciente";
@@ -722,7 +723,7 @@
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 195;
             this.pictureBox1.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBox1, "CM - Cumar\r\nLG - Langostinos\r\nCS - Culmasa\r\n");
+            this.toolTip1.SetToolTip(this.pictureBox1, resources.GetString("pictureBox1.ToolTip"));
             // 
             // groupBox2
             // 
@@ -757,11 +758,11 @@
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.ForeColor = System.Drawing.Color.Black;
-            this.groupBox2.Location = new System.Drawing.Point(639, 166);
+            this.groupBox2.Location = new System.Drawing.Point(639, 150);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(1018, 757);
+            this.groupBox2.Size = new System.Drawing.Size(1314, 773);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";

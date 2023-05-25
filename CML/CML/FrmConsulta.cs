@@ -521,9 +521,7 @@ namespace CML
                 //Al final creamos la consulta
 
                 cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta='" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                MessageBox.Show("" + fechaActual);
+                cmd.ExecuteNonQuery();                
 
                 cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
                 cmd.ExecuteNonQuery();

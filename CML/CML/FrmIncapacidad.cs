@@ -95,7 +95,7 @@ namespace CML
                         Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
                         AreaTrabajo = Convert.ToInt32(dr["Id_Puesto"].ToString());
 
-                        cmbArea.SelectedIndex = AreaTrabajo - 1;
+                        cmbArea.SelectedIndex = AreaTrabajo;
 
                     }
                     bd.CerrarConexion();
