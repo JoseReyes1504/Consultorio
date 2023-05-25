@@ -16,7 +16,7 @@ namespace CML
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmConsulta());
+            Application.Run(new FrmMenu());
         }
     }
 }
