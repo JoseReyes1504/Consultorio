@@ -51,7 +51,7 @@ namespace CML
 
         private void btnReportes_Click(object sender, EventArgs e)
         {
-            FrmVerConsultas ver = new FrmVerConsultas();
+            FrmVerConsultas ver = new FrmVerConsultas(Usuario);
             ver.ShowDialog();
         }
 

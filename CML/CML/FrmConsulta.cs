@@ -488,7 +488,7 @@ namespace CML
 
         private void btnConsultas_Click(object sender, EventArgs e)
         {
-            FrmVerConsultas consultas = new FrmVerConsultas();
+            FrmVerConsultas consultas = new FrmVerConsultas(Usuario);
             consultas.Show();
             this.Hide();
         }

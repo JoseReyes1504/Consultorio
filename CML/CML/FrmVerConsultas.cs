@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Data.SqlClient;
 
 
 namespace CML
@@ -17,10 +17,21 @@ namespace CML
         ConexionBD bd = new ConexionBD();
         int Id = 0;
         Reportes re = new Reportes();
-        
+        string Usuario;
+        SqlCommand cmd;
+        string Nombre;
+
+
         public FrmVerConsultas()
         {
             InitializeComponent();
+        }
+
+
+        public FrmVerConsultas(string usuario)
+        {
+            InitializeComponent();
+            Usuario = usuario;
         }
 
         private void FrmVerExpediente_Load(object sender, EventArgs e)
@@ -36,10 +47,12 @@ namespace CML
 
         private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
         {            
-            Id = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());                       
+            Id = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString());
+            Nombre = dgv.Rows[e.RowIndex].Cells["Paciente"].Value.ToString();
             re.Nun_Consulta1 = Id;
             btnImprimir.Enabled = true;
             btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
@@ -57,7 +70,7 @@ namespace CML
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
-            FrmConsulta consulta = new FrmConsulta(Id);
+            FrmConsulta consulta = new FrmConsulta(Id, Usuario);
             consulta.ShowDialog();
             this.Close();
         }
@@ -65,6 +78,43 @@ namespace CML
         private void FrmVerConsultas_FormClosing(object sender, FormClosingEventArgs e)
         {
 
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+            DateTime fechaActual = DateTime.Now;
+
+            try
+            {
+                bd.AbrirConexion();
+                cmd = new SqlCommand("Delete from Consultorio where Id_Consultorio =" + Id + "", bd.sc);
+                cmd.ExecuteNonQuery();
+
+                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTAS" + "', '" + Usuario + "', '" + "Elimino la consulta de: " + Nombre + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd.ExecuteNonQuery();
+                                
+                bd.CualquierTabla(dgv, "select a.Id_Consultorio[ID], c.Nombre_Completo[Paciente], a.Motivo_Consulta[Motivo Consulta], a.Incapacidad, a.Fecha_Consulta[Fecha] from Consultorio a inner join Empleado b on a.Id_Empleado = b.Id_Empleado inner join Identificacion c On b.Id_Identificacion = c.Id_Identificacion order by a.Id_Consultorio DESC");
+                
+                MessageBox.Show("Se eliminno la consulta" , "Consulta", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                enableButton();
+
+                bd.CerrarConexion();
+
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                bd.CerrarConexion();
+            }
+        }
+
+        public void enableButton()
+        {
+            btnEliminar.Enabled = false;
+            btnImprimir.Enabled = false;
+            btnEditar.Enabled = false;
         }
     }
 }
