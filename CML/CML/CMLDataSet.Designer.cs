@@ -26,6 +26,8 @@ namespace CML {
         
         private ConsultorioDataTable tableConsultorio;
         
+        private ExpedienteDataTable tableExpediente;
+        
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -57,6 +59,9 @@ namespace CML {
                 if ((ds.Tables["Consultorio"] != null)) {
                     base.Tables.Add(new ConsultorioDataTable(ds.Tables["Consultorio"]));
                 }
+                if ((ds.Tables["Expediente"] != null)) {
+                    base.Tables.Add(new ExpedienteDataTable(ds.Tables["Expediente"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -82,6 +87,16 @@ namespace CML {
         public ConsultorioDataTable Consultorio {
             get {
                 return this.tableConsultorio;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public ExpedienteDataTable Expediente {
+            get {
+                return this.tableExpediente;
             }
         }
         
@@ -155,6 +170,9 @@ namespace CML {
                 if ((ds.Tables["Consultorio"] != null)) {
                     base.Tables.Add(new ConsultorioDataTable(ds.Tables["Consultorio"]));
                 }
+                if ((ds.Tables["Expediente"] != null)) {
+                    base.Tables.Add(new ExpedienteDataTable(ds.Tables["Expediente"]));
+                }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -194,6 +212,12 @@ namespace CML {
                     this.tableConsultorio.InitVars();
                 }
             }
+            this.tableExpediente = ((ExpedienteDataTable)(base.Tables["Expediente"]));
+            if ((initTable == true)) {
+                if ((this.tableExpediente != null)) {
+                    this.tableExpediente.InitVars();
+                }
+            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -206,11 +230,19 @@ namespace CML {
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
             this.tableConsultorio = new ConsultorioDataTable();
             base.Tables.Add(this.tableConsultorio);
+            this.tableExpediente = new ExpedienteDataTable();
+            base.Tables.Add(this.tableExpediente);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private bool ShouldSerializeConsultorio() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private bool ShouldSerializeExpediente() {
             return false;
         }
         
@@ -271,6 +303,9 @@ namespace CML {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         public delegate void ConsultorioRowChangeEventHandler(object sender, ConsultorioRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public delegate void ExpedienteRowChangeEventHandler(object sender, ExpedienteRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -1205,6 +1240,1346 @@ namespace CML {
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
                 attribute2.FixedValue = "ConsultorioDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class ExpedienteDataTable : global::System.Data.TypedTableBase<ExpedienteRow> {
+            
+            private global::System.Data.DataColumn columnId_Empleado;
+            
+            private global::System.Data.DataColumn columnFecha_Creacion;
+            
+            private global::System.Data.DataColumn columnId_Identificacion;
+            
+            private global::System.Data.DataColumn columnId_Antecedentes;
+            
+            private global::System.Data.DataColumn columnId_Identificacion1;
+            
+            private global::System.Data.DataColumn columnCodigo_Empleado;
+            
+            private global::System.Data.DataColumn columnNombre_Completo;
+            
+            private global::System.Data.DataColumn columnFecha_Nacimiento;
+            
+            private global::System.Data.DataColumn columnNo_Identidad;
+            
+            private global::System.Data.DataColumn columnSexo;
+            
+            private global::System.Data.DataColumn columnEstado_Civil;
+            
+            private global::System.Data.DataColumn columnOcupacion;
+            
+            private global::System.Data.DataColumn columnOrigen;
+            
+            private global::System.Data.DataColumn columnReside;
+            
+            private global::System.Data.DataColumn columnDomicilio;
+            
+            private global::System.Data.DataColumn columnTelefono;
+            
+            private global::System.Data.DataColumn columnReligion;
+            
+            private global::System.Data.DataColumn columnEscolaridad;
+            
+            private global::System.Data.DataColumn columnEmail;
+            
+            private global::System.Data.DataColumn columnNumero_Referencia;
+            
+            private global::System.Data.DataColumn columnId_Puesto;
+            
+            private global::System.Data.DataColumn columnImagen;
+            
+            private global::System.Data.DataColumn columnEstado;
+            
+            private global::System.Data.DataColumn columnEdad;
+            
+            private global::System.Data.DataColumn columnId_Antecendentes;
+            
+            private global::System.Data.DataColumn columnId_Enfermedad_P;
+            
+            private global::System.Data.DataColumn columnId_Enfermedad_H;
+            
+            private global::System.Data.DataColumn columnId_Enfermedad_Heredo_Familiar;
+            
+            private global::System.Data.DataColumn columnDiabetes;
+            
+            private global::System.Data.DataColumn columnDesc_Diabetes;
+            
+            private global::System.Data.DataColumn columnHepatopatia;
+            
+            private global::System.Data.DataColumn columnDesc_Hepatopatia;
+            
+            private global::System.Data.DataColumn columnAsma;
+            
+            private global::System.Data.DataColumn columnDesc_Asma;
+            
+            private global::System.Data.DataColumn columnEnfermedad_Endoctrina;
+            
+            private global::System.Data.DataColumn columnDesc_Endoctrina;
+            
+            private global::System.Data.DataColumn columnInterrogados_y_Negados;
+            
+            private global::System.Data.DataColumn columnDesc_Interrogados;
+            
+            private global::System.Data.DataColumn columnHipertension;
+            
+            private global::System.Data.DataColumn columnDesc_Hipertension;
+            
+            private global::System.Data.DataColumn columnNefropatia;
+            
+            private global::System.Data.DataColumn columnDesc_Nefropatia;
+            
+            private global::System.Data.DataColumn columnCancer;
+            
+            private global::System.Data.DataColumn columnDesc_Cancer;
+            
+            private global::System.Data.DataColumn columnCardiopatia;
+            
+            private global::System.Data.DataColumn columnDesc_Cardiopatia;
+            
+            private global::System.Data.DataColumn columnEnfermedad_Mental;
+            
+            private global::System.Data.DataColumn columnDesc_Mental;
+            
+            private global::System.Data.DataColumn columnEnfermedad_Alergicas;
+            
+            private global::System.Data.DataColumn columnDesc_Alergicas;
+            
+            private global::System.Data.DataColumn columnOtros;
+            
+            private global::System.Data.DataColumn columnDesc_Otros;
+            
+            private global::System.Data.DataColumn columnId_Enfermedad_Personales_Patologicos;
+            
+            private global::System.Data.DataColumn columnEnfermedades_Actuales;
+            
+            private global::System.Data.DataColumn columnDesc_Actuales;
+            
+            private global::System.Data.DataColumn columnQuirurgicos;
+            
+            private global::System.Data.DataColumn columnDesc_Quirurgicas;
+            
+            private global::System.Data.DataColumn columnTransfusionales;
+            
+            private global::System.Data.DataColumn columnDesc_Transfusionales;
+            
+            private global::System.Data.DataColumn columnAlergias;
+            
+            private global::System.Data.DataColumn columnDesc_Alergias;
+            
+            private global::System.Data.DataColumn columnTraumaticos;
+            
+            private global::System.Data.DataColumn columnDesc_Traumaticos;
+            
+            private global::System.Data.DataColumn columnHospitalizaciones_Previas;
+            
+            private global::System.Data.DataColumn columnDesc_Hospitalizaciones;
+            
+            private global::System.Data.DataColumn columnAdicciones;
+            
+            private global::System.Data.DataColumn columnDesc_Adicciones;
+            
+            private global::System.Data.DataColumn columnOtros2;
+            
+            private global::System.Data.DataColumn columnDesc_Otros2;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteDataTable() {
+                this.TableName = "Expediente";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ExpedienteDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected ExpedienteDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_EmpleadoColumn {
+                get {
+                    return this.columnId_Empleado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Fecha_CreacionColumn {
+                get {
+                    return this.columnFecha_Creacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_IdentificacionColumn {
+                get {
+                    return this.columnId_Identificacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_AntecedentesColumn {
+                get {
+                    return this.columnId_Antecedentes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_Identificacion1Column {
+                get {
+                    return this.columnId_Identificacion1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Codigo_EmpleadoColumn {
+                get {
+                    return this.columnCodigo_Empleado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Nombre_CompletoColumn {
+                get {
+                    return this.columnNombre_Completo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Fecha_NacimientoColumn {
+                get {
+                    return this.columnFecha_Nacimiento;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn No_IdentidadColumn {
+                get {
+                    return this.columnNo_Identidad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn SexoColumn {
+                get {
+                    return this.columnSexo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Estado_CivilColumn {
+                get {
+                    return this.columnEstado_Civil;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OcupacionColumn {
+                get {
+                    return this.columnOcupacion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OrigenColumn {
+                get {
+                    return this.columnOrigen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ResideColumn {
+                get {
+                    return this.columnReside;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DomicilioColumn {
+                get {
+                    return this.columnDomicilio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TelefonoColumn {
+                get {
+                    return this.columnTelefono;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ReligionColumn {
+                get {
+                    return this.columnReligion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EscolaridadColumn {
+                get {
+                    return this.columnEscolaridad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EmailColumn {
+                get {
+                    return this.columnEmail;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Numero_ReferenciaColumn {
+                get {
+                    return this.columnNumero_Referencia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_PuestoColumn {
+                get {
+                    return this.columnId_Puesto;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn ImagenColumn {
+                get {
+                    return this.columnImagen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EstadoColumn {
+                get {
+                    return this.columnEstado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn EdadColumn {
+                get {
+                    return this.columnEdad;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_AntecendentesColumn {
+                get {
+                    return this.columnId_Antecendentes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_Enfermedad_PColumn {
+                get {
+                    return this.columnId_Enfermedad_P;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_Enfermedad_HColumn {
+                get {
+                    return this.columnId_Enfermedad_H;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_Enfermedad_Heredo_FamiliarColumn {
+                get {
+                    return this.columnId_Enfermedad_Heredo_Familiar;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn DiabetesColumn {
+                get {
+                    return this.columnDiabetes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_DiabetesColumn {
+                get {
+                    return this.columnDesc_Diabetes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn HepatopatiaColumn {
+                get {
+                    return this.columnHepatopatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_HepatopatiaColumn {
+                get {
+                    return this.columnDesc_Hepatopatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AsmaColumn {
+                get {
+                    return this.columnAsma;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_AsmaColumn {
+                get {
+                    return this.columnDesc_Asma;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Enfermedad_EndoctrinaColumn {
+                get {
+                    return this.columnEnfermedad_Endoctrina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_EndoctrinaColumn {
+                get {
+                    return this.columnDesc_Endoctrina;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Interrogados_y_NegadosColumn {
+                get {
+                    return this.columnInterrogados_y_Negados;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_InterrogadosColumn {
+                get {
+                    return this.columnDesc_Interrogados;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn HipertensionColumn {
+                get {
+                    return this.columnHipertension;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_HipertensionColumn {
+                get {
+                    return this.columnDesc_Hipertension;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn NefropatiaColumn {
+                get {
+                    return this.columnNefropatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_NefropatiaColumn {
+                get {
+                    return this.columnDesc_Nefropatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CancerColumn {
+                get {
+                    return this.columnCancer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_CancerColumn {
+                get {
+                    return this.columnDesc_Cancer;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn CardiopatiaColumn {
+                get {
+                    return this.columnCardiopatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_CardiopatiaColumn {
+                get {
+                    return this.columnDesc_Cardiopatia;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Enfermedad_MentalColumn {
+                get {
+                    return this.columnEnfermedad_Mental;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_MentalColumn {
+                get {
+                    return this.columnDesc_Mental;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Enfermedad_AlergicasColumn {
+                get {
+                    return this.columnEnfermedad_Alergicas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_AlergicasColumn {
+                get {
+                    return this.columnDesc_Alergicas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn OtrosColumn {
+                get {
+                    return this.columnOtros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_OtrosColumn {
+                get {
+                    return this.columnDesc_Otros;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Id_Enfermedad_Personales_PatologicosColumn {
+                get {
+                    return this.columnId_Enfermedad_Personales_Patologicos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Enfermedades_ActualesColumn {
+                get {
+                    return this.columnEnfermedades_Actuales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_ActualesColumn {
+                get {
+                    return this.columnDesc_Actuales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn QuirurgicosColumn {
+                get {
+                    return this.columnQuirurgicos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_QuirurgicasColumn {
+                get {
+                    return this.columnDesc_Quirurgicas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TransfusionalesColumn {
+                get {
+                    return this.columnTransfusionales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_TransfusionalesColumn {
+                get {
+                    return this.columnDesc_Transfusionales;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AlergiasColumn {
+                get {
+                    return this.columnAlergias;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_AlergiasColumn {
+                get {
+                    return this.columnDesc_Alergias;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn TraumaticosColumn {
+                get {
+                    return this.columnTraumaticos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_TraumaticosColumn {
+                get {
+                    return this.columnDesc_Traumaticos;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Hospitalizaciones_PreviasColumn {
+                get {
+                    return this.columnHospitalizaciones_Previas;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_HospitalizacionesColumn {
+                get {
+                    return this.columnDesc_Hospitalizaciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn AdiccionesColumn {
+                get {
+                    return this.columnAdicciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_AdiccionesColumn {
+                get {
+                    return this.columnDesc_Adicciones;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Otros2Column {
+                get {
+                    return this.columnOtros2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataColumn Desc_Otros2Column {
+                get {
+                    return this.columnDesc_Otros2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRow this[int index] {
+                get {
+                    return ((ExpedienteRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpedienteRowChangeEventHandler ExpedienteRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpedienteRowChangeEventHandler ExpedienteRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpedienteRowChangeEventHandler ExpedienteRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public event ExpedienteRowChangeEventHandler ExpedienteRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void AddExpedienteRow(ExpedienteRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRow AddExpedienteRow(
+                        System.DateTime Fecha_Creacion, 
+                        int Id_Identificacion, 
+                        int Id_Antecedentes, 
+                        string Codigo_Empleado, 
+                        string Nombre_Completo, 
+                        System.DateTime Fecha_Nacimiento, 
+                        string No_Identidad, 
+                        string Sexo, 
+                        string Estado_Civil, 
+                        string Ocupacion, 
+                        string Origen, 
+                        string Reside, 
+                        string Domicilio, 
+                        string Telefono, 
+                        string Religion, 
+                        string Escolaridad, 
+                        string Email, 
+                        string Numero_Referencia, 
+                        int Id_Puesto, 
+                        byte[] Imagen, 
+                        string Estado, 
+                        int Edad, 
+                        int Id_Enfermedad_P, 
+                        int Id_Enfermedad_H, 
+                        int Diabetes, 
+                        string Desc_Diabetes, 
+                        int Hepatopatia, 
+                        string Desc_Hepatopatia, 
+                        int Asma, 
+                        string Desc_Asma, 
+                        int Enfermedad_Endoctrina, 
+                        string Desc_Endoctrina, 
+                        int Interrogados_y_Negados, 
+                        string Desc_Interrogados, 
+                        int Hipertension, 
+                        string Desc_Hipertension, 
+                        int Nefropatia, 
+                        string Desc_Nefropatia, 
+                        int Cancer, 
+                        string Desc_Cancer, 
+                        int Cardiopatia, 
+                        string Desc_Cardiopatia, 
+                        int Enfermedad_Mental, 
+                        string Desc_Mental, 
+                        int Enfermedad_Alergicas, 
+                        string Desc_Alergicas, 
+                        int Otros, 
+                        string Desc_Otros, 
+                        int Enfermedades_Actuales, 
+                        string Desc_Actuales, 
+                        int Quirurgicos, 
+                        string Desc_Quirurgicas, 
+                        int Transfusionales, 
+                        string Desc_Transfusionales, 
+                        int Alergias, 
+                        string Desc_Alergias, 
+                        int Traumaticos, 
+                        string Desc_Traumaticos, 
+                        int Hospitalizaciones_Previas, 
+                        string Desc_Hospitalizaciones, 
+                        int Adicciones, 
+                        string Desc_Adicciones, 
+                        int Otros2, 
+                        string Desc_Otros2) {
+                ExpedienteRow rowExpedienteRow = ((ExpedienteRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        Fecha_Creacion,
+                        Id_Identificacion,
+                        Id_Antecedentes,
+                        null,
+                        Codigo_Empleado,
+                        Nombre_Completo,
+                        Fecha_Nacimiento,
+                        No_Identidad,
+                        Sexo,
+                        Estado_Civil,
+                        Ocupacion,
+                        Origen,
+                        Reside,
+                        Domicilio,
+                        Telefono,
+                        Religion,
+                        Escolaridad,
+                        Email,
+                        Numero_Referencia,
+                        Id_Puesto,
+                        Imagen,
+                        Estado,
+                        Edad,
+                        null,
+                        Id_Enfermedad_P,
+                        Id_Enfermedad_H,
+                        null,
+                        Diabetes,
+                        Desc_Diabetes,
+                        Hepatopatia,
+                        Desc_Hepatopatia,
+                        Asma,
+                        Desc_Asma,
+                        Enfermedad_Endoctrina,
+                        Desc_Endoctrina,
+                        Interrogados_y_Negados,
+                        Desc_Interrogados,
+                        Hipertension,
+                        Desc_Hipertension,
+                        Nefropatia,
+                        Desc_Nefropatia,
+                        Cancer,
+                        Desc_Cancer,
+                        Cardiopatia,
+                        Desc_Cardiopatia,
+                        Enfermedad_Mental,
+                        Desc_Mental,
+                        Enfermedad_Alergicas,
+                        Desc_Alergicas,
+                        Otros,
+                        Desc_Otros,
+                        null,
+                        Enfermedades_Actuales,
+                        Desc_Actuales,
+                        Quirurgicos,
+                        Desc_Quirurgicas,
+                        Transfusionales,
+                        Desc_Transfusionales,
+                        Alergias,
+                        Desc_Alergias,
+                        Traumaticos,
+                        Desc_Traumaticos,
+                        Hospitalizaciones_Previas,
+                        Desc_Hospitalizaciones,
+                        Adicciones,
+                        Desc_Adicciones,
+                        Otros2,
+                        Desc_Otros2};
+                rowExpedienteRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowExpedienteRow);
+                return rowExpedienteRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRow FindById_EmpleadoId_Identificacion1Id_AntecendentesId_Enfermedad_Heredo_FamiliarId_Enfermedad_Personales_Patologicos(int Id_Empleado, int Id_Identificacion1, int Id_Antecendentes, int Id_Enfermedad_Heredo_Familiar, int Id_Enfermedad_Personales_Patologicos) {
+                return ((ExpedienteRow)(this.Rows.Find(new object[] {
+                            Id_Empleado,
+                            Id_Identificacion1,
+                            Id_Antecendentes,
+                            Id_Enfermedad_Heredo_Familiar,
+                            Id_Enfermedad_Personales_Patologicos})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                ExpedienteDataTable cln = ((ExpedienteDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new ExpedienteDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal void InitVars() {
+                this.columnId_Empleado = base.Columns["Id_Empleado"];
+                this.columnFecha_Creacion = base.Columns["Fecha_Creacion"];
+                this.columnId_Identificacion = base.Columns["Id_Identificacion"];
+                this.columnId_Antecedentes = base.Columns["Id_Antecedentes"];
+                this.columnId_Identificacion1 = base.Columns["Id_Identificacion1"];
+                this.columnCodigo_Empleado = base.Columns["Codigo_Empleado"];
+                this.columnNombre_Completo = base.Columns["Nombre_Completo"];
+                this.columnFecha_Nacimiento = base.Columns["Fecha_Nacimiento"];
+                this.columnNo_Identidad = base.Columns["No_Identidad"];
+                this.columnSexo = base.Columns["Sexo"];
+                this.columnEstado_Civil = base.Columns["Estado_Civil"];
+                this.columnOcupacion = base.Columns["Ocupacion"];
+                this.columnOrigen = base.Columns["Origen"];
+                this.columnReside = base.Columns["Reside"];
+                this.columnDomicilio = base.Columns["Domicilio"];
+                this.columnTelefono = base.Columns["Telefono"];
+                this.columnReligion = base.Columns["Religion"];
+                this.columnEscolaridad = base.Columns["Escolaridad"];
+                this.columnEmail = base.Columns["Email"];
+                this.columnNumero_Referencia = base.Columns["Numero_Referencia"];
+                this.columnId_Puesto = base.Columns["Id_Puesto"];
+                this.columnImagen = base.Columns["Imagen"];
+                this.columnEstado = base.Columns["Estado"];
+                this.columnEdad = base.Columns["Edad"];
+                this.columnId_Antecendentes = base.Columns["Id_Antecendentes"];
+                this.columnId_Enfermedad_P = base.Columns["Id_Enfermedad_P"];
+                this.columnId_Enfermedad_H = base.Columns["Id_Enfermedad_H"];
+                this.columnId_Enfermedad_Heredo_Familiar = base.Columns["Id_Enfermedad_Heredo_Familiar"];
+                this.columnDiabetes = base.Columns["Diabetes"];
+                this.columnDesc_Diabetes = base.Columns["Desc_Diabetes"];
+                this.columnHepatopatia = base.Columns["Hepatopatia"];
+                this.columnDesc_Hepatopatia = base.Columns["Desc_Hepatopatia"];
+                this.columnAsma = base.Columns["Asma"];
+                this.columnDesc_Asma = base.Columns["Desc_Asma"];
+                this.columnEnfermedad_Endoctrina = base.Columns["Enfermedad_Endoctrina"];
+                this.columnDesc_Endoctrina = base.Columns["Desc_Endoctrina"];
+                this.columnInterrogados_y_Negados = base.Columns["Interrogados_y_Negados"];
+                this.columnDesc_Interrogados = base.Columns["Desc_Interrogados"];
+                this.columnHipertension = base.Columns["Hipertension"];
+                this.columnDesc_Hipertension = base.Columns["Desc_Hipertension"];
+                this.columnNefropatia = base.Columns["Nefropatia"];
+                this.columnDesc_Nefropatia = base.Columns["Desc_Nefropatia"];
+                this.columnCancer = base.Columns["Cancer"];
+                this.columnDesc_Cancer = base.Columns["Desc_Cancer"];
+                this.columnCardiopatia = base.Columns["Cardiopatia"];
+                this.columnDesc_Cardiopatia = base.Columns["Desc_Cardiopatia"];
+                this.columnEnfermedad_Mental = base.Columns["Enfermedad_Mental"];
+                this.columnDesc_Mental = base.Columns["Desc_Mental"];
+                this.columnEnfermedad_Alergicas = base.Columns["Enfermedad_Alergicas"];
+                this.columnDesc_Alergicas = base.Columns["Desc_Alergicas"];
+                this.columnOtros = base.Columns["Otros"];
+                this.columnDesc_Otros = base.Columns["Desc_Otros"];
+                this.columnId_Enfermedad_Personales_Patologicos = base.Columns["Id_Enfermedad_Personales_Patologicos"];
+                this.columnEnfermedades_Actuales = base.Columns["Enfermedades_Actuales"];
+                this.columnDesc_Actuales = base.Columns["Desc_Actuales"];
+                this.columnQuirurgicos = base.Columns["Quirurgicos"];
+                this.columnDesc_Quirurgicas = base.Columns["Desc_Quirurgicas"];
+                this.columnTransfusionales = base.Columns["Transfusionales"];
+                this.columnDesc_Transfusionales = base.Columns["Desc_Transfusionales"];
+                this.columnAlergias = base.Columns["Alergias"];
+                this.columnDesc_Alergias = base.Columns["Desc_Alergias"];
+                this.columnTraumaticos = base.Columns["Traumaticos"];
+                this.columnDesc_Traumaticos = base.Columns["Desc_Traumaticos"];
+                this.columnHospitalizaciones_Previas = base.Columns["Hospitalizaciones_Previas"];
+                this.columnDesc_Hospitalizaciones = base.Columns["Desc_Hospitalizaciones"];
+                this.columnAdicciones = base.Columns["Adicciones"];
+                this.columnDesc_Adicciones = base.Columns["Desc_Adicciones"];
+                this.columnOtros2 = base.Columns["Otros2"];
+                this.columnDesc_Otros2 = base.Columns["Desc_Otros2"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            private void InitClass() {
+                this.columnId_Empleado = new global::System.Data.DataColumn("Id_Empleado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Empleado);
+                this.columnFecha_Creacion = new global::System.Data.DataColumn("Fecha_Creacion", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Creacion);
+                this.columnId_Identificacion = new global::System.Data.DataColumn("Id_Identificacion", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Identificacion);
+                this.columnId_Antecedentes = new global::System.Data.DataColumn("Id_Antecedentes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Antecedentes);
+                this.columnId_Identificacion1 = new global::System.Data.DataColumn("Id_Identificacion1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Identificacion1);
+                this.columnCodigo_Empleado = new global::System.Data.DataColumn("Codigo_Empleado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCodigo_Empleado);
+                this.columnNombre_Completo = new global::System.Data.DataColumn("Nombre_Completo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNombre_Completo);
+                this.columnFecha_Nacimiento = new global::System.Data.DataColumn("Fecha_Nacimiento", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFecha_Nacimiento);
+                this.columnNo_Identidad = new global::System.Data.DataColumn("No_Identidad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNo_Identidad);
+                this.columnSexo = new global::System.Data.DataColumn("Sexo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSexo);
+                this.columnEstado_Civil = new global::System.Data.DataColumn("Estado_Civil", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado_Civil);
+                this.columnOcupacion = new global::System.Data.DataColumn("Ocupacion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOcupacion);
+                this.columnOrigen = new global::System.Data.DataColumn("Origen", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOrigen);
+                this.columnReside = new global::System.Data.DataColumn("Reside", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReside);
+                this.columnDomicilio = new global::System.Data.DataColumn("Domicilio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDomicilio);
+                this.columnTelefono = new global::System.Data.DataColumn("Telefono", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTelefono);
+                this.columnReligion = new global::System.Data.DataColumn("Religion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnReligion);
+                this.columnEscolaridad = new global::System.Data.DataColumn("Escolaridad", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEscolaridad);
+                this.columnEmail = new global::System.Data.DataColumn("Email", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEmail);
+                this.columnNumero_Referencia = new global::System.Data.DataColumn("Numero_Referencia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNumero_Referencia);
+                this.columnId_Puesto = new global::System.Data.DataColumn("Id_Puesto", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Puesto);
+                this.columnImagen = new global::System.Data.DataColumn("Imagen", typeof(byte[]), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnImagen);
+                this.columnEstado = new global::System.Data.DataColumn("Estado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEstado);
+                this.columnEdad = new global::System.Data.DataColumn("Edad", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEdad);
+                this.columnId_Antecendentes = new global::System.Data.DataColumn("Id_Antecendentes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Antecendentes);
+                this.columnId_Enfermedad_P = new global::System.Data.DataColumn("Id_Enfermedad_P", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Enfermedad_P);
+                this.columnId_Enfermedad_H = new global::System.Data.DataColumn("Id_Enfermedad_H", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Enfermedad_H);
+                this.columnId_Enfermedad_Heredo_Familiar = new global::System.Data.DataColumn("Id_Enfermedad_Heredo_Familiar", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Enfermedad_Heredo_Familiar);
+                this.columnDiabetes = new global::System.Data.DataColumn("Diabetes", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDiabetes);
+                this.columnDesc_Diabetes = new global::System.Data.DataColumn("Desc_Diabetes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Diabetes);
+                this.columnHepatopatia = new global::System.Data.DataColumn("Hepatopatia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHepatopatia);
+                this.columnDesc_Hepatopatia = new global::System.Data.DataColumn("Desc_Hepatopatia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Hepatopatia);
+                this.columnAsma = new global::System.Data.DataColumn("Asma", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAsma);
+                this.columnDesc_Asma = new global::System.Data.DataColumn("Desc_Asma", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Asma);
+                this.columnEnfermedad_Endoctrina = new global::System.Data.DataColumn("Enfermedad_Endoctrina", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnfermedad_Endoctrina);
+                this.columnDesc_Endoctrina = new global::System.Data.DataColumn("Desc_Endoctrina", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Endoctrina);
+                this.columnInterrogados_y_Negados = new global::System.Data.DataColumn("Interrogados_y_Negados", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInterrogados_y_Negados);
+                this.columnDesc_Interrogados = new global::System.Data.DataColumn("Desc_Interrogados", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Interrogados);
+                this.columnHipertension = new global::System.Data.DataColumn("Hipertension", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHipertension);
+                this.columnDesc_Hipertension = new global::System.Data.DataColumn("Desc_Hipertension", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Hipertension);
+                this.columnNefropatia = new global::System.Data.DataColumn("Nefropatia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNefropatia);
+                this.columnDesc_Nefropatia = new global::System.Data.DataColumn("Desc_Nefropatia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Nefropatia);
+                this.columnCancer = new global::System.Data.DataColumn("Cancer", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCancer);
+                this.columnDesc_Cancer = new global::System.Data.DataColumn("Desc_Cancer", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Cancer);
+                this.columnCardiopatia = new global::System.Data.DataColumn("Cardiopatia", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCardiopatia);
+                this.columnDesc_Cardiopatia = new global::System.Data.DataColumn("Desc_Cardiopatia", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Cardiopatia);
+                this.columnEnfermedad_Mental = new global::System.Data.DataColumn("Enfermedad_Mental", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnfermedad_Mental);
+                this.columnDesc_Mental = new global::System.Data.DataColumn("Desc_Mental", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Mental);
+                this.columnEnfermedad_Alergicas = new global::System.Data.DataColumn("Enfermedad_Alergicas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnfermedad_Alergicas);
+                this.columnDesc_Alergicas = new global::System.Data.DataColumn("Desc_Alergicas", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Alergicas);
+                this.columnOtros = new global::System.Data.DataColumn("Otros", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtros);
+                this.columnDesc_Otros = new global::System.Data.DataColumn("Desc_Otros", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Otros);
+                this.columnId_Enfermedad_Personales_Patologicos = new global::System.Data.DataColumn("Id_Enfermedad_Personales_Patologicos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnId_Enfermedad_Personales_Patologicos);
+                this.columnEnfermedades_Actuales = new global::System.Data.DataColumn("Enfermedades_Actuales", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEnfermedades_Actuales);
+                this.columnDesc_Actuales = new global::System.Data.DataColumn("Desc_Actuales", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Actuales);
+                this.columnQuirurgicos = new global::System.Data.DataColumn("Quirurgicos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnQuirurgicos);
+                this.columnDesc_Quirurgicas = new global::System.Data.DataColumn("Desc_Quirurgicas", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Quirurgicas);
+                this.columnTransfusionales = new global::System.Data.DataColumn("Transfusionales", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTransfusionales);
+                this.columnDesc_Transfusionales = new global::System.Data.DataColumn("Desc_Transfusionales", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Transfusionales);
+                this.columnAlergias = new global::System.Data.DataColumn("Alergias", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAlergias);
+                this.columnDesc_Alergias = new global::System.Data.DataColumn("Desc_Alergias", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Alergias);
+                this.columnTraumaticos = new global::System.Data.DataColumn("Traumaticos", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTraumaticos);
+                this.columnDesc_Traumaticos = new global::System.Data.DataColumn("Desc_Traumaticos", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Traumaticos);
+                this.columnHospitalizaciones_Previas = new global::System.Data.DataColumn("Hospitalizaciones_Previas", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnHospitalizaciones_Previas);
+                this.columnDesc_Hospitalizaciones = new global::System.Data.DataColumn("Desc_Hospitalizaciones", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Hospitalizaciones);
+                this.columnAdicciones = new global::System.Data.DataColumn("Adicciones", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnAdicciones);
+                this.columnDesc_Adicciones = new global::System.Data.DataColumn("Desc_Adicciones", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Adicciones);
+                this.columnOtros2 = new global::System.Data.DataColumn("Otros2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOtros2);
+                this.columnDesc_Otros2 = new global::System.Data.DataColumn("Desc_Otros2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDesc_Otros2);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnId_Empleado,
+                                this.columnId_Identificacion1,
+                                this.columnId_Antecendentes,
+                                this.columnId_Enfermedad_Heredo_Familiar,
+                                this.columnId_Enfermedad_Personales_Patologicos}, true));
+                this.columnId_Empleado.AutoIncrement = true;
+                this.columnId_Empleado.AutoIncrementSeed = -1;
+                this.columnId_Empleado.AutoIncrementStep = -1;
+                this.columnId_Empleado.AllowDBNull = false;
+                this.columnId_Empleado.ReadOnly = true;
+                this.columnId_Identificacion1.AutoIncrement = true;
+                this.columnId_Identificacion1.AutoIncrementSeed = -1;
+                this.columnId_Identificacion1.AutoIncrementStep = -1;
+                this.columnId_Identificacion1.AllowDBNull = false;
+                this.columnId_Identificacion1.ReadOnly = true;
+                this.columnCodigo_Empleado.MaxLength = 15;
+                this.columnNombre_Completo.MaxLength = 60;
+                this.columnNo_Identidad.MaxLength = 13;
+                this.columnSexo.MaxLength = 20;
+                this.columnEstado_Civil.MaxLength = 20;
+                this.columnOcupacion.MaxLength = 30;
+                this.columnOrigen.MaxLength = 20;
+                this.columnReside.MaxLength = 20;
+                this.columnDomicilio.MaxLength = 100;
+                this.columnTelefono.MaxLength = 8;
+                this.columnReligion.MaxLength = 30;
+                this.columnEscolaridad.MaxLength = 30;
+                this.columnEmail.MaxLength = 60;
+                this.columnNumero_Referencia.MaxLength = 8;
+                this.columnEstado.MaxLength = 15;
+                this.columnId_Antecendentes.AutoIncrement = true;
+                this.columnId_Antecendentes.AutoIncrementSeed = -1;
+                this.columnId_Antecendentes.AutoIncrementStep = -1;
+                this.columnId_Antecendentes.AllowDBNull = false;
+                this.columnId_Antecendentes.ReadOnly = true;
+                this.columnId_Enfermedad_Heredo_Familiar.AutoIncrement = true;
+                this.columnId_Enfermedad_Heredo_Familiar.AutoIncrementSeed = -1;
+                this.columnId_Enfermedad_Heredo_Familiar.AutoIncrementStep = -1;
+                this.columnId_Enfermedad_Heredo_Familiar.AllowDBNull = false;
+                this.columnId_Enfermedad_Heredo_Familiar.ReadOnly = true;
+                this.columnDesc_Diabetes.MaxLength = 40;
+                this.columnDesc_Hepatopatia.MaxLength = 40;
+                this.columnDesc_Asma.MaxLength = 40;
+                this.columnDesc_Endoctrina.MaxLength = 40;
+                this.columnDesc_Interrogados.MaxLength = 40;
+                this.columnDesc_Hipertension.MaxLength = 40;
+                this.columnDesc_Nefropatia.MaxLength = 40;
+                this.columnDesc_Cancer.MaxLength = 40;
+                this.columnDesc_Cardiopatia.MaxLength = 40;
+                this.columnDesc_Mental.MaxLength = 40;
+                this.columnDesc_Alergicas.MaxLength = 40;
+                this.columnDesc_Otros.MaxLength = 40;
+                this.columnId_Enfermedad_Personales_Patologicos.AutoIncrement = true;
+                this.columnId_Enfermedad_Personales_Patologicos.AutoIncrementSeed = -1;
+                this.columnId_Enfermedad_Personales_Patologicos.AutoIncrementStep = -1;
+                this.columnId_Enfermedad_Personales_Patologicos.AllowDBNull = false;
+                this.columnId_Enfermedad_Personales_Patologicos.ReadOnly = true;
+                this.columnDesc_Actuales.MaxLength = 40;
+                this.columnDesc_Quirurgicas.MaxLength = 40;
+                this.columnDesc_Transfusionales.MaxLength = 40;
+                this.columnDesc_Alergias.MaxLength = 40;
+                this.columnDesc_Traumaticos.MaxLength = 40;
+                this.columnDesc_Hospitalizaciones.MaxLength = 40;
+                this.columnDesc_Adicciones.MaxLength = 40;
+                this.columnDesc_Otros2.MaxLength = 40;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRow NewExpedienteRow() {
+                return ((ExpedienteRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new ExpedienteRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(ExpedienteRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.ExpedienteRowChanged != null)) {
+                    this.ExpedienteRowChanged(this, new ExpedienteRowChangeEvent(((ExpedienteRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.ExpedienteRowChanging != null)) {
+                    this.ExpedienteRowChanging(this, new ExpedienteRowChangeEvent(((ExpedienteRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.ExpedienteRowDeleted != null)) {
+                    this.ExpedienteRowDeleted(this, new ExpedienteRowChangeEvent(((ExpedienteRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.ExpedienteRowDeleting != null)) {
+                    this.ExpedienteRowDeleting(this, new ExpedienteRowChangeEvent(((ExpedienteRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void RemoveExpedienteRow(ExpedienteRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                CMLDataSet ds = new CMLDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "ExpedienteDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -2442,6 +3817,1875 @@ namespace CML {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class ExpedienteRow : global::System.Data.DataRow {
+            
+            private ExpedienteDataTable tableExpediente;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            internal ExpedienteRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableExpediente = ((ExpedienteDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Empleado {
+                get {
+                    return ((int)(this[this.tableExpediente.Id_EmpleadoColumn]));
+                }
+                set {
+                    this[this.tableExpediente.Id_EmpleadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Fecha_Creacion {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableExpediente.Fecha_CreacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_Creacion\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Fecha_CreacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Identificacion {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Id_IdentificacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Identificacion\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Id_IdentificacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Antecedentes {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Id_AntecedentesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Antecedentes\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Id_AntecedentesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Identificacion1 {
+                get {
+                    return ((int)(this[this.tableExpediente.Id_Identificacion1Column]));
+                }
+                set {
+                    this[this.tableExpediente.Id_Identificacion1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Codigo_Empleado {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Codigo_EmpleadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Codigo_Empleado\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Codigo_EmpleadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Nombre_Completo {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Nombre_CompletoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nombre_Completo\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Nombre_CompletoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public System.DateTime Fecha_Nacimiento {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableExpediente.Fecha_NacimientoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Fecha_Nacimiento\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Fecha_NacimientoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string No_Identidad {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.No_IdentidadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'No_Identidad\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.No_IdentidadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Sexo {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.SexoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Sexo\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.SexoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Estado_Civil {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Estado_CivilColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estado_Civil\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Estado_CivilColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Ocupacion {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.OcupacionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Ocupacion\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.OcupacionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Origen {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.OrigenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Origen\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.OrigenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Reside {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.ResideColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Reside\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.ResideColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Domicilio {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.DomicilioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Domicilio\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.DomicilioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Telefono {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.TelefonoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Telefono\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.TelefonoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Religion {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.ReligionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Religion\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.ReligionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Escolaridad {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.EscolaridadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Escolaridad\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.EscolaridadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Email {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.EmailColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Email\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.EmailColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Numero_Referencia {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Numero_ReferenciaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Numero_Referencia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Numero_ReferenciaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Puesto {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Id_PuestoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Puesto\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Id_PuestoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public byte[] Imagen {
+                get {
+                    try {
+                        return ((byte[])(this[this.tableExpediente.ImagenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Imagen\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.ImagenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Estado {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.EstadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Estado\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.EstadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Edad {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.EdadColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Edad\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.EdadColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Antecendentes {
+                get {
+                    return ((int)(this[this.tableExpediente.Id_AntecendentesColumn]));
+                }
+                set {
+                    this[this.tableExpediente.Id_AntecendentesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Enfermedad_P {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Id_Enfermedad_PColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Enfermedad_P\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Id_Enfermedad_PColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Enfermedad_H {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Id_Enfermedad_HColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Id_Enfermedad_H\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Id_Enfermedad_HColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Enfermedad_Heredo_Familiar {
+                get {
+                    return ((int)(this[this.tableExpediente.Id_Enfermedad_Heredo_FamiliarColumn]));
+                }
+                set {
+                    this[this.tableExpediente.Id_Enfermedad_Heredo_FamiliarColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Diabetes {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.DiabetesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Diabetes\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.DiabetesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Diabetes {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_DiabetesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Diabetes\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_DiabetesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Hepatopatia {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.HepatopatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Hepatopatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.HepatopatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Hepatopatia {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_HepatopatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Hepatopatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_HepatopatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Asma {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.AsmaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Asma\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.AsmaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Asma {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_AsmaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Asma\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_AsmaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Enfermedad_Endoctrina {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Enfermedad_EndoctrinaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Enfermedad_Endoctrina\' de la tabla \'Expediente\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Enfermedad_EndoctrinaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Endoctrina {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_EndoctrinaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Endoctrina\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_EndoctrinaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Interrogados_y_Negados {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Interrogados_y_NegadosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Interrogados_y_Negados\' de la tabla \'Expediente\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Interrogados_y_NegadosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Interrogados {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_InterrogadosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Interrogados\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_InterrogadosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Hipertension {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.HipertensionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Hipertension\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.HipertensionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Hipertension {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_HipertensionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Hipertension\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_HipertensionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Nefropatia {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.NefropatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Nefropatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.NefropatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Nefropatia {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_NefropatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Nefropatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_NefropatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Cancer {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.CancerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cancer\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.CancerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Cancer {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_CancerColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Cancer\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_CancerColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Cardiopatia {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.CardiopatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Cardiopatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.CardiopatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Cardiopatia {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_CardiopatiaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Cardiopatia\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_CardiopatiaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Enfermedad_Mental {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Enfermedad_MentalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Enfermedad_Mental\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Enfermedad_MentalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Mental {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_MentalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Mental\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_MentalColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Enfermedad_Alergicas {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Enfermedad_AlergicasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Enfermedad_Alergicas\' de la tabla \'Expediente\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Enfermedad_AlergicasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Alergicas {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_AlergicasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Alergicas\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_AlergicasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Otros {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.OtrosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Otros\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.OtrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Otros {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_OtrosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Otros\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_OtrosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Id_Enfermedad_Personales_Patologicos {
+                get {
+                    return ((int)(this[this.tableExpediente.Id_Enfermedad_Personales_PatologicosColumn]));
+                }
+                set {
+                    this[this.tableExpediente.Id_Enfermedad_Personales_PatologicosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Enfermedades_Actuales {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Enfermedades_ActualesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Enfermedades_Actuales\' de la tabla \'Expediente\' es DBNull" +
+                                ".", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Enfermedades_ActualesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Actuales {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_ActualesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Actuales\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_ActualesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Quirurgicos {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.QuirurgicosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Quirurgicos\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.QuirurgicosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Quirurgicas {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_QuirurgicasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Quirurgicas\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_QuirurgicasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Transfusionales {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.TransfusionalesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Transfusionales\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.TransfusionalesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Transfusionales {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_TransfusionalesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Transfusionales\' de la tabla \'Expediente\' es DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_TransfusionalesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Alergias {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.AlergiasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Alergias\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.AlergiasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Alergias {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_AlergiasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Alergias\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_AlergiasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Traumaticos {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.TraumaticosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Traumaticos\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.TraumaticosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Traumaticos {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_TraumaticosColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Traumaticos\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_TraumaticosColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Hospitalizaciones_Previas {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Hospitalizaciones_PreviasColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Hospitalizaciones_Previas\' de la tabla \'Expediente\' es DB" +
+                                "Null.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Hospitalizaciones_PreviasColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Hospitalizaciones {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_HospitalizacionesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Hospitalizaciones\' de la tabla \'Expediente\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_HospitalizacionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Adicciones {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.AdiccionesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Adicciones\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.AdiccionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Adicciones {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_AdiccionesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Adicciones\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_AdiccionesColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public int Otros2 {
+                get {
+                    try {
+                        return ((int)(this[this.tableExpediente.Otros2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Otros2\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Otros2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public string Desc_Otros2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableExpediente.Desc_Otros2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'Desc_Otros2\' de la tabla \'Expediente\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExpediente.Desc_Otros2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFecha_CreacionNull() {
+                return this.IsNull(this.tableExpediente.Fecha_CreacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFecha_CreacionNull() {
+                this[this.tableExpediente.Fecha_CreacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsId_IdentificacionNull() {
+                return this.IsNull(this.tableExpediente.Id_IdentificacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetId_IdentificacionNull() {
+                this[this.tableExpediente.Id_IdentificacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsId_AntecedentesNull() {
+                return this.IsNull(this.tableExpediente.Id_AntecedentesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetId_AntecedentesNull() {
+                this[this.tableExpediente.Id_AntecedentesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCodigo_EmpleadoNull() {
+                return this.IsNull(this.tableExpediente.Codigo_EmpleadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCodigo_EmpleadoNull() {
+                this[this.tableExpediente.Codigo_EmpleadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNombre_CompletoNull() {
+                return this.IsNull(this.tableExpediente.Nombre_CompletoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNombre_CompletoNull() {
+                this[this.tableExpediente.Nombre_CompletoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsFecha_NacimientoNull() {
+                return this.IsNull(this.tableExpediente.Fecha_NacimientoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetFecha_NacimientoNull() {
+                this[this.tableExpediente.Fecha_NacimientoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNo_IdentidadNull() {
+                return this.IsNull(this.tableExpediente.No_IdentidadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNo_IdentidadNull() {
+                this[this.tableExpediente.No_IdentidadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsSexoNull() {
+                return this.IsNull(this.tableExpediente.SexoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetSexoNull() {
+                this[this.tableExpediente.SexoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEstado_CivilNull() {
+                return this.IsNull(this.tableExpediente.Estado_CivilColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEstado_CivilNull() {
+                this[this.tableExpediente.Estado_CivilColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOcupacionNull() {
+                return this.IsNull(this.tableExpediente.OcupacionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOcupacionNull() {
+                this[this.tableExpediente.OcupacionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOrigenNull() {
+                return this.IsNull(this.tableExpediente.OrigenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOrigenNull() {
+                this[this.tableExpediente.OrigenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsResideNull() {
+                return this.IsNull(this.tableExpediente.ResideColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetResideNull() {
+                this[this.tableExpediente.ResideColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDomicilioNull() {
+                return this.IsNull(this.tableExpediente.DomicilioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDomicilioNull() {
+                this[this.tableExpediente.DomicilioColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTelefonoNull() {
+                return this.IsNull(this.tableExpediente.TelefonoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTelefonoNull() {
+                this[this.tableExpediente.TelefonoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsReligionNull() {
+                return this.IsNull(this.tableExpediente.ReligionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetReligionNull() {
+                this[this.tableExpediente.ReligionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEscolaridadNull() {
+                return this.IsNull(this.tableExpediente.EscolaridadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEscolaridadNull() {
+                this[this.tableExpediente.EscolaridadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEmailNull() {
+                return this.IsNull(this.tableExpediente.EmailColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEmailNull() {
+                this[this.tableExpediente.EmailColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNumero_ReferenciaNull() {
+                return this.IsNull(this.tableExpediente.Numero_ReferenciaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNumero_ReferenciaNull() {
+                this[this.tableExpediente.Numero_ReferenciaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsId_PuestoNull() {
+                return this.IsNull(this.tableExpediente.Id_PuestoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetId_PuestoNull() {
+                this[this.tableExpediente.Id_PuestoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsImagenNull() {
+                return this.IsNull(this.tableExpediente.ImagenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetImagenNull() {
+                this[this.tableExpediente.ImagenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEstadoNull() {
+                return this.IsNull(this.tableExpediente.EstadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEstadoNull() {
+                this[this.tableExpediente.EstadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEdadNull() {
+                return this.IsNull(this.tableExpediente.EdadColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEdadNull() {
+                this[this.tableExpediente.EdadColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsId_Enfermedad_PNull() {
+                return this.IsNull(this.tableExpediente.Id_Enfermedad_PColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetId_Enfermedad_PNull() {
+                this[this.tableExpediente.Id_Enfermedad_PColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsId_Enfermedad_HNull() {
+                return this.IsNull(this.tableExpediente.Id_Enfermedad_HColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetId_Enfermedad_HNull() {
+                this[this.tableExpediente.Id_Enfermedad_HColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDiabetesNull() {
+                return this.IsNull(this.tableExpediente.DiabetesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDiabetesNull() {
+                this[this.tableExpediente.DiabetesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_DiabetesNull() {
+                return this.IsNull(this.tableExpediente.Desc_DiabetesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_DiabetesNull() {
+                this[this.tableExpediente.Desc_DiabetesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsHepatopatiaNull() {
+                return this.IsNull(this.tableExpediente.HepatopatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetHepatopatiaNull() {
+                this[this.tableExpediente.HepatopatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_HepatopatiaNull() {
+                return this.IsNull(this.tableExpediente.Desc_HepatopatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_HepatopatiaNull() {
+                this[this.tableExpediente.Desc_HepatopatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAsmaNull() {
+                return this.IsNull(this.tableExpediente.AsmaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAsmaNull() {
+                this[this.tableExpediente.AsmaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_AsmaNull() {
+                return this.IsNull(this.tableExpediente.Desc_AsmaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_AsmaNull() {
+                this[this.tableExpediente.Desc_AsmaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnfermedad_EndoctrinaNull() {
+                return this.IsNull(this.tableExpediente.Enfermedad_EndoctrinaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnfermedad_EndoctrinaNull() {
+                this[this.tableExpediente.Enfermedad_EndoctrinaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_EndoctrinaNull() {
+                return this.IsNull(this.tableExpediente.Desc_EndoctrinaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_EndoctrinaNull() {
+                this[this.tableExpediente.Desc_EndoctrinaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsInterrogados_y_NegadosNull() {
+                return this.IsNull(this.tableExpediente.Interrogados_y_NegadosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetInterrogados_y_NegadosNull() {
+                this[this.tableExpediente.Interrogados_y_NegadosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_InterrogadosNull() {
+                return this.IsNull(this.tableExpediente.Desc_InterrogadosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_InterrogadosNull() {
+                this[this.tableExpediente.Desc_InterrogadosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsHipertensionNull() {
+                return this.IsNull(this.tableExpediente.HipertensionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetHipertensionNull() {
+                this[this.tableExpediente.HipertensionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_HipertensionNull() {
+                return this.IsNull(this.tableExpediente.Desc_HipertensionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_HipertensionNull() {
+                this[this.tableExpediente.Desc_HipertensionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsNefropatiaNull() {
+                return this.IsNull(this.tableExpediente.NefropatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetNefropatiaNull() {
+                this[this.tableExpediente.NefropatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_NefropatiaNull() {
+                return this.IsNull(this.tableExpediente.Desc_NefropatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_NefropatiaNull() {
+                this[this.tableExpediente.Desc_NefropatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCancerNull() {
+                return this.IsNull(this.tableExpediente.CancerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCancerNull() {
+                this[this.tableExpediente.CancerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_CancerNull() {
+                return this.IsNull(this.tableExpediente.Desc_CancerColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_CancerNull() {
+                this[this.tableExpediente.Desc_CancerColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsCardiopatiaNull() {
+                return this.IsNull(this.tableExpediente.CardiopatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetCardiopatiaNull() {
+                this[this.tableExpediente.CardiopatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_CardiopatiaNull() {
+                return this.IsNull(this.tableExpediente.Desc_CardiopatiaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_CardiopatiaNull() {
+                this[this.tableExpediente.Desc_CardiopatiaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnfermedad_MentalNull() {
+                return this.IsNull(this.tableExpediente.Enfermedad_MentalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnfermedad_MentalNull() {
+                this[this.tableExpediente.Enfermedad_MentalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_MentalNull() {
+                return this.IsNull(this.tableExpediente.Desc_MentalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_MentalNull() {
+                this[this.tableExpediente.Desc_MentalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnfermedad_AlergicasNull() {
+                return this.IsNull(this.tableExpediente.Enfermedad_AlergicasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnfermedad_AlergicasNull() {
+                this[this.tableExpediente.Enfermedad_AlergicasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_AlergicasNull() {
+                return this.IsNull(this.tableExpediente.Desc_AlergicasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_AlergicasNull() {
+                this[this.tableExpediente.Desc_AlergicasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOtrosNull() {
+                return this.IsNull(this.tableExpediente.OtrosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOtrosNull() {
+                this[this.tableExpediente.OtrosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_OtrosNull() {
+                return this.IsNull(this.tableExpediente.Desc_OtrosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_OtrosNull() {
+                this[this.tableExpediente.Desc_OtrosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsEnfermedades_ActualesNull() {
+                return this.IsNull(this.tableExpediente.Enfermedades_ActualesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetEnfermedades_ActualesNull() {
+                this[this.tableExpediente.Enfermedades_ActualesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_ActualesNull() {
+                return this.IsNull(this.tableExpediente.Desc_ActualesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_ActualesNull() {
+                this[this.tableExpediente.Desc_ActualesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsQuirurgicosNull() {
+                return this.IsNull(this.tableExpediente.QuirurgicosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetQuirurgicosNull() {
+                this[this.tableExpediente.QuirurgicosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_QuirurgicasNull() {
+                return this.IsNull(this.tableExpediente.Desc_QuirurgicasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_QuirurgicasNull() {
+                this[this.tableExpediente.Desc_QuirurgicasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTransfusionalesNull() {
+                return this.IsNull(this.tableExpediente.TransfusionalesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTransfusionalesNull() {
+                this[this.tableExpediente.TransfusionalesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_TransfusionalesNull() {
+                return this.IsNull(this.tableExpediente.Desc_TransfusionalesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_TransfusionalesNull() {
+                this[this.tableExpediente.Desc_TransfusionalesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAlergiasNull() {
+                return this.IsNull(this.tableExpediente.AlergiasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAlergiasNull() {
+                this[this.tableExpediente.AlergiasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_AlergiasNull() {
+                return this.IsNull(this.tableExpediente.Desc_AlergiasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_AlergiasNull() {
+                this[this.tableExpediente.Desc_AlergiasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsTraumaticosNull() {
+                return this.IsNull(this.tableExpediente.TraumaticosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetTraumaticosNull() {
+                this[this.tableExpediente.TraumaticosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_TraumaticosNull() {
+                return this.IsNull(this.tableExpediente.Desc_TraumaticosColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_TraumaticosNull() {
+                this[this.tableExpediente.Desc_TraumaticosColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsHospitalizaciones_PreviasNull() {
+                return this.IsNull(this.tableExpediente.Hospitalizaciones_PreviasColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetHospitalizaciones_PreviasNull() {
+                this[this.tableExpediente.Hospitalizaciones_PreviasColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_HospitalizacionesNull() {
+                return this.IsNull(this.tableExpediente.Desc_HospitalizacionesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_HospitalizacionesNull() {
+                this[this.tableExpediente.Desc_HospitalizacionesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsAdiccionesNull() {
+                return this.IsNull(this.tableExpediente.AdiccionesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetAdiccionesNull() {
+                this[this.tableExpediente.AdiccionesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_AdiccionesNull() {
+                return this.IsNull(this.tableExpediente.Desc_AdiccionesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_AdiccionesNull() {
+                this[this.tableExpediente.Desc_AdiccionesColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsOtros2Null() {
+                return this.IsNull(this.tableExpediente.Otros2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetOtros2Null() {
+                this[this.tableExpediente.Otros2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public bool IsDesc_Otros2Null() {
+                return this.IsNull(this.tableExpediente.Desc_Otros2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public void SetDesc_Otros2Null() {
+                this[this.tableExpediente.Desc_Otros2Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
@@ -2461,6 +5705,40 @@ namespace CML {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
             public ConsultorioRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public class ExpedienteRowChangeEvent : global::System.EventArgs {
+            
+            private ExpedienteRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRowChangeEvent(ExpedienteRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+            public ExpedienteRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -2694,6 +5972,249 @@ on c.Id_Puesto = e.Id_Puesto where a.Id_Consultorio = @Consulta
             this.Adapter.SelectCommand = this.CommandCollection[0];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Consulta));
             CMLDataSet.ConsultorioDataTable dataTable = new CMLDataSet.ConsultorioDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class ExpedienteTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::System.Data.SqlClient.SqlDataAdapter _adapter;
+        
+        private global::System.Data.SqlClient.SqlConnection _connection;
+        
+        private global::System.Data.SqlClient.SqlTransaction _transaction;
+        
+        private global::System.Data.SqlClient.SqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public ExpedienteTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected internal global::System.Data.SqlClient.SqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::System.Data.SqlClient.SqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        internal global::System.Data.SqlClient.SqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        protected global::System.Data.SqlClient.SqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "Expediente";
+            tableMapping.ColumnMappings.Add("Id_Empleado", "Id_Empleado");
+            tableMapping.ColumnMappings.Add("Fecha_Creacion", "Fecha_Creacion");
+            tableMapping.ColumnMappings.Add("Id_Identificacion", "Id_Identificacion");
+            tableMapping.ColumnMappings.Add("Id_Antecedentes", "Id_Antecedentes");
+            tableMapping.ColumnMappings.Add("Id_Identificacion1", "Id_Identificacion1");
+            tableMapping.ColumnMappings.Add("Codigo_Empleado", "Codigo_Empleado");
+            tableMapping.ColumnMappings.Add("Nombre_Completo", "Nombre_Completo");
+            tableMapping.ColumnMappings.Add("Fecha_Nacimiento", "Fecha_Nacimiento");
+            tableMapping.ColumnMappings.Add("No_Identidad", "No_Identidad");
+            tableMapping.ColumnMappings.Add("Sexo", "Sexo");
+            tableMapping.ColumnMappings.Add("Estado_Civil", "Estado_Civil");
+            tableMapping.ColumnMappings.Add("Ocupacion", "Ocupacion");
+            tableMapping.ColumnMappings.Add("Origen", "Origen");
+            tableMapping.ColumnMappings.Add("Reside", "Reside");
+            tableMapping.ColumnMappings.Add("Domicilio", "Domicilio");
+            tableMapping.ColumnMappings.Add("Telefono", "Telefono");
+            tableMapping.ColumnMappings.Add("Religion", "Religion");
+            tableMapping.ColumnMappings.Add("Escolaridad", "Escolaridad");
+            tableMapping.ColumnMappings.Add("Email", "Email");
+            tableMapping.ColumnMappings.Add("Numero_Referencia", "Numero_Referencia");
+            tableMapping.ColumnMappings.Add("Id_Puesto", "Id_Puesto");
+            tableMapping.ColumnMappings.Add("Imagen", "Imagen");
+            tableMapping.ColumnMappings.Add("Estado", "Estado");
+            tableMapping.ColumnMappings.Add("Edad", "Edad");
+            tableMapping.ColumnMappings.Add("Id_Antecendentes", "Id_Antecendentes");
+            tableMapping.ColumnMappings.Add("Id_Enfermedad_P", "Id_Enfermedad_P");
+            tableMapping.ColumnMappings.Add("Id_Enfermedad_H", "Id_Enfermedad_H");
+            tableMapping.ColumnMappings.Add("Id_Enfermedad_Heredo_Familiar", "Id_Enfermedad_Heredo_Familiar");
+            tableMapping.ColumnMappings.Add("Diabetes", "Diabetes");
+            tableMapping.ColumnMappings.Add("Desc_Diabetes", "Desc_Diabetes");
+            tableMapping.ColumnMappings.Add("Hepatopatia", "Hepatopatia");
+            tableMapping.ColumnMappings.Add("Desc_Hepatopatia", "Desc_Hepatopatia");
+            tableMapping.ColumnMappings.Add("Asma", "Asma");
+            tableMapping.ColumnMappings.Add("Desc_Asma", "Desc_Asma");
+            tableMapping.ColumnMappings.Add("Enfermedad_Endoctrina", "Enfermedad_Endoctrina");
+            tableMapping.ColumnMappings.Add("Desc_Endoctrina", "Desc_Endoctrina");
+            tableMapping.ColumnMappings.Add("Interrogados_y_Negados", "Interrogados_y_Negados");
+            tableMapping.ColumnMappings.Add("Desc_Interrogados", "Desc_Interrogados");
+            tableMapping.ColumnMappings.Add("Hipertension", "Hipertension");
+            tableMapping.ColumnMappings.Add("Desc_Hipertension", "Desc_Hipertension");
+            tableMapping.ColumnMappings.Add("Nefropatia", "Nefropatia");
+            tableMapping.ColumnMappings.Add("Desc_Nefropatia", "Desc_Nefropatia");
+            tableMapping.ColumnMappings.Add("Cancer", "Cancer");
+            tableMapping.ColumnMappings.Add("Desc_Cancer", "Desc_Cancer");
+            tableMapping.ColumnMappings.Add("Cardiopatia", "Cardiopatia");
+            tableMapping.ColumnMappings.Add("Desc_Cardiopatia", "Desc_Cardiopatia");
+            tableMapping.ColumnMappings.Add("Enfermedad_Mental", "Enfermedad_Mental");
+            tableMapping.ColumnMappings.Add("Desc_Mental", "Desc_Mental");
+            tableMapping.ColumnMappings.Add("Enfermedad_Alergicas", "Enfermedad_Alergicas");
+            tableMapping.ColumnMappings.Add("Desc_Alergicas", "Desc_Alergicas");
+            tableMapping.ColumnMappings.Add("Otros", "Otros");
+            tableMapping.ColumnMappings.Add("Desc_Otros", "Desc_Otros");
+            tableMapping.ColumnMappings.Add("Id_Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
+            tableMapping.ColumnMappings.Add("Enfermedades_Actuales", "Enfermedades_Actuales");
+            tableMapping.ColumnMappings.Add("Desc_Actuales", "Desc_Actuales");
+            tableMapping.ColumnMappings.Add("Quirurgicos", "Quirurgicos");
+            tableMapping.ColumnMappings.Add("Desc_Quirurgicas", "Desc_Quirurgicas");
+            tableMapping.ColumnMappings.Add("Transfusionales", "Transfusionales");
+            tableMapping.ColumnMappings.Add("Desc_Transfusionales", "Desc_Transfusionales");
+            tableMapping.ColumnMappings.Add("Alergias", "Alergias");
+            tableMapping.ColumnMappings.Add("Desc_Alergias", "Desc_Alergias");
+            tableMapping.ColumnMappings.Add("Traumaticos", "Traumaticos");
+            tableMapping.ColumnMappings.Add("Desc_Traumaticos", "Desc_Traumaticos");
+            tableMapping.ColumnMappings.Add("Hospitalizaciones_Previas", "Hospitalizaciones_Previas");
+            tableMapping.ColumnMappings.Add("Desc_Hospitalizaciones", "Desc_Hospitalizaciones");
+            tableMapping.ColumnMappings.Add("Adicciones", "Adicciones");
+            tableMapping.ColumnMappings.Add("Desc_Adicciones", "Desc_Adicciones");
+            tableMapping.ColumnMappings.Add("Otros2", "Otros2");
+            tableMapping.ColumnMappings.Add("Desc_Otros2", "Desc_Otros2");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::System.Data.SqlClient.SqlConnection();
+            this._connection.ConnectionString = global::CML.Properties.Settings.Default.CMLConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
+            this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = @"select * from Empleado a inner join Identificacion b 
+On a.Id_Identificacion = b.Id_Identificacion inner join Antecedentes c 
+On a.Id_Antecedentes = c.Id_Antecendentes inner join Enfermedad_Heredo_Familiar d
+ON d.Id_Enfermedad_Heredo_Familiar = c.Id_Enfermedad_H Inner join Enfermedad_Personales_Patologicos e
+on e.Id_Enfermedad_Personales_Patologicos = c.Id_Enfermedad_P
+where b.Id_Identificacion = @Expediente";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Expediente", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "Expr1", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(CMLDataSet.ExpedienteDataTable dataTable, int Expediente) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Expediente));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual CMLDataSet.ExpedienteDataTable GetData(int Expediente) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(Expediente));
+            CMLDataSet.ExpedienteDataTable dataTable = new CMLDataSet.ExpedienteDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

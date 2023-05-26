@@ -125,3 +125,4 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.cspr
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CopyComplete
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.exe
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.pdb
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ReporteExpediente.resources

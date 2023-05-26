@@ -168,9 +168,7 @@ namespace CML
 
             DialogResult C = new DialogResult();
 
-            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);            
-
-            MessageBox.Show("" + Id_Identificacion);
+            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);                        
 
             //Creamos los Signos Vitales
             cmd = new SqlCommand("insert into Signos_Vitales_Consultorio values ('" + txtPA.Text + "','" + txtT.Text + "','" + txtFC.Text + "','" + txtFR.Text + "','" + txtSO2.Text + "')", bd.sc);

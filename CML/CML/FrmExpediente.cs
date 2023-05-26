@@ -20,7 +20,7 @@ namespace CML
         string Sexo = "Masculino";
         int AreaTrabajo;
         bool DatosCargardos;
-        string Usuario = "";
+        string Usuario = "";        
 
 
         //Variables enfermedad
@@ -194,6 +194,7 @@ namespace CML
                         txtEmail.Text = dr["Email"].ToString();
                         Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
                         cmbArea.SelectedIndex = Convert.ToInt32(dr["Id_Puesto"].ToString());
+                        btnImprimir.Enabled = true;
 
 
                         if (dr["Fecha_Nacimiento"].ToString() != "")
@@ -574,6 +575,13 @@ namespace CML
         private void txtIdentidad_KeyPress(object sender, KeyPressEventArgs e)
         {
             val.Numeros(e);
+        }
+
+        private void btnImprimir_Click(object sender, EventArgs e)
+        {
+            ReporteExpediente repEx = new ReporteExpediente();
+            repEx.Nun_Expediente1 = Id_Identificacion;
+            repEx.Show();
         }
     }
 }
