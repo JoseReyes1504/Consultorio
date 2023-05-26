@@ -177,7 +177,7 @@ namespace CML
                     {
                         bd.AbrirConexion();
 
-                        cmd = new SqlCommand("Insert into Entrega_Medicinas values (" + Id_Producto + ", " + Id_Identificacion + ", " + Convert.ToInt32(txtEgreso.Text) + ", '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', " + AreaTrabajo + ")", bd.sc);
+                        cmd = new SqlCommand("Insert into Entrega_Medicinas values (" + Id_Producto + ", " + Id_Identificacion + ", " + Convert.ToInt32(txtEgreso.Text) + ", CONVERT(DATE,'" + dtpFecha.Value.ToString("yyyy/MM/dd") + "'), " + AreaTrabajo + ")", bd.sc);
                         cmd.ExecuteNonQuery();
                         
                         cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + "--/--/--" + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + 0 + "', " + Convert.ToDouble(txtEgreso.Text) + ", " + Convert.ToInt32(txtCantidad.Text) + ")", bd.sc);
@@ -231,7 +231,7 @@ namespace CML
                 cmd.ExecuteNonQuery();
 
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "ENTREGA MEDICINAS" + "', '" + Usuario + "', '" + "Elimino la entrega de: " + txtEmpleado.Text + " del medicamento: " + txtProducto.Text + " con la cantidad de: " + txtEgreso.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "ENTREGA MEDICINAS" + "', '" + Usuario + "', '" + "Elimino la entrega de: " + txtEmpleado.Text + " del medicamento: " + txtProducto.Text + " con la cantidad de: " + txtEgreso.Text + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
 

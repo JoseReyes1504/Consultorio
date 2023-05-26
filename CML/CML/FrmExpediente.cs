@@ -328,7 +328,7 @@ namespace CML
                 {
                     bd.AbrirConexion();
                     //Este codigo es para llenar la identificación del empleado
-                    cmd = new SqlCommand("insert into Identificacion values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', '" + txtIdentidad.Text + "', '" + Sexo + "', '" + txtEstado.Text + "', '" + txtOcupacion.Text + "', '" + txtOrigen.Text + "', '" + txtReside.Text + "', '" + txtDomicilio.Text + "', '" + txtTelefono.Text + "', '" + txtReligion.Text + "', '" + txtEscolaridad.Text + "', '" + txtEmail.Text + "',  '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + null + "', '" + "Activo" + "', '" + txtEdad.Text + "')", bd.sc);
+                    cmd = new SqlCommand("insert into Identificacion values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', CONVERT(DATE,'" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "'), '" + txtIdentidad.Text + "', '" + Sexo + "', '" + txtEstado.Text + "', '" + txtOcupacion.Text + "', '" + txtOrigen.Text + "', '" + txtReside.Text + "', '" + txtDomicilio.Text + "', '" + txtTelefono.Text + "', '" + txtReligion.Text + "', '" + txtEscolaridad.Text + "', '" + txtEmail.Text + "',  '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + null + "', '" + "Activo" + "', '" + txtEdad.Text + "')", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     //Este es para llenar los tipos de enfermedades de las que el padece
@@ -350,7 +350,7 @@ namespace CML
 
                     Id_antecedentes = bd.ObtenerId("Antecedentes", "Id_Antecendentes");
 
-                    cmd = new SqlCommand("insert into Empleado values ('" + dtpFElaboracion.Value.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + Id_antecedentes + ")", bd.sc);
+                    cmd = new SqlCommand("insert into Empleado values (CONVERT(DATE,'" + dtpFElaboracion.Value.ToString("yyyy/MM/dd") + "'), " + Id_Identificacion + ", " + Id_antecedentes + ")", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     MessageBox.Show("Se creo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -381,7 +381,7 @@ namespace CML
                     bd.AbrirConexion();
 
                     //Este codigo es para llenar la identificación del empleado
-                    cmd = new SqlCommand("update Identificacion set Codigo_Empleado ='" + txtCodigo.Text + "', Nombre_Completo ='" + txtNombre.Text + "', Fecha_Nacimiento='" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "', No_Identidad= '" + txtIdentidad.Text + "', Sexo='" + Sexo + "', Estado_Civil='" + txtEstado.Text + "', Ocupacion='" + txtOcupacion.Text + "',Origen= '" + txtOrigen.Text + "', Reside='" + txtReside.Text + "', Domicilio='" + txtDomicilio.Text + "', Telefono='" + txtTelefono.Text + "', Religion='" + txtReligion.Text + "', Escolaridad='" + txtEscolaridad.Text + "', Email='" + txtEmail.Text + "',  Numero_Referencia='" + txtNumeroRef.Text + "', Id_Puesto='" + AreaTrabajo + "', Imagen= '" + null + "',Estado= '" + "Activo" + "', Edad='" + txtEdad.Text + "'where No_Identidad= '" + txtIdentidad.Text + "'", bd.sc);
+                    cmd = new SqlCommand("update Identificacion set Codigo_Empleado ='" + txtCodigo.Text + "', Nombre_Completo ='" + txtNombre.Text + "', Fecha_Nacimiento= CONVERT(DATE,'" + dtpFNacimiento.Value.ToString("yyyy/MM/dd") + "'), No_Identidad= '" + txtIdentidad.Text + "', Sexo='" + Sexo + "', Estado_Civil='" + txtEstado.Text + "', Ocupacion='" + txtOcupacion.Text + "',Origen= '" + txtOrigen.Text + "', Reside='" + txtReside.Text + "', Domicilio='" + txtDomicilio.Text + "', Telefono='" + txtTelefono.Text + "', Religion='" + txtReligion.Text + "', Escolaridad='" + txtEscolaridad.Text + "', Email='" + txtEmail.Text + "',  Numero_Referencia='" + txtNumeroRef.Text + "', Id_Puesto='" + AreaTrabajo + "', Imagen= '" + null + "',Estado= '" + "Activo" + "', Edad='" + txtEdad.Text + "'where No_Identidad= '" + txtIdentidad.Text + "'", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     Id_Enfermedades = bd.ObtenerEnfermedades(txtIdentidad);
@@ -400,7 +400,7 @@ namespace CML
 
                     MessageBox.Show("Se Actualizo con exito", "Empleado", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                    cmd = new SqlCommand("Insert into Bitacora values('" + "EXPEDIENTE" + "', '" + Usuario + "', '" + "Actualizo la información de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                    cmd = new SqlCommand("Insert into Bitacora values('" + "EXPEDIENTE" + "', '" + Usuario + "', '" + "Actualizo la información de: " + txtNombre.Text + "', GETDATE())", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     Limpiar();

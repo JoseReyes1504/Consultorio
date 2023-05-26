@@ -88,7 +88,7 @@ namespace CML
                 
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
                 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Actualizo la información de: " + UsuarioAnt + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Actualizo la información de: " + UsuarioAnt + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
                 Limpiar();
@@ -119,7 +119,7 @@ namespace CML
             cmd.ExecuteNonQuery();
             bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
 
-            cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Elimino la información de: " + txtUsuario.Text + "', '" + fechaActual + "')", bd.sc);
+            cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Elimino la información de: " + txtUsuario.Text + "', GETDATE())", bd.sc);
             cmd.ExecuteNonQuery();
 
 

@@ -104,7 +104,7 @@ namespace CML
                 cmd = new SqlCommand("Delete from Signos_Vitales_Consultorio where Id_Signos_Vitales_Consultorio =" + Id_Signos + "", bd.sc);
                 cmd.ExecuteNonQuery();
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTAS" + "', '" + Usuario + "', '" + "Elimino la consulta de: " + Nombre + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTAS" + "', '" + Usuario + "', '" + "Elimino la consulta de: " + Nombre + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
                                 
                 bd.CualquierTabla(dgv, "select a.Id_Consultorio[ID], c.Nombre_Completo[Paciente], a.Motivo_Consulta[Motivo Consulta], a.Incapacidad, a.Fecha_Consulta[Fecha] from Consultorio a inner join Empleado b on a.Id_Empleado = b.Id_Empleado inner join Identificacion c On b.Id_Identificacion = c.Id_Identificacion order by a.Id_Consultorio DESC");

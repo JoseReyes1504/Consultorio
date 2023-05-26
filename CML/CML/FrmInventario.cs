@@ -307,7 +307,7 @@ namespace CML
                     cmd.ExecuteNonQuery();
 
 
-                    cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Actualizo el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                    cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Actualizo el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', GETDATE())", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     bd.CerrarConexion();

@@ -122,8 +122,9 @@ namespace CML
                 try
                 {
                     bd.AbrirConexion();
-                    SqlCommand cmd = new SqlCommand("insert into Incapacidad values('" + fechaActual.ToString("yyyy/MM/dd") + "', '" + dtpInicio.Value.ToString("yyyy/MM/dd") + "', '" + dtpFinal.Value.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + AreaTrabajo + ", '" + txtMotivo.Text + "',  '" + txtCentroMedico.Text + "', '" + txtEnfermedad.Text + "', '" + Refrendado + "', " + Convert.ToInt32(txtDias.Text) + ")", bd.sc);
+                    SqlCommand cmd = new SqlCommand("insert into Incapacidad values(GETDATE(), CONVERT(DATE,'" + dtpInicio.Value.Date.ToString("yyyy-MM-dd") + "'), CONVERT(DATE,'" + dtpFinal.Value.Date.ToString("yyyy-MM-dd") + "'), " + Id_Identificacion + ", " + AreaTrabajo + ", '" + txtMotivo.Text + "',  '" + txtCentroMedico.Text + "', '" + txtEnfermedad.Text + "', '" + Refrendado + "', " + Convert.ToInt32(txtDias.Text) + ")", bd.sc);
                     cmd.ExecuteNonQuery();
+
                     ActualizarDGV();
                     Limpiar();
                     bd.CerrarConexion();
@@ -278,10 +279,10 @@ namespace CML
             try
             {
                 bd.AbrirConexion();
-                SqlCommand cmd = new SqlCommand("update Incapacidad set Fecha_Incio='" + dtpInicio.Value.ToString("yyyy/MM/dd") + "', Fecha_Final= '" + dtpFinal.Value.ToString("yyyy/MM/dd") + "', Motivo ='" + txtMotivo.Text + "',  Centro_Medico='" + txtCentroMedico.Text + "', Tipo_Enfermedad='" + txtEnfermedad.Text + "', Refrendado='" + Refrendado + "', Dias=" + Convert.ToInt32(txtDias.Text) + " where Id_Incapacidad = " + Id_Incapacidad+ "",  bd.sc);
+                SqlCommand cmd = new SqlCommand("update Incapacidad set Fecha_Incio= CONVERT(DATE,'" + dtpInicio.Value.Date.ToString("yyyy-MM-dd") + "'), Fecha_Final = CONVERT(DATE,'" + dtpFinal.Value.Date.ToString("yyyy-MM-dd") + "'), Motivo ='" + txtMotivo.Text + "',  Centro_Medico='" + txtCentroMedico.Text + "', Tipo_Enfermedad='" + txtEnfermedad.Text + "', Refrendado='" + Refrendado + "', Dias=" + Convert.ToInt32(txtDias.Text) + " where Id_Incapacidad = " + Id_Incapacidad+ "",  bd.sc);
                 cmd.ExecuteNonQuery();
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "INCAPACIDAD" + "', '" + Usuario + "', '" + "Actualizo la Incapacidad de: " + txtNombre.Text  + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "INCAPACIDAD" + "', '" + Usuario + "', '" + "Actualizo la Incapacidad de: " + txtNombre.Text  + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
                 ActualizarDGV();

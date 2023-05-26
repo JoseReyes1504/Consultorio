@@ -162,10 +162,6 @@ namespace CML
 
         public void Consulta()
         {
-            DateTime fechaSeleccionada = dtpFecha.Value.Date;
-            DateTime horaActual = DateTime.Now;
-            DateTime fechaYHora = fechaSeleccionada.Date + horaActual.TimeOfDay;
-
             DialogResult C = new DialogResult();
 
             Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);                        
@@ -178,7 +174,7 @@ namespace CML
             Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
 
             //Al final creamos la consulta
-            cmd = new SqlCommand("insert into Consultorio values('" + Id_Identificacion + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', '" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', '" + txtMotivo.Text + "')", bd.sc);
+            cmd = new SqlCommand("insert into Consultorio values('" + Id_Identificacion + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', CONVERT(DATE,'" + dtpFecha.Value.Date.ToString("yyyy/MM/dd") + "'), '" + txtMotivo.Text + "')", bd.sc);
             cmd.ExecuteNonQuery();
 
             C = MessageBox.Show("Se Creo la consulta, \nDesea imprimir la consulta?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
@@ -519,10 +515,10 @@ namespace CML
 
                 //Al final creamos la consulta
 
-                cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta='" + fechaYHora.ToString("yyyy-MM-dd HH:mm:ss") + "', Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc);
+                cmd = new SqlCommand("update Consultorio set Antecedentes_Personales ='" + txtAntececentes.Text + "', Historia_Enfermedad_Actual ='" + txtHistoria.Text + "', Examen_Fisico='" + txtExamen.Text + "', Impresion_Diagnostico='" + txtImpresion.Text + "', Tratamiento='" + txtTratamiento.Text + "', Conducta ='" + txtConducta.Text + "', Incapacidad ='" + Incapacidad + "', Fecha_Consulta= CONVERT(DATE,'" + dtpFecha.Value.Date.ToString("yyyy/MM/dd") + "'), Motivo_Consulta='" + txtMotivo.Text + "'where Id_Consultorio=" + Id_Consultorio + "", bd.sc) ;
                 cmd.ExecuteNonQuery();                
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + "', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "CONSULTA" + "', '" + Usuario + "', '" + "Actualizo la consulta de: " + txtNombre.Text + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
 
