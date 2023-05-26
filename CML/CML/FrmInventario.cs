@@ -104,11 +104,11 @@ namespace CML
 
                 Id_Producto = bd.ObtenerIdPorNombre(NombreP);
 
-                cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', '" + Convert.ToDouble(txtIngreso.Text) + "', " + 0 + ", " + suma + ")", bd.sc);
+                cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', '" + Convert.ToDouble(txtIngreso.Text) + "', " + 0 + ", " + suma + ")", bd.sc);
                 cmd.ExecuteNonQuery();
 
 
-                cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Registro el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Registro el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
                 cmd = new SqlCommand("update Producto set Cantidad = " + suma + " where Id_producto = " + Id_Producto + "", bd.sc);
@@ -153,7 +153,7 @@ namespace CML
                     cmd = new SqlCommand("update Producto set Cantidad = " + suma + " where Id_producto = " + Id_Producto + "", bd.sc);
                     cmd.ExecuteNonQuery();
 
-                    cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Elimino el producto de: " + NombreP + " que contenia `" + txtCantidad.Text + "` en inventario en ese momento', '" + fechaActual.ToString("yyyy-MM-dd HH:mm:ss") + "')", bd.sc);
+                    cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Elimino el producto de: " + NombreP + " que contenia `" + txtCantidad.Text + "` en inventario en ese momento', GETDATE())", bd.sc);
                     cmd.ExecuteNonQuery();
 
                     bd.CerrarConexion();

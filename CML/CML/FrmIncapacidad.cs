@@ -58,6 +58,9 @@ namespace CML
             Id_Incapacidad = 0;
             Id_Identificacion = 0;
             cmbArea.Text = "Seleccione";
+            btnEliminar.Enabled = false;
+            btnAgregar.Enabled = false;
+            btnActualizar.Enabled = false;
 
         }
 
@@ -96,6 +99,7 @@ namespace CML
                         AreaTrabajo = Convert.ToInt32(dr["Id_Puesto"].ToString());
 
                         cmbArea.SelectedIndex = AreaTrabajo;
+                        btnAgregar.Enabled = true;
 
                     }
                     bd.CerrarConexion();

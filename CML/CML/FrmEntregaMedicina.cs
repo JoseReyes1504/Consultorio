@@ -65,7 +65,7 @@ namespace CML
             txtProducto.Clear();
             cmbArea.SelectedIndex = 0;            
             btnEliminar.Enabled = false;
-            btnAgregar.Enabled = true;
+            btnAgregar.Enabled = false;
         }
 
         private void txtCodigo_TextChanged(object sender, EventArgs e)
@@ -82,7 +82,7 @@ namespace CML
                         txtEmpleado.Text = dr["Nombre_Completo"].ToString();
                         Id_Identificacion = Convert.ToInt32(dr["Id_Identificacion"].ToString());
                         AreaTrabajo = Convert.ToInt32(dr["Id_Puesto"].ToString());
-
+                        btnAgregar.Enabled = true;
                         cmbArea.SelectedIndex = AreaTrabajo;
 
                     }
@@ -180,7 +180,7 @@ namespace CML
                         cmd = new SqlCommand("Insert into Entrega_Medicinas values (" + Id_Producto + ", " + Id_Identificacion + ", " + Convert.ToInt32(txtEgreso.Text) + ", CONVERT(DATE,'" + dtpFecha.Value.ToString("yyyy/MM/dd") + "'), " + AreaTrabajo + ")", bd.sc);
                         cmd.ExecuteNonQuery();
                         
-                        cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', " + 1 + ", '" + "--/--/--" + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + 0 + "', " + Convert.ToDouble(txtEgreso.Text) + ", " + Convert.ToInt32(txtCantidad.Text) + ")", bd.sc);
+                        cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', '" + "--/--/--" + "', '" + dtpFecha.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + 0 + "', " + Convert.ToDouble(txtEgreso.Text) + ", " + Convert.ToInt32(txtCantidad.Text) + ")", bd.sc);
                         cmd.ExecuteNonQuery();
 
                         cmd = new SqlCommand("update Producto set Cantidad = " + Resta + " where Id_producto = " + Id_Producto + "", bd.sc);
