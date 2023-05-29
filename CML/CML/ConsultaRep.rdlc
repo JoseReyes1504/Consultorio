@@ -1019,7 +1019,7 @@
   <Width>16.4827cm</Width>
   <Page>
     <PageHeader>
-      <Height>5.11909cm</Height>
+      <Height>5.36503cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1061,7 +1061,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>=Fields!Fecha_Consulta.Value</Value>
+                  <Value>=FormatDateTime(Fields!Fecha_Consulta.Value)</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -1070,16 +1070,18 @@
           </Paragraphs>
           <rd:DefaultName>Fecha_Consulta</rd:DefaultName>
           <Top>4.50851cm</Top>
-          <Left>11.8503cm</Left>
+          <Left>13.83997cm</Left>
           <Height>0.48358cm</Height>
-          <Width>3.94476cm</Width>
+          <Width>2.35811cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Color>LightGrey</Color>
               <Style>None</Style>
-              <Width>2pt</Width>
             </Border>
+            <BottomBorder>
+              <Style>Solid</Style>
+            </BottomBorder>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -1104,7 +1106,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>4.50851cm</Top>
-          <Left>8.71608cm</Left>
+          <Left>10.4933cm</Left>
           <Height>0.48358cm</Height>
           <Width>2.9155cm</Width>
           <ZIndex>2</ZIndex>
@@ -1907,6 +1909,14 @@ V/N0m/jSXuBSrric4C9m8OwCrh+UUH+ZspS+G56Duh8azU1g1EM9L/0B2ggnajg3hUe34ZuPwQcmcK6B
 ybki1Q0HFYxauOdgzjeEazwxWfDB4zVPnJoSd8cwboajAcMgbcP5X8LX85wtq+yrXfJuvspweRg6yYUOqjS04g+cDSN2IxxswXXgeoJLecbB1SukS9ukExuk2hnpkiTpzmIFXdKbbHUPc+TXPrPgXz4VeaYpHdrbYetx15Wmbk0se8yHaWTEYTl7oMzEHnYsL0eaE4C+KjefJlC3sJ3h/c0B37M14zt3Avcem8BWXdbK0w4z2dyZ/Nb6GhrPfVWIz5TvgOF8DkBTviHScKSmm9PFinqUyIzdpCBJku4oVtAlvcmOGoZ94WX4xIsjnqrKEvVFhthD6EvVvBpmlZOP9qCnXLJ0qEond4CGZas5SBV0FdQJzhy0PBH3+Ogx+PCZhp1j27CxMnONXD7b1LYGbm4gd/OLctN+9MPT8ejzQ+mkTwWhGj6/nhz+YvNlliRJdxoDuqTbo4PffmrGZ/cnHNRlvFrdl5XLfZhpTJwAAAZ9SURBVChbwfNy7znLZesrK5z78r4OpXBaR+gamGWYdPBofZ0f2kr86KkR9xwLsD0aslyp3BvX1tkrLXX/6jnzNzaTu/ESSZKku4EBXdJt0XeZF2cjZitzypdCgNSVMJ4py9fTcgl7OArszdCt/QAgl4Zy7w4937Pb8v2nx3zzMWCnzCrvyVTuQL6DhNe4bHXP+qtdV5Ik6c5nQJd0Wyz6RDeuWByUcD7qhyZvkcNG3eSjfm1hWUDNUA2V9DbCYpiDfn7e8107C37snpondivYjUed5YDKEHcX8bWUJElvDwZ0SbdBJoeelCsWdVnSHmZQDYE8hmGveYR+qKzHijJdi7L0vRtGq51q4YlJx4/f2/P952rYrsu6968a2yVJkiTdWQzokm6DxDRm7t2CzevwImXPOXmoopeTh43h4jDuOqTSof2gBgLc08MP7B7wk2ci7z6eYbc5ugGXs0uSJOkOZ0CXdBskQoRHdha889ma53MsU9GH5e0xlBFrOZTl
 7MuqeQqwqMvS9gcC/O0T8BNnJ5w/ATSZDqhd/ixJkqS7hCUnSbdBBU3N+6fX+ODxxD1tGa9W5bIfvaeE82VzuCqVCnoOUB/AIwH+wT2Zf/ROOH86QBPIRI8wSpIk6a7i37eSboMAoWe6OeHjDy24kGp+41l4YWvYOT40gwvDLPQQgAqmi8TDo56fva/hB0721Ls1PQ5NkyRJ0t3JCrqk2yAANYwqjm0E/uGDPX/l2IxxNwT0dLSsvR8awtUB3lUnfuadFR89A2zXtNw4bEuSJEm6mxjQJd0mAYgwjrzzeOLvPtDxWIJmAW0FiwroIfXQZhh38B2naj50OsJmmZ1u5VySJEl3MwO6pNuoBioIPR8+l/jh8z0nE9QJYiqj1Rog5cx2gg/fCyc2hiZyGM4lSZJ0dzOgS7qNhpgdA4ynfOyhyA8+APfME1WXiKnMQm+uXeLDZ+HxLWBytKzdkC5JkqS7mU3iJN1mFSVqZ3ZGC37hgYaKyK988RLXu4ZqUnGOxA88DM3KIUSPJkqSJOluZ0CX9NYIkTQZc67u+fn3wmi8ye9+fk5TJT74yBaPRaBJlDZy/qiSJEnS3S/knPNb/SAkvT1ljpas780S//NLV7kajvGhk3D/BPK0I1DhwnZJkiS9HRjQJa2PvtTL43LD+Q0RXpIkSbq7GdAlveWWP4TC4TlDuSRJkt5+3Ngp6S0XXuOcJEmS9HZhY2RJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJ
 kiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1YECXJEmSJGkNGNAlSZIkSVoDBnRJkiRJktaAAV2SJEmSpDVgQJckSZIkaQ0Y0CVJkiRJWgMGdEmSJEmS1oABXZIkSZKkNWBAlyRJkiRpDRjQJUmSJElaAwZ0SZIkSZLWgAFdkiRJkqQ1EPNb/QgkSZIkSRIxAOmtfhSSJEmSJL3N/X/h/KOBXSqa0QAAACV0RVh0ZGF0ZTpjcmVhdGUAMjAyMy0wNC0zMFQxNjo1MTowOCswMDowMB+GKmQAAAAldEVYdGRhdGU6bW9kaWZ5ADIwMjMtMDQtMzBUMTY6NTE6MDgrMDA6MDBu25LYAAAAKHRFWHRkYXRlOnRpbWVzdGFtcAAyMDIzLTA0LTMwVDE2OjUxOjA4KzAwOjAwOc6zBwAAAABJRU5ErkJggg==</ImageData>
+    </EmbeddedImage>
+    <EmbeddedImage Name="FondoBlanco">
+      <MIMEType>image/jpeg</MIMEType>
+      <ImageData>/9j/4AAQSkZJRgABAQEAeAB4AAD/2wBDAAIBAQIBAQICAgICAgICAwUDAwMDAwYEBAMFBwYHBwcGBwcICQsJCAgKCAcHCg0KCgsMDAwMBwkODw0MDgsMDAz/2wBDAQICAgMDAwYDAwYMCAcIDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAwMDAz/wAARCAFfAh4DASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD9/KKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACi
+iigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAoooo
+AKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKAP/2Q==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>

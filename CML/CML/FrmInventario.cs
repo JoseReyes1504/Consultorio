@@ -63,8 +63,8 @@ namespace CML
 
         void ActulizarGraficosYDatos()
         {
-            bd.CualquierTabla(dgv, "Select TOP 10 a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
-            bd.GraficoInventario(cpAgotado, "Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");
+            bd.CualquierTabla(dgv, "Select a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
+            bd.GraficoInventario(cpAgotado, " Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");
         }
 
         private void FrmInventario_Load(object sender, EventArgs e)
@@ -168,33 +168,6 @@ namespace CML
                     bd.CerrarConexion();
                 }
             }
-        }
-
-        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            ID = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Inventario"].Value.ToString());
-            txtProducto.Text = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-            NombreP = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
-
-            Existencia = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Existencia"].Value.ToString());
-
-            ExistenciaAnterior = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Ingreso"].Value.ToString());
-
-            txtCantidad.Text = dgv.Rows[e.RowIndex].Cells["Existencia Actual"].Value.ToString();
-            txtIngreso.Text = dgv.Rows[e.RowIndex].Cells["Ingreso"].Value.ToString();
-
-            if (dgv.Rows[e.RowIndex].Cells["Fecha_Ingreso"].Value.ToString() != "--/--/--")
-            {
-                dtpFechaIngreso.Value = DateTime.Parse(dgv.Rows[e.RowIndex].Cells["Fecha_Ingreso"].Value.ToString());
-                dtpFechaVencimiento.Value = DateTime.Parse(dgv.Rows[e.RowIndex].Cells["Fecha_Vencimiento"].Value.ToString());
-            }
-
-            btnAgregar.Enabled = false;
-            btnActualizar.Enabled = true;
-            btnEliminar.Enabled = true;
-            bd.AbrirConexion();
-            Id_Producto = bd.ObtenerIdPorNombre(NombreP);
-            bd.CerrarConexion();
         }
 
         private void dtpFechaVencimiento_ValueChanged(object sender, EventArgs e)
@@ -321,6 +294,38 @@ namespace CML
                     bd.CerrarConexion();
                 }
             }
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgv_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            ID = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Inventario"].Value.ToString());
+            txtProducto.Text = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+            NombreP = dgv.Rows[e.RowIndex].Cells["Nombre"].Value.ToString();
+
+            Existencia = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Existencia"].Value.ToString());
+
+            ExistenciaAnterior = Convert.ToInt32(dgv.Rows[e.RowIndex].Cells["Ingreso"].Value.ToString());
+
+            txtCantidad.Text = dgv.Rows[e.RowIndex].Cells["Existencia Actual"].Value.ToString();
+            txtIngreso.Text = dgv.Rows[e.RowIndex].Cells["Ingreso"].Value.ToString();
+
+            if (dgv.Rows[e.RowIndex].Cells["Fecha_Ingreso"].Value.ToString() != "--/--/--")
+            {
+                dtpFechaIngreso.Value = DateTime.Parse(dgv.Rows[e.RowIndex].Cells["Fecha_Ingreso"].Value.ToString());
+                dtpFechaVencimiento.Value = DateTime.Parse(dgv.Rows[e.RowIndex].Cells["Fecha_Vencimiento"].Value.ToString());
+            }
+
+            btnAgregar.Enabled = false;
+            btnActualizar.Enabled = true;
+            btnEliminar.Enabled = true;
+            bd.AbrirConexion();
+            Id_Producto = bd.ObtenerIdPorNombre(NombreP);
+            bd.CerrarConexion();
         }
     }
 }

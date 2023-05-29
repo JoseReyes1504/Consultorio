@@ -2445,7 +2445,7 @@ namespace CML {
                 this.columnId_Identificacion1.AllowDBNull = false;
                 this.columnId_Identificacion1.ReadOnly = true;
                 this.columnCodigo_Empleado.MaxLength = 15;
-                this.columnNombre_Completo.MaxLength = 60;
+                this.columnNombre_Completo.MaxLength = 100;
                 this.columnNo_Identidad.MaxLength = 13;
                 this.columnSexo.MaxLength = 20;
                 this.columnEstado_Civil.MaxLength = 20;
@@ -2486,14 +2486,14 @@ namespace CML {
                 this.columnId_Enfermedad_Personales_Patologicos.AutoIncrementStep = -1;
                 this.columnId_Enfermedad_Personales_Patologicos.AllowDBNull = false;
                 this.columnId_Enfermedad_Personales_Patologicos.ReadOnly = true;
-                this.columnDesc_Actuales.MaxLength = 40;
-                this.columnDesc_Quirurgicas.MaxLength = 40;
-                this.columnDesc_Transfusionales.MaxLength = 40;
-                this.columnDesc_Alergias.MaxLength = 40;
-                this.columnDesc_Traumaticos.MaxLength = 40;
-                this.columnDesc_Hospitalizaciones.MaxLength = 40;
-                this.columnDesc_Adicciones.MaxLength = 40;
-                this.columnDesc_Otros2.MaxLength = 40;
+                this.columnDesc_Actuales.MaxLength = 200;
+                this.columnDesc_Quirurgicas.MaxLength = 200;
+                this.columnDesc_Transfusionales.MaxLength = 200;
+                this.columnDesc_Alergias.MaxLength = 200;
+                this.columnDesc_Traumaticos.MaxLength = 200;
+                this.columnDesc_Hospitalizaciones.MaxLength = 200;
+                this.columnDesc_Adicciones.MaxLength = 200;
+                this.columnDesc_Otros2.MaxLength = 200;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

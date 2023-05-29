@@ -46,5 +46,10 @@ namespace CML
         {
 
         }
+
+        private void dtpHasta_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

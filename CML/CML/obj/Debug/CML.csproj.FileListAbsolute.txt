@@ -103,7 +103,6 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\pt\Micro
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.AssemblyReference.cache
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ControlEnf.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmConsulta.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmBitacora.resources
@@ -126,3 +125,4 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.cspr
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.exe
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.pdb
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ReporteExpediente.resources
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.AssemblyReference.cache

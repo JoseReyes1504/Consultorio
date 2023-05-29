@@ -219,14 +219,7 @@ namespace CML
 
         private void dtpFiltrado_ValueChanged(object sender, EventArgs e)
         {
-            if (txtNombreFiltro.Text != "")
-            {
-                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Nombre_Completo like '%" + txtNombreFiltro.Text + "%' and a.Fecha_Incapacidad = '" + dtpFiltrado.Value.ToString("yyyy/MM/dd") + "'");
-            }
-            else
-            {
-                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where a.Fecha_Incapacidad = '" + dtpFiltrado.Value.ToString("yyyy/MM/dd") + "'");
-            }            
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -359,6 +352,21 @@ namespace CML
 
                 MessageBox.Show("Archivo guardado exitosamente.", "Archivo Excel", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+
+            if (txtNombreFiltro.Text != "")
+            {
+                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Nombre_Completo like '%" + txtNombreFiltro.Text + "%' and a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
+            }
+            else
+            {
+                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
+            }
+
+            
         }
     }
 }

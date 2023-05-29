@@ -174,7 +174,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
   <xs:element name="CMLDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="CMLDataSet" msprop:Generator_UserDSName="CMLDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Consultorio" msprop:Generator_TableClassName="ConsultorioDataTable" msprop:Generator_TableVarName="tableConsultorio" msprop:Generator_TablePropName="Consultorio" msprop:Generator_RowDeletingName="ConsultorioRowDeleting" msprop:Generator_RowChangingName="ConsultorioRowChanging" msprop:Generator_RowEvHandlerName="ConsultorioRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultorioRowDeleted" msprop:Generator_UserTableName="Consultorio" msprop:Generator_RowChangedName="ConsultorioRowChanged" msprop:Generator_RowEvArgName="ConsultorioRowChangeEvent" msprop:Generator_RowClassName="ConsultorioRow">
+        <xs:element name="Consultorio" msprop:Generator_TableClassName="ConsultorioDataTable" msprop:Generator_TableVarName="tableConsultorio" msprop:Generator_RowChangedName="ConsultorioRowChanged" msprop:Generator_TablePropName="Consultorio" msprop:Generator_RowDeletingName="ConsultorioRowDeleting" msprop:Generator_RowChangingName="ConsultorioRowChanging" msprop:Generator_RowEvHandlerName="ConsultorioRowChangeEventHandler" msprop:Generator_RowDeletedName="ConsultorioRowDeleted" msprop:Generator_RowClassName="ConsultorioRow" msprop:Generator_UserTableName="Consultorio" msprop:Generator_RowEvArgName="ConsultorioRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="Id_Consultorio" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnId_Consultorio" msprop:Generator_ColumnPropNameInRow="Id_Consultorio" msprop:Generator_ColumnPropNameInTable="Id_ConsultorioColumn" msprop:Generator_UserColumnName="Id_Consultorio" type="xs:int" />
@@ -417,7 +417,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Nombre_Completo" msprop:Generator_ColumnVarNameInTable="columnNombre_Completo" msprop:Generator_ColumnPropNameInRow="Nombre_Completo" msprop:Generator_ColumnPropNameInTable="Nombre_CompletoColumn" msprop:Generator_UserColumnName="Nombre_Completo" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="60" />
+                    <xs:maxLength value="100" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -621,7 +621,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Actuales" msprop:Generator_ColumnVarNameInTable="columnDesc_Actuales" msprop:Generator_ColumnPropNameInRow="Desc_Actuales" msprop:Generator_ColumnPropNameInTable="Desc_ActualesColumn" msprop:Generator_UserColumnName="Desc_Actuales" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -629,7 +629,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Quirurgicas" msprop:Generator_ColumnVarNameInTable="columnDesc_Quirurgicas" msprop:Generator_ColumnPropNameInRow="Desc_Quirurgicas" msprop:Generator_ColumnPropNameInTable="Desc_QuirurgicasColumn" msprop:Generator_UserColumnName="Desc_Quirurgicas" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -637,7 +637,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Transfusionales" msprop:Generator_ColumnVarNameInTable="columnDesc_Transfusionales" msprop:Generator_ColumnPropNameInRow="Desc_Transfusionales" msprop:Generator_ColumnPropNameInTable="Desc_TransfusionalesColumn" msprop:Generator_UserColumnName="Desc_Transfusionales" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -645,7 +645,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Alergias" msprop:Generator_ColumnVarNameInTable="columnDesc_Alergias" msprop:Generator_ColumnPropNameInRow="Desc_Alergias" msprop:Generator_ColumnPropNameInTable="Desc_AlergiasColumn" msprop:Generator_UserColumnName="Desc_Alergias" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -653,7 +653,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Traumaticos" msprop:Generator_ColumnVarNameInTable="columnDesc_Traumaticos" msprop:Generator_ColumnPropNameInRow="Desc_Traumaticos" msprop:Generator_ColumnPropNameInTable="Desc_TraumaticosColumn" msprop:Generator_UserColumnName="Desc_Traumaticos" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -661,7 +661,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Hospitalizaciones" msprop:Generator_ColumnVarNameInTable="columnDesc_Hospitalizaciones" msprop:Generator_ColumnPropNameInRow="Desc_Hospitalizaciones" msprop:Generator_ColumnPropNameInTable="Desc_HospitalizacionesColumn" msprop:Generator_UserColumnName="Desc_Hospitalizaciones" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -669,7 +669,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Adicciones" msprop:Generator_ColumnVarNameInTable="columnDesc_Adicciones" msprop:Generator_ColumnPropNameInRow="Desc_Adicciones" msprop:Generator_ColumnPropNameInTable="Desc_AdiccionesColumn" msprop:Generator_UserColumnName="Desc_Adicciones" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -677,7 +677,7 @@ where b.Id_Identificacion = @Expediente</CommandText>
               <xs:element name="Desc_Otros2" msprop:Generator_ColumnVarNameInTable="columnDesc_Otros2" msprop:Generator_ColumnPropNameInRow="Desc_Otros2" msprop:Generator_ColumnPropNameInTable="Desc_Otros2Column" msprop:Generator_UserColumnName="Desc_Otros2" minOccurs="0">
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
-                    <xs:maxLength value="40" />
+                    <xs:maxLength value="200" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
