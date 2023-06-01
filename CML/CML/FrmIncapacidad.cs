@@ -73,7 +73,7 @@ namespace CML
 
         public void ActualizarDGV()
         {
-            bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto order by a.Id_Incapacidad DESC");
+            bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Codigo_Empleado[Codigo] , b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto order by a.Id_Incapacidad DESC");
         }
 
         private void FrmIncapacidad_Load(object sender, EventArgs e)
@@ -209,7 +209,7 @@ namespace CML
         {
             if(txtNombreFiltro.Text != "")
             {
-                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Nombre_Completo like '%" + txtNombreFiltro.Text + "%'");                
+                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Codigo_Empleado[Codigo] , b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Codigo_Empleado like '%" + txtNombreFiltro.Text + "%'");                
             }
             else
             {
@@ -359,11 +359,11 @@ namespace CML
 
             if (txtNombreFiltro.Text != "")
             {
-                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Nombre_Completo like '%" + txtNombreFiltro.Text + "%' and a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
+                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso],  b.Codigo_Empleado[Codigo] , b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where b.Codigo_Empleado like '%" + txtNombreFiltro.Text + "%' and a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
             }
             else
             {
-                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
+                bd.CualquierTabla(dgv, "select a.Id_Incapacidad[ID], a.Fecha_Incapacidad[Fecha Ingreso], b.Codigo_Empleado[Codigo] ,  b.Nombre_Completo[Empleado], a.Fecha_Incio[Fecha Inicio], a.Fecha_Final[Fecha Final], a.Dias, c.Area_Trabajo[Area Trabajo], a.Motivo, a.Centro_Medico[Centro Medico], a.Tipo_Enfermedad [Enfermedad], a.Refrendado from Incapacidad a inner join Identificacion b  on a.Id_Identificacion = b.Id_Identificacion inner join Puesto c On b.Id_Puesto = c.Id_Puesto Where a.Fecha_Incapacidad BETWEEN '" + dtpDesde.Value.ToString("yyyy-MM-dd") + "'  AND  '" + dtpHasta.Value.ToString("yyyy-MM-dd") + "'");
             }
 
             

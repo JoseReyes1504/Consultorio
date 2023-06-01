@@ -25,7 +25,7 @@ namespace CML
         
         //--------------------sql-----------------------------------
         //Conexion con la base de datos ; en el dato sorce se pone un ."punto" para que funcione en cualquier computadora la conexion
-        string conexion = "Data Source = .; Initial Catalog = CML; Integrated Security = True";
+        string conexion = "Data Source = localhost; Initial Catalog = CML; Integrated Security = True";
 
         //--------------------sql-----------------------------------
         //funcion para poder abrir la conexion con la base datos con el string de CONEXION
