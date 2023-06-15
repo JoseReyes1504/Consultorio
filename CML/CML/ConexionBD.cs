@@ -158,6 +158,20 @@ namespace CML
             return Id;
         }
 
+        public int obtenerEmpleado(int ID)
+        {
+            int Id = 0;
+            cmd = new SqlCommand("select Id_Empleado from Empleado where Id_Identificacion = " + ID + " ", sc);
+            dr = cmd.ExecuteReader();
+            while (dr.Read())
+            {
+                Id = Convert.ToInt32(dr["Id_Empleado"].ToString());
+            }
+            dr.Close();
+
+            return Id;
+        }
+
         public void BusquedaLbx(TextBox txt, ListBox lbBusqueda, string Operacion)
         {
             try

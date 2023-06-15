@@ -119,44 +119,51 @@ namespace CML
             }
             else
             {
-                //Primero Se Agragan los datos a la tabla identificación
-                cmd = new SqlCommand("insert into Identificacion (Codigo_Empleado, Nombre_Completo, No_Identidad, Telefono, Id_Puesto, Edad)  values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + txtIdentidad.Text + "', '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + txtEdad.Text + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                //Este es para llenar los tipos de enfermedades de las que el padece            
-                cmd = new SqlCommand("insert into Enfermedad_Heredo_Familiar values (" + diabetes + ", '" + null + "', " + Hepa + ", '" + null + "', " + Asma + ", '" + null + "',"
-                    + Endoctrina + ", '" + null + "', " + interrogados + ", '" + null + "'," + Hipertension + ", '" + null + "'," + Nefropatia + ", '" + null + "'," + Cancer + ", '" + null + "', " +
-                    "" + CardioPatia + ", '" + null + "'," + Mental + ", '" + null + "'," + Alergicas + ", '" + null + "'," + otros + ", '" + null + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-
-                cmd = new SqlCommand("insert into Enfermedad_Personales_Patologicos values (" + Actuales + ", '" + null + "'," + Quirurgicas + ", '" + null + "', " + Transfusionales + ", '" + null + "'," + Alergias + ", " +
-                    "'" + null + "'," + Traumaticos + ", '" + null + "'," + Hospitalizaciones + ", '" + null + "'," + Adcciones + ", '" + null + "', " + otros2 + ", '" + null + "')", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                Id_Enfermedades = bd.ObtenerId("Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
-                Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
-
-
-                cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + "," + Id_Enfermedades + ")", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                //Despues a la tabla empleados ya que esta es dependiente de una llave foranea
-                cmd = new SqlCommand("insert into Empleado values ('" + hoy.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + Id_Enfermedades + ")", bd.sc);
-                cmd.ExecuteNonQuery();
-                DatosCargados = true;
-
-                r = MessageBox.Show("Se creo el expediente de " + txtNombre.Text + "\nQuiere crear la consulta?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                if (r == DialogResult.Yes)
+                if (cmbArea.SelectedIndex == 0 || AreaTrabajo == 0)
                 {
-                    Consulta();
+                    cmbArea.DroppedDown = true;
                 }
                 else
                 {
-                    MessageBox.Show("Se creo el expediente pero no la consulta", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
 
+                    //Primero Se Agragan los datos a la tabla identificación
+                    cmd = new SqlCommand("insert into Identificacion (Codigo_Empleado, Nombre_Completo, No_Identidad, Telefono, Id_Puesto, Edad)  values ('" + txtCodigo.Text + "', '" + txtNombre.Text + "', '" + txtIdentidad.Text + "', '" + txtNumeroRef.Text + "', '" + AreaTrabajo + "', '" + txtEdad.Text + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    //Este es para llenar los tipos de enfermedades de las que el padece            
+                    cmd = new SqlCommand("insert into Enfermedad_Heredo_Familiar values (" + diabetes + ", '" + null + "', " + Hepa + ", '" + null + "', " + Asma + ", '" + null + "',"
+                        + Endoctrina + ", '" + null + "', " + interrogados + ", '" + null + "'," + Hipertension + ", '" + null + "'," + Nefropatia + ", '" + null + "'," + Cancer + ", '" + null + "', " +
+                        "" + CardioPatia + ", '" + null + "'," + Mental + ", '" + null + "'," + Alergicas + ", '" + null + "'," + otros + ", '" + null + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+
+                    cmd = new SqlCommand("insert into Enfermedad_Personales_Patologicos values (" + Actuales + ", '" + null + "'," + Quirurgicas + ", '" + null + "', " + Transfusionales + ", '" + null + "'," + Alergias + ", " +
+                        "'" + null + "'," + Traumaticos + ", '" + null + "'," + Hospitalizaciones + ", '" + null + "'," + Adcciones + ", '" + null + "', " + otros2 + ", '" + null + "')", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    Id_Enfermedades = bd.ObtenerId("Enfermedad_Personales_Patologicos", "Id_Enfermedad_Personales_Patologicos");
+                    Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
+
+                    cmd = new SqlCommand("insert into Antecedentes values (" + Id_Enfermedades + "," + Id_Enfermedades + ")", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    //Despues a la tabla empleados ya que esta es dependiente de una llave foranea
+                    cmd = new SqlCommand("insert into Empleado values ('" + hoy.ToString("yyyy/MM/dd") + "', " + Id_Identificacion + ", " + Id_Enfermedades + ")", bd.sc);
+                    cmd.ExecuteNonQuery();
+                    DatosCargados = true;
+
+                    r = MessageBox.Show("Se creo el expediente de " + txtNombre.Text + "\nQuiere crear la consulta?", "Información", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                    if (r == DialogResult.Yes)
+                    {
+                        Consulta();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Se creo el expediente pero no la consulta", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
             }
         }
 
@@ -164,7 +171,9 @@ namespace CML
         {
             DialogResult C = new DialogResult();
 
-            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);                        
+            Id_Identificacion = bd.ObtenerIdentificacion(txtIdentidad);
+
+            Id_Empleado = bd.obtenerEmpleado(Id_Identificacion);
 
             //Creamos los Signos Vitales
             cmd = new SqlCommand("insert into Signos_Vitales_Consultorio values ('" + txtPA.Text + "','" + txtT.Text + "','" + txtFC.Text + "','" + txtFR.Text + "','" + txtSO2.Text + "')", bd.sc);
@@ -174,7 +183,7 @@ namespace CML
             Id_Signos = bd.ObtenerId("Signos_Vitales_Consultorio", "Id_Signos_Vitales_Consultorio");
 
             //Al final creamos la consulta
-            cmd = new SqlCommand("insert into Consultorio values('" + Id_Identificacion + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', CONVERT(DATE,'" + dtpFecha.Value.Date.ToString("yyyy/MM/dd") + "'), '" + txtMotivo.Text + "')", bd.sc);
+            cmd = new SqlCommand("insert into Consultorio values('" + Id_Empleado + "','" + txtAntececentes.Text + "','" + Id_Signos + "','" + txtHistoria.Text + "','" + txtExamen.Text + "','" + txtImpresion.Text + "','" + txtTratamiento.Text + "','" + txtConducta.Text + "','" + Incapacidad + "', CONVERT(DATE,'" + dtpFecha.Value.Date.ToString("yyyy/MM/dd") + "'), '" + txtMotivo.Text + "')", bd.sc);
             cmd.ExecuteNonQuery();
 
             C = MessageBox.Show("Se Creo la consulta, \nDesea imprimir la consulta?", "Consulta", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
