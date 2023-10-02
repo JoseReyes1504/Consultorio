@@ -650,8 +650,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>9.56785cm</Top>
-        <Left>0.65558cm</Left>
+        <Top>10.69863cm</Top>
+        <Left>0.62166cm</Left>
         <Height>0.99158cm</Height>
         <Width>3.12225cm</Width>
         <ZIndex>18</ZIndex>
@@ -685,8 +685,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>10.98601cm</Top>
-        <Left>0.65558cm</Left>
+        <Top>12.11679cm</Top>
+        <Left>0.62166cm</Left>
         <Height>0.58941cm</Height>
         <Width>3.12225cm</Width>
         <ZIndex>19</ZIndex>
@@ -720,8 +720,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox2</rd:DefaultName>
-        <Top>12.05493cm</Top>
-        <Left>0.65558cm</Left>
+        <Top>13.18571cm</Top>
+        <Left>0.62166cm</Left>
         <Height>0.58941cm</Height>
         <Width>3.12225cm</Width>
         <ZIndex>20</ZIndex>
@@ -751,8 +751,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Impresion_Diagnostico</rd:DefaultName>
-        <Top>9.54668cm</Top>
-        <Left>4.08213cm</Left>
+        <Top>10.67746cm</Top>
+        <Left>4.04821cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
         <ZIndex>21</ZIndex>
@@ -785,8 +785,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Tratamiento</rd:DefaultName>
-        <Top>10.96484cm</Top>
-        <Left>4.08213cm</Left>
+        <Top>12.09562cm</Top>
+        <Left>4.04821cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
         <ZIndex>22</ZIndex>
@@ -819,8 +819,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Conducta</rd:DefaultName>
-        <Top>12.03376cm</Top>
-        <Left>4.09547cm</Left>
+        <Top>13.16454cm</Top>
+        <Left>4.06155cm</Left>
         <Height>0.54872cm</Height>
         <Width>11.64943cm</Width>
         <ZIndex>23</ZIndex>
@@ -1012,8 +1012,77 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="Textbox30">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Examen Fisico:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox2</rd:DefaultName>
+        <Top>9.59959cm</Top>
+        <Left>0.62166cm</Left>
+        <Height>0.52755cm</Height>
+        <Width>3.12225cm</Width>
+        <ZIndex>29</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Impresion_Diagnostico2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Fields!Examen_Fisico.Value</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Impresion_Diagnostico</rd:DefaultName>
+        <Top>9.57842cm</Top>
+        <Left>4.04821cm</Left>
+        <Height>0.54872cm</Height>
+        <Width>11.64943cm</Width>
+        <ZIndex>30</ZIndex>
+        <Style>
+          <Border>
+            <Color>LightGrey</Color>
+            <Style>None</Style>
+          </Border>
+          <BottomBorder>
+            <Style>Solid</Style>
+          </BottomBorder>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
     </ReportItems>
-    <Height>13.39626cm</Height>
+    <Height>14.92026cm</Height>
     <Style />
   </Body>
   <Width>16.4827cm</Width>

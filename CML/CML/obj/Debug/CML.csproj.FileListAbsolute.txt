@@ -118,11 +118,10 @@ C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Prop
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.FrmVerConsultas.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.Reportes.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.GenerateResource.cache
-C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\RdlCompile.cache
-C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\RdlCompile.compiled
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CoreCompileInputs.cache
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.CopyComplete
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.exe
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.pdb
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.ReporteExpediente.resources
 C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.AssemblyReference.cache
+C:\Users\eduar\OneDrive\Documentos\GitHub\Consultorio\CML\CML\obj\Debug\CML.csproj.SuggestedBindingRedirects.cache

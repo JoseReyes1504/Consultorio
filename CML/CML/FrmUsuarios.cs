@@ -10,11 +10,12 @@ namespace CML
         string ID = "0";
         string Usuario = "";
         string UsuarioAnt = "";
+        bool Actualizar = false;
 
         DateTime fechaActual = DateTime.Now;
 
         clsValidaciones val = new clsValidaciones();
-                               
+
 
         public FrmUsuarios()
         {
@@ -32,6 +33,7 @@ namespace CML
             txtUsuario.Clear();
             ID = "0";
             txtContrasena.Clear();
+            Actualizar = false;
         }
 
         private void btnBorrar_Click(object sender, EventArgs e)
@@ -53,7 +55,7 @@ namespace CML
 
         private void FrmUsuarios_Load(object sender, EventArgs e)
         {
-            bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario order by Id_Usuario DESC");            
+            bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario order by Id_Usuario DESC");
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -65,7 +67,7 @@ namespace CML
             else
             {
                 bd.AbrirConexion();
-                SqlCommand cmd = new SqlCommand("insert into Usuario values('" + txtUsuario.Text + "', '" +  val.encriptar(txtContrasena.Text) + "')", bd.sc);
+                SqlCommand cmd = new SqlCommand("insert into Usuario values('" + txtUsuario.Text + "', '" + val.encriptar(txtContrasena.Text) + "')", bd.sc);
                 cmd.ExecuteNonQuery();
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
                 Limpiar();
@@ -74,7 +76,7 @@ namespace CML
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {            
+        {
             if (txtUsuario.Text == "" || txtContrasena.Text == "")
             {
                 MessageBox.Show("Datos Vacios", "Data vacia", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -82,12 +84,12 @@ namespace CML
             else
             {
                 bd.AbrirConexion();
-                
+
                 SqlCommand cmd = new SqlCommand("update Usuario set Usuario = '" + txtUsuario.Text + "', Contrasena = '" + val.encriptar(txtContrasena.Text) + "' where Id_Usuario =  " + ID + "", bd.sc);
                 cmd.ExecuteNonQuery();
-                
+
                 bd.CualquierTabla(dgv, "select Id_Usuario[ID], Usuario, Contrasena[Contraseña] from Usuario");
-                
+
                 cmd = new SqlCommand("Insert into Bitacora values('" + "USUARIOS" + "', '" + Usuario + "', '" + "Actualizo la información de: " + UsuarioAnt + "', GETDATE())", bd.sc);
                 cmd.ExecuteNonQuery();
 
@@ -101,9 +103,10 @@ namespace CML
         {
             ID = dgv.Rows[e.RowIndex].Cells["ID"].Value.ToString();
             UsuarioAnt = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
-            txtUsuario.Text = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();            
+            txtUsuario.Text = dgv.Rows[e.RowIndex].Cells["Usuario"].Value.ToString();
             btnAgregar.Enabled = false;
             btnActualizar.Enabled = true;
+            Actualizar = true;
         }
 
         private void btnLimpiar_Click(object sender, EventArgs e)
@@ -112,7 +115,7 @@ namespace CML
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
-        {            
+        {
 
             bd.AbrirConexion();
             SqlCommand cmd = new SqlCommand("Delete from Usuario where Id_Usuario = " + Convert.ToInt32(ID) + "", bd.sc);
@@ -130,13 +133,16 @@ namespace CML
 
         private void txtContrasena_TextChanged(object sender, EventArgs e)
         {
-            if(txtContrasena.Text == "")
+            if (txtContrasena.Text == "")
             {
                 btnAgregar.Enabled = false;
             }
             else
             {
-                btnAgregar.Enabled = true;
+                if (Actualizar == false)
+                {
+                    btnAgregar.Enabled = true;
+                }
             }
         }
     }

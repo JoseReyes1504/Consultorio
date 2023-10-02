@@ -69,14 +69,14 @@
             // 
             this.lblHora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.lblHora.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblHora.Font = new System.Drawing.Font("Century Gothic", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblHora.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblHora.ForeColor = System.Drawing.Color.White;
             this.lblHora.Location = new System.Drawing.Point(957, -2);
             this.lblHora.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblHora.Name = "lblHora";
             this.lblHora.ReadOnly = true;
             this.lblHora.ShortcutsEnabled = false;
-            this.lblHora.Size = new System.Drawing.Size(239, 46);
+            this.lblHora.Size = new System.Drawing.Size(239, 42);
             this.lblHora.TabIndex = 108;
             this.lblHora.Text = "00/00/00";
             this.lblHora.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -84,11 +84,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(354, 5);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(521, 39);
+            this.label1.Size = new System.Drawing.Size(570, 38);
             this.label1.TabIndex = 109;
             this.label1.Text = "CONSULTORIO MEDICO LITORAL";
             // 
@@ -128,7 +128,7 @@
             // 
             this.btnControlDiario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnControlDiario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnControlDiario.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnControlDiario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnControlDiario.ForeColor = System.Drawing.Color.White;
             this.btnControlDiario.Image = ((System.Drawing.Image)(resources.GetObject("btnControlDiario.Image")));
             this.btnControlDiario.Location = new System.Drawing.Point(605, 145);
@@ -146,7 +146,7 @@
             // 
             this.btnReportes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnReportes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReportes.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReportes.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnReportes.ForeColor = System.Drawing.Color.White;
             this.btnReportes.Image = ((System.Drawing.Image)(resources.GetObject("btnReportes.Image")));
             this.btnReportes.Location = new System.Drawing.Point(720, 21);
@@ -164,7 +164,7 @@
             // 
             this.btnEntregaMeds.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnEntregaMeds.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEntregaMeds.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEntregaMeds.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEntregaMeds.ForeColor = System.Drawing.Color.White;
             this.btnEntregaMeds.Image = ((System.Drawing.Image)(resources.GetObject("btnEntregaMeds.Image")));
             this.btnEntregaMeds.Location = new System.Drawing.Point(147, 145);
@@ -182,7 +182,7 @@
             // 
             this.btnExpediente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnExpediente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExpediente.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExpediente.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnExpediente.ForeColor = System.Drawing.Color.White;
             this.btnExpediente.Image = ((System.Drawing.Image)(resources.GetObject("btnExpediente.Image")));
             this.btnExpediente.Location = new System.Drawing.Point(30, 21);
@@ -200,7 +200,7 @@
             // 
             this.btnIncapacidad.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnIncapacidad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnIncapacidad.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIncapacidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIncapacidad.ForeColor = System.Drawing.Color.White;
             this.btnIncapacidad.Image = ((System.Drawing.Image)(resources.GetObject("btnIncapacidad.Image")));
             this.btnIncapacidad.Location = new System.Drawing.Point(376, 145);
@@ -218,7 +218,7 @@
             // 
             this.btnInventario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnInventario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnInventario.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnInventario.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnInventario.ForeColor = System.Drawing.Color.White;
             this.btnInventario.Image = ((System.Drawing.Image)(resources.GetObject("btnInventario.Image")));
             this.btnInventario.Location = new System.Drawing.Point(944, 21);
@@ -236,7 +236,7 @@
             // 
             this.btnBitacora.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnBitacora.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnBitacora.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnBitacora.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnBitacora.ForeColor = System.Drawing.Color.White;
             this.btnBitacora.Image = ((System.Drawing.Image)(resources.GetObject("btnBitacora.Image")));
             this.btnBitacora.Location = new System.Drawing.Point(830, 145);
@@ -254,7 +254,7 @@
             // 
             this.btnConsulta.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnConsulta.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnConsulta.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnConsulta.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnConsulta.ForeColor = System.Drawing.Color.White;
             this.btnConsulta.Image = ((System.Drawing.Image)(resources.GetObject("btnConsulta.Image")));
             this.btnConsulta.Location = new System.Drawing.Point(260, 21);
@@ -272,7 +272,7 @@
             // 
             this.btnUsuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(142)))), ((int)(((byte)(118)))));
             this.btnUsuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUsuarios.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUsuarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUsuarios.ForeColor = System.Drawing.Color.White;
             this.btnUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("btnUsuarios.Image")));
             this.btnUsuarios.Location = new System.Drawing.Point(490, 21);
@@ -290,14 +290,14 @@
             // 
             this.lblFecha.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(161)))), ((int)(((byte)(142)))));
             this.lblFecha.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lblFecha.Font = new System.Drawing.Font("Century Gothic", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lblFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lblFecha.ForeColor = System.Drawing.Color.White;
             this.lblFecha.Location = new System.Drawing.Point(28, 588);
             this.lblFecha.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.lblFecha.Name = "lblFecha";
             this.lblFecha.ReadOnly = true;
             this.lblFecha.ShortcutsEnabled = false;
-            this.lblFecha.Size = new System.Drawing.Size(1168, 74);
+            this.lblFecha.Size = new System.Drawing.Size(1168, 68);
             this.lblFecha.TabIndex = 107;
             this.lblFecha.Text = "00/00/00";
             this.lblFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

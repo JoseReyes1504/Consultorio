@@ -65,6 +65,8 @@ namespace CML
         {
             bd.CualquierTabla(dgv, "Select a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
             bd.GraficoInventario(cpAgotado, " Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");
+            bd.CualquierTabla(dgvVen, "select TOP 5 b.Nombre_Completo, c.Nombre, a.Cantidad from Entrega_Medicinas a inner join Identificacion b \r\nON a.Id_Identificacion = b.Id_Identificacion inner join Producto c \r\non c.Id_Producto = a.Id_Producto\r\norder by a.Cantidad DESC");
+            //bd.CualquierTabla(dgvPorVen, "select b.Nombre, a.Fecha_Vencimiento[Vencimiento] from inventario a inner join Producto b ON a.Id_Producto = b.Id_Producto where CONVERT(DATE, a.Fecha_vencimiento, 120) >= GETDATE() and  CONVERT(DATE, a.Fecha_vencimiento, 120) <= DATEADD(DAY, 32, GETDATE());");            
         }
 
         private void FrmInventario_Load(object sender, EventArgs e)
@@ -86,38 +88,49 @@ namespace CML
         {
             int suma = Convert.ToInt32(txtCantidad.Text) + Convert.ToInt32(txtIngreso.Text);
 
+            
             try
-            {
-                bd.AbrirConexion();
-                if (ProductoCargado == false)
+            {                
+                if (dtpFechaIngreso.Value.ToString("yyyy/MM/dd") != dtpFechaVencimiento.Value.ToString("yyyy/MM/dd"))
                 {
-                    if (txtProducto.Text != "" && txtIngreso.Text != "")
+                    bd.AbrirConexion();
+                    if (ProductoCargado == false)
                     {
-                        cmd = new SqlCommand("insert into Producto values ('" + txtProducto.Text + "', '" + Convert.ToDouble(txtIngreso.Text) + "')", bd.sc);
-                        cmd.ExecuteNonQuery();
+                        if (txtProducto.Text != "" && txtIngreso.Text != "")
+                        {
+                            cmd = new SqlCommand("insert into Producto values ('" + txtProducto.Text + "', '" + Convert.ToDouble(txtIngreso.Text) + "')", bd.sc);
+                            cmd.ExecuteNonQuery();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Datos vacios", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        }
                     }
-                    else
-                    {
-                        MessageBox.Show("Datos vacios", "Información", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    }
+
+                    Id_Producto = bd.ObtenerIdPorNombre(NombreP);
+
+                    cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', '" + Convert.ToDouble(txtIngreso.Text) + "', " + 0 + ", " + suma + ")", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+
+                    cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Registro el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', GETDATE())", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+                    cmd = new SqlCommand("update Producto set Cantidad = " + suma + " where Id_producto = " + Id_Producto + "", bd.sc);
+                    cmd.ExecuteNonQuery();
+
+
+                    bd.CerrarConexion();
+                    ActulizarGraficosYDatos();
+                    Limpiar();
+                    
+
                 }
-
-                Id_Producto = bd.ObtenerIdPorNombre(NombreP);
-
-                cmd = new SqlCommand("insert into Inventario values ('" + Id_Producto + "', '" + dtpFechaIngreso.Value.ToString("yyyy/MM/dd") + "', '" + "--/--/--" + "', '" + dtpFechaVencimiento.Value.ToString("yyyy/MM/dd") + "', '" + Convert.ToDouble(txtIngreso.Text) + "', " + 0 + ", " + suma + ")", bd.sc);
-                cmd.ExecuteNonQuery();
-
-
-                cmd = new SqlCommand("Insert into Bitacora values('" + "INVENTARIO" + "', '" + Usuario + "', '" + "Registro el producto de: " + txtProducto.Text + " con el ingreso de `" + txtIngreso.Text + "` ', GETDATE())", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                cmd = new SqlCommand("update Producto set Cantidad = " + suma + " where Id_producto = " + Id_Producto + "", bd.sc);
-                cmd.ExecuteNonQuery();
-
-                bd.CerrarConexion();
-                ActulizarGraficosYDatos();
-                Limpiar();
-
+                else
+                {
+                    MessageBox.Show("No puede ingresar un producto ya vencido", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    bd.CerrarConexion();
+                }                
 
             }
             catch (Exception ex)
@@ -254,7 +267,7 @@ namespace CML
             }
             else
             {
-                int suma =  Convert.ToInt32(txtCantidad.Text) - ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
+                int suma = Convert.ToInt32(txtCantidad.Text) - ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
                 int suma2 = Existencia - ExistenciaAnterior + Convert.ToInt32(txtIngreso.Text);
                 //MessageBox.Show("" + Convert.ToInt32(txtCantidad.Text) + " - " + ExistenciaAnterior + " + " + Convert.ToInt32(txtIngreso.Text) + " = " + suma);
 

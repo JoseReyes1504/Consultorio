@@ -73,7 +73,6 @@ namespace CML
             }
         }
 
-
         public void cbAreaTrabajo(ComboBox cb)
         {
             cb.Items.Clear();                          

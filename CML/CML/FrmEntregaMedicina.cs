@@ -164,7 +164,6 @@ namespace CML
         {
             int Resta = Convert.ToInt32(txtCantidad.Text) - Convert.ToInt32(txtEgreso.Text);            
 
-
             if (txtCodigo.Text != "" || txtCantidad.Text == "" || txtEgreso.Text == "")
             {
                 try
