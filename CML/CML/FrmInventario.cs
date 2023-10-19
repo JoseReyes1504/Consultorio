@@ -64,9 +64,7 @@ namespace CML
         void ActulizarGraficosYDatos()
         {
             bd.CualquierTabla(dgv, "Select a.Id_Inventario [Inventario], b.Nombre, b.Cantidad [Existencia Actual], a.Fecha_Ingreso, a.Fecha_Egreso, a.Fecha_Vencimiento, a.Ingreso, a.Egreso, a.Existencia from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto order by a.Id_Inventario DESC");
-            bd.GraficoInventario(cpAgotado, " Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");
-            bd.CualquierTabla(dgvVen, "select TOP 5 b.Nombre_Completo, c.Nombre, a.Cantidad from Entrega_Medicinas a inner join Identificacion b \r\nON a.Id_Identificacion = b.Id_Identificacion inner join Producto c \r\non c.Id_Producto = a.Id_Producto\r\norder by a.Cantidad DESC");
-            //bd.CualquierTabla(dgvPorVen, "select b.Nombre, a.Fecha_Vencimiento[Vencimiento] from inventario a inner join Producto b ON a.Id_Producto = b.Id_Producto where CONVERT(DATE, a.Fecha_vencimiento, 120) >= GETDATE() and  CONVERT(DATE, a.Fecha_vencimiento, 120) <= DATEADD(DAY, 32, GETDATE());");            
+            bd.GraficoInventario(cpAgotado, " Select Distinct b.Nombre, b.Cantidad from Inventario a inner join Producto b on a.Id_Producto = b.Id_Producto where b.Cantidad <= 20");                        
         }
 
         private void FrmInventario_Load(object sender, EventArgs e)

@@ -768,7 +768,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox2.Size = new System.Drawing.Size(3090, 773);
+            this.groupBox2.Size = new System.Drawing.Size(3238, 773);
             this.groupBox2.TabIndex = 196;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Consulta";
